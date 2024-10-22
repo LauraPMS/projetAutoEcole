@@ -9,10 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45578f6e-0068-4b9a-81d1-3100251e070f" name="Changes" comment="creation des repo vide et coneexion bdd">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/projetAutoEcole_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+    <list default="true" id="45578f6e-0068-4b9a-81d1-3100251e070f" name="Changes" comment="Ajout du dossier images">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Categorie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Categorie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Eleve.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Eleve.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Lecon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Lecon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Licence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Licence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Moniteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Moniteur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Vehicule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Vehicule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sio/projetautoecole/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sio/projetautoecole/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,30 +64,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/laura/Documents/projetAutoEcole&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/laura/Documents/projetAutoEcole/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\laura\Documents\projetAutoEcole\src\main\resources" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="sio.projetautoecole" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="gogo" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="sio.projetautoecole.HelloApplication" />
+      <module name="projetAutoEcole" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -101,7 +118,7 @@
       <option name="presentableId" value="Default" />
       <updated>1727461352193</updated>
       <workItem from="1729587570800" duration="2771000" />
-      <workItem from="1729590886292" duration="431000" />
+      <workItem from="1729590886292" duration="4451000" />
     </task>
     <task id="LOCAL-00001" summary="create repositery">
       <option name="closed" value="true" />
@@ -127,7 +144,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729589514528</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Ajout du dossier images">
+      <option name="closed" value="true" />
+      <created>1729591601480</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1729591601480</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,6 +161,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="create repositery" />
     <MESSAGE value="creation des repo vide et coneexion bdd" />
-    <option name="LAST_COMMIT_MESSAGE" value="creation des repo vide et coneexion bdd" />
+    <MESSAGE value="Ajout du dossier images" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout du dossier images" />
   </component>
 </project>
