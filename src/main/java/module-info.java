@@ -10,7 +10,10 @@ module sio.projetautoecole {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.sql;
 
     opens sio.projetautoecole to javafx.fxml;
     exports sio.projetautoecole;
+    exports sio.projetautoecole.controllers;
+    opens sio.projetautoecole.controllers to javafx.fxml;
 }
