@@ -1,33 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="projetAutoEcole:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45578f6e-0068-4b9a-81d1-3100251e070f" name="Changes" comment="create repositery">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Categorie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Eleve.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Lecon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Licence.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Moniteur.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Vehicule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/CategorieRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/EleveRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/LeconRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/LicenceRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/MoniteurRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/VehiculeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/CategorieService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/EleveService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/LeconService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/LicenceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/MoniteurService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/VehiculeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/tools/ConnexionBDD.java" afterDir="false" />
+    <list default="true" id="45578f6e-0068-4b9a-81d1-3100251e070f" name="Changes" comment="creation des repo vide et coneexion bdd">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/projetAutoEcole_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,18 +29,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "LauraPMS"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;LauraPMS&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/LauraPMS/projetAutoEcole.git",
-    "accountId": "a02b0d77-5382-4e07-8b1f-65dd6d532612"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/LauraPMS/projetAutoEcole.git&quot;,
+    &quot;accountId&quot;: &quot;a02b0d77-5382-4e07-8b1f-65dd6d532612&quot;
   }
-}]]></component>
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -74,23 +59,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/laura/Documents/projetAutoEcole",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/laura/Documents/projetAutoEcole&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="sio.projetautoecole" />
@@ -112,7 +100,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1727461352193</updated>
-      <workItem from="1729587570800" duration="1507000" />
+      <workItem from="1729587570800" duration="2771000" />
+      <workItem from="1729590886292" duration="431000" />
     </task>
     <task id="LOCAL-00001" summary="create repositery">
       <option name="closed" value="true" />
@@ -122,7 +111,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727461515786</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="creation des repo vide et coneexion bdd">
+      <option name="closed" value="true" />
+      <created>1729589250212</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1729589250212</updated>
+    </task>
+    <task id="LOCAL-00003" summary="creation des repo vide et coneexion bdd">
+      <option name="closed" value="true" />
+      <created>1729589514528</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1729589514528</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,6 +135,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="create repositery" />
-    <option name="LAST_COMMIT_MESSAGE" value="create repositery" />
+    <MESSAGE value="creation des repo vide et coneexion bdd" />
+    <option name="LAST_COMMIT_MESSAGE" value="creation des repo vide et coneexion bdd" />
   </component>
 </project>
