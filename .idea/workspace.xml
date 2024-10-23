@@ -11,13 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="45578f6e-0068-4b9a-81d1-3100251e070f" name="Changes" comment="Ajout du dossier images">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Categorie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Categorie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Eleve.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Eleve.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Lecon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Lecon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Licence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Licence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Moniteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Moniteur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Vehicule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Vehicule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sio/projetautoecole/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sio/projetautoecole/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,12 +33,12 @@
     &quot;assignee&quot;: &quot;LauraPMS&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/LauraPMS/projetAutoEcole.git&quot;,
-    &quot;accountId&quot;: &quot;a02b0d77-5382-4e07-8b1f-65dd6d532612&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Lonz25/projetAutoEcole.git",
+    "accountId": "a67cf553-3349-41ca-b81a-4a9a02b25a1a"
   }
-}</component>
+}]]></component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -72,7 +65,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/laura/Documents/projetAutoEcole/src/main/resources",
+    "last_opened_file_path": "C:/SLAM/Java/projetAutoEcole",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -81,6 +74,7 @@
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -100,14 +94,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
