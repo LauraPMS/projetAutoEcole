@@ -4,7 +4,9 @@ import sio.projetautoecole.tools.ConnexionBDD;
 
 import java.sql.Connection;
 
-public class EleveRepository {
+public class EleveCategorieRepository {
+
     private Connection connection;
-    public EleveRepository() {connection = ConnexionBDD.getCnx();}
+    public EleveCategorieRepository() {connection = ConnexionBDD.getCnx();}
+
 }

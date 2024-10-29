@@ -2,12 +2,12 @@ package sio.projetautoecole.models;
 
 public class Categorie {
     private int idCategorie;
-    private String nomCategorie;
-    private float prixCategorie;
+    private String libelle;
+    private float prix;
     public Categorie(int idCategorie, String nomCategorie, float prixCategorie) {
         this.idCategorie = idCategorie;
-        this.nomCategorie = nomCategorie;
-        this.prixCategorie = prixCategorie;
+        this.libelle = nomCategorie;
+        this.prix = prixCategorie;
     }
 
     public int getIdPermis() {
@@ -18,19 +18,27 @@ public class Categorie {
         this.idCategorie = idCategorie;
     }
 
-    public String getNomPermis() {
-        return nomCategorie;
+    public int getIdCategorie() {
+        return idCategorie;
     }
 
-    public void setNomPermis(String nomCategorie) {
-        this.nomCategorie = nomCategorie;
+    public void setIdCategorie(int idCategorie) {
+        this.idCategorie = idCategorie;
     }
 
-    public float getPrixPermis() {
-        return prixCategorie;
+    public String getLibelle() {
+        return libelle;
     }
 
-    public void setPrixPermis(float prixCategorie) {
-        this.prixCategorie = prixCategorie;
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
+    }
+
+    public float getPrix() {
+        return prix;
+    }
+
+    public void setPrix(float prix) {
+        this.prix = prix;
     }
 }

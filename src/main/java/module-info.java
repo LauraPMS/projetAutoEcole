@@ -13,6 +13,9 @@ module sio.projetautoecole {
     requires java.sql;
 
     opens sio.projetautoecole to javafx.fxml;
+
+    opens sio.projetautoecole.models to javafx.base;
+
     exports sio.projetautoecole;
     exports sio.projetautoecole.controllers;
     opens sio.projetautoecole.controllers to javafx.fxml;
