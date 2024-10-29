@@ -40,10 +40,8 @@
             <ImageView fitHeight="134.0" fitWidth="123.0" layoutX="438.0" layoutY="358.0" onMouseClicked="#changeToCompte" pickOnBounds="true" preserveRatio="true" />
             <TableView fx:id="tvTestPermis" layoutX="657.0" layoutY="204.0" prefHeight="200.0" prefWidth="278.0">
               <columns>
-                <TableColumn fx:id="tcPermis" prefWidth="95.99993896484375" text="Permis" maxWidth="959.9993896484375"
-                             minWidth="30.0"/>
-                <TableColumn fx:id="tcPrix" prefWidth="103.99993896484375" text="Prix" maxWidth="1039.9993896484375"
-                             minWidth="30.0"/>
+                <TableColumn fx:id="tcPermis" maxWidth="959.9993896484375" minWidth="30.0" prefWidth="95.99993896484375" text="Permis" />
+                <TableColumn fx:id="tcPrix" maxWidth="1039.9993896484375" minWidth="30.0" prefWidth="103.99993896484375" text="Prix" />
               </columns>
             </TableView>
          </children></AnchorPane>

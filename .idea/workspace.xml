@@ -9,33 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45578f6e-0068-4b9a-81d1-3100251e070f" name="Changes" comment="Ajout du dossier images">
-      <change afterPath="$PROJECT_DIR$/mysql-connector-java-5.1.48.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysql-connector-java-8.0.30.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/CompteController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/EleveCategorieController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Compte.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/EleveCategorie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/CompteRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/EleveCategorieRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/CompteService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/EleveCategorieService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/projetAutoEcole_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/projetAutoEcole_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hellocoucou.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/CategorieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/CategorieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Categorie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Categorie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/CategorieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/CategorieRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/EleveRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/EleveRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/LeconRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/LeconRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/LicenceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/LicenceRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/MoniteurRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/MoniteurRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/VehiculeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/VehiculeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/CategorieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/CategorieService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sio/projetautoecole/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sio/projetautoecole/hello-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testno1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/Details" afterDir="false" />
-    </list>
+    <list default="true" id="45578f6e-0068-4b9a-81d1-3100251e070f" name="Changes" comment="Vue accueil, connexion, inscription + connexion bdd test ok" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -142,7 +116,7 @@
       <updated>1727461352193</updated>
       <workItem from="1729587570800" duration="2771000" />
       <workItem from="1729590886292" duration="4451000" />
-      <workItem from="1730120364757" duration="12243000" />
+      <workItem from="1730120364757" duration="12565000" />
     </task>
     <task id="LOCAL-00001" summary="create repositery">
       <option name="closed" value="true" />
@@ -176,7 +150,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729591601480</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Vue accueil, connexion, inscription + connexion bdd test ok">
+      <option name="closed" value="true" />
+      <created>1730164519936</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1730164519936</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,6 +180,7 @@
     <MESSAGE value="creation des repo vide et coneexion bdd" />
     <MESSAGE value="Ajout du dossier images" />
     <MESSAGE value="Modification BDD" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modification BDD" />
+    <MESSAGE value="Vue accueil, connexion, inscription + connexion bdd test ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="Vue accueil, connexion, inscription + connexion bdd test ok" />
   </component>
 </project>
