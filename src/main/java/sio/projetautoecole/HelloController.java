@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
@@ -14,6 +15,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
 import sio.projetautoecole.controllers.*;
+import sio.projetautoecole.models.Compte;
+import sio.projetautoecole.models.Eleve;
 import sio.projetautoecole.tools.ConnexionBDD;
 
 import java.net.URL;
@@ -36,6 +39,12 @@ public class HelloController implements Initializable {
     private AnchorPane ApAccueil;
     @FXML
     private AnchorPane ApCompte;
+    @FXML
+    private AnchorPane ApEleve;
+    @FXML
+    private AnchorPane ApMoniteur;
+
+
 
 // TextField
 
@@ -51,6 +60,8 @@ public class HelloController implements Initializable {
     private TextField txtInscriptionPrenom;
     @FXML
     private TextField txtConnexionLogin;
+
+
 
 // ImageView
 
@@ -71,7 +82,10 @@ public class HelloController implements Initializable {
     @FXML
     private ImageView btnRetourAccueil;
 
+
+
 // Bouton (rdo, chk, btn)
+
     @FXML
     private RadioButton rdoEleve;
     @FXML
@@ -80,30 +94,63 @@ public class HelloController implements Initializable {
     private ToggleGroup statut;
 
 
-// var local
 
-    ConnexionBDD connexionBDD;
-    EleveController eleveController;
-    CategorieController categorieController;
-    MoniteurController moniteurController;
-    LeconController leconController;
-    VehiculeController vehiculeController;
+// tableau
 
-
-
-    private String pageDebutDestination = "profil";   // Profil, permis ou intro (si inscription)
     @FXML
     private TableColumn tcPrix;
     @FXML
     private TableView tvTestPermis;
     @FXML
     private TableColumn tcPermis;
+    @FXML
+    private TableColumn tcCodeMoniteur;
+    @FXML
+    private TableView tvEleve;
+    @FXML
+    private TableColumn tcPrenomEleve;
+    @FXML
+    private TableColumn tcGenreMoniteur;
+    @FXML
+    private TableColumn tcPrenomMoniteur;
+    @FXML
+    private TableColumn tcNomMoniteur;
+    @FXML
+    private TableColumn tcNomEleve;
+    @FXML
+    private TableView tvMoniteur;
+    @FXML
+    private TableColumn tcCodeEleve;
+    @FXML
+    private TableColumn tcGenreEleve;
+
+
+
+// var local
+
+    // Connexion et controller
+    ConnexionBDD connexionBDD;
+    EleveController eleveController;
+    CategorieController categorieController;
+    MoniteurController moniteurController;
+    LeconController leconController;
+    VehiculeController vehiculeController;
+    CompteController compteController;
+    EleveCategorieController eleveCategorieController;
+
+
+    private String pageDebutDestination = "profil";   // Profil, permis ou intro (si inscription)
+
+
+
+
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         // Initialiser les controles graphiquess au lancement de l'application
+
         tcPrix.setCellValueFactory(new PropertyValueFactory<>("prix"));
         tcPermis.setCellValueFactory(new PropertyValueFactory<>("libelle"));
 
@@ -114,9 +161,11 @@ public class HelloController implements Initializable {
             moniteurController = new MoniteurController();
             leconController = new LeconController();
             vehiculeController = new VehiculeController();
+            compteController = new CompteController();
+            eleveCategorieController = new EleveCategorieController();
+
 
             tvTestPermis.setItems(FXCollections.observableList(categorieController.getAllCategories()));
-
             clearAll();
             changeAP(ApAccueil);
 
@@ -128,23 +177,62 @@ public class HelloController implements Initializable {
 
     }
 
+
+    // Click sur le bouton du formulaire connexion
     @FXML
-    public void onClickConnexion(Event event) {
+    public void onClickConnexion(Event event) throws SQLException {
+        // vérifier les champs vides
 
-        // Récupère les champs txt et compare leur existence dans la base de données
+        if (txtConnexionLogin.getText().equals("")) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur");
+            alert.setHeaderText("Veuillez renseignez votre login");
+        }
+        else if(txtConnexionPassword.getText().equals("")) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur");
+            alert.setHeaderText("Veuillez renseignez votre Mot de passe");
+        }
+        else {
+
+            // Récupère les champs txt et compare leur existence dans la base de données
+            String login = txtConnexionLogin.getText();
+            String password = txtConnexionPassword.getText();
+
+            // Si le compte existe, on récupère le statut pour savoir quel interface afficher.
+            if(!compteController.verifCompte(login, password)){
+                // si le compte n'existe pas on génère une erreur
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Erreur");
+                alert.setHeaderText("Votre login ou mot de passe est incorrect");
+            }
+            else{
+
+                int numCompte = compteController.getnumCompte(login);
+                int statutCompte = compteController.getStatutBynumCompte(numCompte);
+                Compte compte = new Compte(numCompte,login, password, statutCompte);
+                int code = compteController.getUserByCompte(numCompte);
+
+                if (compte.getStatut() == 0){
+                    // Partie Eleve
+                    Eleve eric = eleveController.getEleveById(code);
+                    changeAP(ApEleve);
+
+                }
+                else{
+                    // Partie Moniteur
+                    changeAP(ApMoniteur);
+                }
+            }
 
 
-        // Si le compte existe, on récupère le statut pour savoir quel interface afficher.
-
-
-        // Création de l'objet utilisateur et calcul des différentes statistiques
-
-
-        // maj des labels du profil
+        }
 
     }
 
 
+
+    // Click sur le formulaire Inscription
     @FXML
     public void onClickInscription(Event event) {
 
@@ -155,6 +243,12 @@ public class HelloController implements Initializable {
 
     }
 
+
+
+
+
+
+    // ----------------- Changement de vue ------------------------- //
     @FXML
     public void changeToConnexion(Event event) {
 
@@ -200,6 +294,8 @@ public class HelloController implements Initializable {
         ApConnexion.setVisible(false);
         ApAccueil.setVisible(false);
         ApCompte.setVisible(false);
+        ApEleve.setVisible(false);
+        ApMoniteur.setVisible(false);
     }
 
     private void changeAP(AnchorPane ap){

@@ -11,6 +11,7 @@ module sio.projetautoecole {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires java.sql;
+    requires mysql.connector.java;
 
     opens sio.projetautoecole to javafx.fxml;
 

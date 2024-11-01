@@ -9,7 +9,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45578f6e-0068-4b9a-81d1-3100251e070f" name="Changes" comment="Vue accueil, connexion, inscription + connexion bdd test ok" />
+    <list default="true" id="45578f6e-0068-4b9a-81d1-3100251e070f" name="Changes" comment="modif helloview">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_10_2024_00_28_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/CompteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/CompteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/EleveController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/EleveController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Compte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Compte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Eleve.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Eleve.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/CategorieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/CategorieRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/CompteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/CompteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/EleveRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/EleveRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/CompteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/CompteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/EleveService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/EleveService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sio/projetautoecole/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sio/projetautoecole/hello-view.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,12 +47,12 @@
     &quot;assignee&quot;: &quot;LauraPMS&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Lonz25/projetAutoEcole.git&quot;,
-    &quot;accountId&quot;: &quot;a67cf553-3349-41ca-b81a-4a9a02b25a1a&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/LauraPMS/projetAutoEcole.git",
+    "accountId": "a02b0d77-5382-4e07-8b1f-65dd6d532612"
   }
-}</component>
+}]]></component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -70,10 +86,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.3505747",
-    "settings.editor.selected.configurable": "com.intellij.jarRepository.settings.RemoteRepositoriesConfigurable",
+    "settings.editor.selected.configurable": "advanced.settings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -117,6 +133,7 @@
       <workItem from="1729587570800" duration="2771000" />
       <workItem from="1729590886292" duration="4451000" />
       <workItem from="1730120364757" duration="12565000" />
+      <workItem from="1730200594392" duration="15528000" />
     </task>
     <task id="LOCAL-00001" summary="create repositery">
       <option name="closed" value="true" />
@@ -158,7 +175,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730164519936</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="modif helloview">
+      <option name="closed" value="true" />
+      <created>1730200621873</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1730200621873</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,6 +206,7 @@
     <MESSAGE value="Ajout du dossier images" />
     <MESSAGE value="Modification BDD" />
     <MESSAGE value="Vue accueil, connexion, inscription + connexion bdd test ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="Vue accueil, connexion, inscription + connexion bdd test ok" />
+    <MESSAGE value="modif helloview" />
+    <option name="LAST_COMMIT_MESSAGE" value="modif helloview" />
   </component>
 </project>
