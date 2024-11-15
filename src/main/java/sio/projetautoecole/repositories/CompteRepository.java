@@ -14,7 +14,7 @@ public class CompteRepository {
     public CompteRepository() {connection = ConnexionBDD.getCnx();}
 
     public boolean verifCompte(String login, String password) throws SQLException {
-        PreparedStatement preparedStatement = connection.prepareStatement("SELECT numCompte from compte where login =? and motDePasse = ?;");
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT numCompte from compte where login = ? and motDePasse = ?;");
         preparedStatement.setString(1, login);
         preparedStatement.setString(2, password);
         ResultSet resultSet = preparedStatement.executeQuery();

@@ -162,6 +162,7 @@ public class HelloController implements Initializable {
 
         try {
             connexionBDD = new ConnexionBDD();
+
             eleveController = new EleveController();
             categorieController = new CategorieController();
             moniteurController = new MoniteurController();
@@ -238,7 +239,17 @@ public class HelloController implements Initializable {
                 }
                 else{
                     // Partie Moniteur
-                    changeAP(ApMoniteur);
+                    // Fermer la fenêtre actuelle
+                    Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    currentStage.close();
+
+                    // Charger et afficher la nouvelle scène
+                    FXMLLoader fxmlLoader = new FXMLLoader(EleveViewController.class.getResource("moniteur-view.fxml"));
+                    Scene scene = new Scene(fxmlLoader.load());
+                    Stage stage = new Stage();
+                    stage.setTitle("Partie Moniteur");
+                    stage.setScene(scene);
+                    stage.show();
                 }
             }
 
@@ -312,8 +323,6 @@ public class HelloController implements Initializable {
         ApConnexion.setVisible(false);
         ApAccueil.setVisible(false);
         ApCompte.setVisible(false);
-        ApEleve.setVisible(false);
-        ApMoniteur.setVisible(false);
     }
 
     private void changeAP(AnchorPane ap){
