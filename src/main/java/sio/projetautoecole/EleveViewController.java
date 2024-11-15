@@ -34,14 +34,14 @@ public class EleveViewController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(sio.projetautoecole.HelloController.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = new Stage();
-        stage.setTitle("PartieEleve");
+        stage.setTitle("Acceuil");
         stage.setScene(scene);
         stage.show();
     }
 
     @javafx.fxml.FXML
     public void changeToProfil(ActionEvent actionEvent) {
-        changeAP(apLecon);
+        changeAP(apProfile);
         // chargement
     }
 

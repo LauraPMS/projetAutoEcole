@@ -2,6 +2,7 @@ package sio.projetautoecole.models;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 public class Eleve {
     private int idEleve;
@@ -14,12 +15,10 @@ public class Eleve {
     private String codePostalEleve;
     private String villeEleve;
     private int numCompte;
+    private String imgPdp;
 
 
-    public Eleve() {
-
-    }
-    public Eleve(int idEleve, String nomEleve, String prenomEleve, String adresseEleve, String telephoneEleve, int sexeEleve, Date dateNaisseEleve, String codePostalEleve, String villeEleve, int numCompte) {
+    public Eleve(int idEleve, String nomEleve, String prenomEleve, String adresseEleve, String telephoneEleve, int sexeEleve, Date dateNaisseEleve, String codePostalEleve, String villeEleve, int numCompte, String imgPdp) {
         this.idEleve = idEleve;
         this.nomEleve = nomEleve;
         this.prenomEleve = prenomEleve;
@@ -30,8 +29,17 @@ public class Eleve {
         this.codePostalEleve = codePostalEleve;
         this.villeEleve = villeEleve;
         this.numCompte = numCompte;
+        this.imgPdp = imgPdp;
     }
 
+
+    public String getImgPdp() {
+        return imgPdp;
+    }
+
+    public void setImgPdp(String imgPdp) {
+        this.imgPdp = imgPdp;
+    }
 
     public int getIdEleve() {
         return idEleve;
@@ -113,13 +121,19 @@ public class Eleve {
         this.numCompte = numCompte;
     }
 
-    public ArrayList<String> ElevetoString(){
-        ArrayList<String> ElevetoString = new ArrayList<>();
-        ElevetoString.add(Integer.toString(this.idEleve));
-        ElevetoString.add(this.nomEleve);
-        ElevetoString.add(this.prenomEleve);
-        ElevetoString.add(Integer.toString(this.sexeEleve));
-
-        return ElevetoString;
+    public HashMap<String, String> getAllInfoEleve(){
+        HashMap<String, String> infoEleve = new HashMap<>();
+        infoEleve.put("idEleve", String.valueOf(this.idEleve));
+        infoEleve.put("nomEleve", this.nomEleve);
+        infoEleve.put("prenomEleve", this.prenomEleve);
+        infoEleve.put("adresseEleve", this.adresseEleve);
+        infoEleve.put("telephoneEleve", this.telephoneEleve);
+        infoEleve.put("sexeEleve", String.valueOf(this.sexeEleve));
+        infoEleve.put("dateNaisseEleve", String.valueOf(this.dateNaisseEleve));
+        infoEleve.put("codePostalEleve", this.codePostalEleve);
+        infoEleve.put("villeEleve", this.villeEleve);
+        infoEleve.put("numCompte", String.valueOf(this.numCompte));
+        infoEleve.put("imgPdp", this.imgPdp);
+        return infoEleve;
     }
 }
