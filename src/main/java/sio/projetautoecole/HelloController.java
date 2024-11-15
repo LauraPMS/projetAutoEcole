@@ -1,12 +1,16 @@
 package sio.projetautoecole;
 
+import com.fasterxml.jackson.core.json.DupDetector;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
@@ -14,11 +18,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 import sio.projetautoecole.controllers.*;
 import sio.projetautoecole.models.Compte;
 import sio.projetautoecole.models.Eleve;
 import sio.projetautoecole.tools.ConnexionBDD;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.Objects;
@@ -180,7 +186,7 @@ public class HelloController implements Initializable {
 
     // Click sur le bouton du formulaire connexion
     @FXML
-    public void onClickConnexion(Event event) throws SQLException {
+    public void onClickConnexion(Event event) throws SQLException, IOException {
         // vérifier les champs vides
 
         if (txtConnexionLogin.getText().equals("")) {
@@ -216,7 +222,18 @@ public class HelloController implements Initializable {
                 if (compte.getStatut() == 0){
                     // Partie Eleve
                     Eleve eric = eleveController.getEleveById(code);
-                    changeAP(ApEleve);
+
+                    // Fermer la fenêtre actuelle
+                    Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    currentStage.close();
+
+                    // Charger et afficher la nouvelle scène
+                    FXMLLoader fxmlLoader = new FXMLLoader(EleveViewController.class.getResource("eleve-view.fxml"));
+                    Scene scene = new Scene(fxmlLoader.load());
+                    Stage stage = new Stage();
+                    stage.setTitle("Partie Élève");
+                    stage.setScene(scene);
+                    stage.show();
 
                 }
                 else{
@@ -254,6 +271,7 @@ public class HelloController implements Initializable {
 
         // fonction permettant d'afficher l'AnchorPane ApConnexion
         changeAP(ApConnexion);
+
     }
 
     @FXML

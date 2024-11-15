@@ -10,21 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45578f6e-0068-4b9a-81d1-3100251e070f" name="Changes" comment="modif helloview">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_10_2024_00_28_[Changes]1/shelved.patch" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/EleveViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/MoniteurViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sio/projetautoecole/eleve-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sio/projetautoecole/moniteur-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/CompteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/CompteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/EleveController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/EleveController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Compte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Compte.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Eleve.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Eleve.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/CategorieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/CategorieRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/CompteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/CompteRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/EleveRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/EleveRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/CompteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/CompteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/EleveService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/EleveService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sio/projetautoecole/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sio/projetautoecole/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +26,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -47,12 +40,12 @@
     &quot;assignee&quot;: &quot;LauraPMS&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/LauraPMS/projetAutoEcole.git",
-    "accountId": "a02b0d77-5382-4e07-8b1f-65dd6d532612"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:/LauraPMS/projetAutoEcole.git&quot;,
+    &quot;accountId&quot;: &quot;a02b0d77-5382-4e07-8b1f-65dd6d532612&quot;
   }
-}]]></component>
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -71,28 +64,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "Application.gogo.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/laura/Documents/projetAutoEcole/mysql-connector-java-8.0.30.jar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.3505747",
-    "settings.editor.selected.configurable": "advanced.settings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.gogo.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/laura/IdeaProjects/projetAutoEcole/mysql-connector-java-8.0.30.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.3505747&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\laura\Documents\projetAutoEcole" />
@@ -134,6 +128,9 @@
       <workItem from="1729590886292" duration="4451000" />
       <workItem from="1730120364757" duration="12565000" />
       <workItem from="1730200594392" duration="15528000" />
+      <workItem from="1731655641794" duration="807000" />
+      <workItem from="1731656683512" duration="633000" />
+      <workItem from="1731658252780" duration="3609000" />
     </task>
     <task id="LOCAL-00001" summary="create repositery">
       <option name="closed" value="true" />
