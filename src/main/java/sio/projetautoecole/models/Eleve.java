@@ -18,6 +18,7 @@ public class Eleve {
     private String imgPdp;
 
 
+    public Eleve() {}
     public Eleve(int idEleve, String nomEleve, String prenomEleve, String adresseEleve, String telephoneEleve, int sexeEleve, Date dateNaisseEleve, String codePostalEleve, String villeEleve, int numCompte, String imgPdp) {
         this.idEleve = idEleve;
         this.nomEleve = nomEleve;

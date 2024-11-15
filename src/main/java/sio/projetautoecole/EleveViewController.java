@@ -6,6 +6,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -24,6 +28,22 @@ public class EleveViewController implements Initializable {
     private AnchorPane apReglement;
     @javafx.fxml.FXML
     private AnchorPane apPermis;
+    @javafx.fxml.FXML
+    private TableView tvProchaineLecon;
+    @javafx.fxml.FXML
+    private TableColumn tcPermisLecon;
+    @javafx.fxml.FXML
+    private TableColumn tcJourLecon;
+    @javafx.fxml.FXML
+    private ToggleGroup leconFini;
+    @javafx.fxml.FXML
+    private TableColumn tcMoniteurLecon;
+    @javafx.fxml.FXML
+    private TableColumn tcLecon;
+    @javafx.fxml.FXML
+    private ScrollPane spaneListePermis;
+    @javafx.fxml.FXML
+    private TableColumn tcHorraireLecon;
 
     @javafx.fxml.FXML
     public void deconnexionOnClick(ActionEvent actionEvent) throws IOException {
@@ -94,4 +114,11 @@ public class EleveViewController implements Initializable {
         changeAP(apProfile);
     }
 
+    @javafx.fxml.FXML
+    public void changeModifierProfil(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void changePrendreLecon(ActionEvent actionEvent) {
+    }
 }
