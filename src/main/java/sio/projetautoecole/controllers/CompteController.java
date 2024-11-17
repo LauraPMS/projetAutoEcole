@@ -1,11 +1,12 @@
 package sio.projetautoecole.controllers;
 
+import sio.projetautoecole.models.Compte;
 import sio.projetautoecole.services.CompteService;
 
 import java.sql.SQLException;
 
 public class CompteController {
-    private CompteService compteService = new CompteService();
+    private CompteService compteService;
 
     public CompteController() {
         compteService = new CompteService();
@@ -16,20 +17,20 @@ public class CompteController {
         return compteService.verifCompte(login, password);
     }
 
-
-    // Donne le numCompte associé au login
-    public int getnumCompte(String login) throws SQLException {
-        return compteService.getNumComptes(login);
-    }
-
-
-    // Donne le code Eleve ou Moniteur associé au numCompte
-    public int getUserByCompte(int numCompte) throws SQLException {
-        return compteService.getUserByCompte(numCompte);
-    }
-
     // Donne le statut du compte
-    public int getStatutBynumCompte(int numCompte) throws SQLException {
-        return compteService.getStatutBynumCompte(numCompte);
+    public int getStatutBynumCompte() throws SQLException {
+        return compteService.getStatutBynumCompte();
+    }
+
+    public int getNumCompteActif() throws SQLException {
+        return compteService.getNumCompteActif();
+    }
+
+    public void setNumCompteActif(int numCompteActif) throws SQLException {
+        compteService.setNumCompteActif(numCompteActif);
+    }
+
+    public Compte getCompteByNumCompte(int numCompte) throws SQLException{
+        return compteService.getCompteByNumCompte(numCompte);
     }
 }

@@ -12,7 +12,7 @@ public class EleveService {
     public EleveService() {
         eleveRepository = new EleveRepository();
     }
-    public Eleve getEleveById(int id) throws SQLException{
-        return eleveRepository.getEleveById(id);
+    public Eleve getEleveByNumCompte(int numCompte) throws SQLException {
+        return eleveRepository.getEleveByNumCompte(numCompte);
     }
 }

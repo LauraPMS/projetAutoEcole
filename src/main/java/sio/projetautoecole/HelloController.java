@@ -26,6 +26,7 @@ import sio.projetautoecole.tools.ConnexionBDD;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Objects;
 import java.util.Random;
@@ -36,145 +37,35 @@ public class HelloController implements Initializable {
 // AnchorPane
 
     @FXML
-    private AnchorPane ApInscription;
-    @FXML
-    private AnchorPane ApPrincipale;
-    @FXML
-    private AnchorPane ApConnexion;
-    @FXML
-    private AnchorPane ApAccueil;
-    @FXML
-    private AnchorPane ApCompte;
-    @FXML
-    private AnchorPane ApEleve;
-    @FXML
-    private AnchorPane ApMoniteur;
-
+    private AnchorPane ApInscription, ApConnexion, ApAccueil, ApCompte, ApEleve, ApMoniteur;
 
 
 // TextField
 
     @FXML
-    private TextField txtInscriptionNom;
+    private TextField txtInscriptionNom, txtInscriptionLogin, txtInscriptionPassword, txtInscriptionPrenom;
     @FXML
-    private TextField txtConnexionPassword;
-    @FXML
-    private TextField txtInscriptionLogin;
-    @FXML
-    private TextField txtInscriptionPassword;
-    @FXML
-    private TextField txtInscriptionPrenom;
-    @FXML
-    private TextField txtConnexionLogin;
-
-
-
-// ImageView
-
-    @FXML
-    private ImageView connexion;
-    @FXML
-    private ImageView btnConnexion;
-    @FXML
-    private ImageView btnGoInscription;
-    @FXML
-    private ImageView btnGoConnexion;
-    @FXML
-    private ImageView fondAccueil;
-    @FXML
-    private ImageView inscription;
-    @FXML
-    private ImageView btnInscription;
-    @FXML
-    private ImageView btnRetourAccueil;
-
-
-
-// Bouton (rdo, chk, btn)
-
-    @FXML
-    private RadioButton rdoEleve;
-    @FXML
-    private RadioButton rdoMoniteur;
-    @FXML
-    private ToggleGroup statut;
-
-
-
-// tableau
-
-    @FXML
-    private TableColumn tcPrix;
-    @FXML
-    private TableView tvTestPermis;
-    @FXML
-    private TableColumn tcPermis;
-    @FXML
-    private TableColumn tcCodeMoniteur;
-    @FXML
-    private TableView tvEleve;
-    @FXML
-    private TableColumn tcPrenomEleve;
-    @FXML
-    private TableColumn tcGenreMoniteur;
-    @FXML
-    private TableColumn tcPrenomMoniteur;
-    @FXML
-    private TableColumn tcNomMoniteur;
-    @FXML
-    private TableColumn tcNomEleve;
-    @FXML
-    private TableView tvMoniteur;
-    @FXML
-    private TableColumn tcCodeEleve;
-    @FXML
-    private TableColumn tcGenreEleve;
-
+    private TextField txtConnexionPassword, txtConnexionLogin;
 
 
 // var local
 
     // Connexion et controller
     ConnexionBDD connexionBDD;
-    EleveController eleveController;
-    CategorieController categorieController;
-    MoniteurController moniteurController;
-    LeconController leconController;
-    VehiculeController vehiculeController;
     CompteController compteController;
-    EleveCategorieController eleveCategorieController;
 
-
-    private String pageDebutDestination = "profil";   // Profil, permis ou intro (si inscription)
-
-
-
-
+    int numCompteActif;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        // Initialiser les controles graphiquess au lancement de l'application
-
-        tcPrix.setCellValueFactory(new PropertyValueFactory<>("prix"));
-        tcPermis.setCellValueFactory(new PropertyValueFactory<>("libelle"));
-
         try {
             connexionBDD = new ConnexionBDD();
-            eleveController = new EleveController();
-            categorieController = new CategorieController();
-            moniteurController = new MoniteurController();
-            leconController = new LeconController();
-            vehiculeController = new VehiculeController();
             compteController = new CompteController();
-            eleveCategorieController = new EleveCategorieController();
 
-
-            tvTestPermis.setItems(FXCollections.observableList(categorieController.getAllCategories()));
             clearAll();
             changeAP(ApAccueil);
-
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         } catch (SQLException e) {
@@ -187,58 +78,63 @@ public class HelloController implements Initializable {
     // Click sur le bouton du formulaire connexion
     @FXML
     public void onClickConnexion(Event event) throws SQLException, IOException {
+
         // vérifier les champs vides
 
         if (txtConnexionLogin.getText().equals("")) {
+
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Erreur");
             alert.setHeaderText("Veuillez renseignez votre login");
+            alert.showAndWait();
+
         }
         else if(txtConnexionPassword.getText().equals("")) {
+
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Erreur");
             alert.setHeaderText("Veuillez renseignez votre Mot de passe");
+            alert.showAndWait();
+
         }
+
         else {
 
             // Récupère les champs txt et compare leur existence dans la base de données
+
             String login = txtConnexionLogin.getText();
             String password = txtConnexionPassword.getText();
 
             // Si le compte existe, on récupère le statut pour savoir quel interface afficher.
+
             if(!compteController.verifCompte(login, password)){
+
                 // si le compte n'existe pas on génère une erreur
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Erreur");
                 alert.setHeaderText("Votre login ou mot de passe est incorrect");
+                alert.showAndWait();
+
             }
             else{
 
-                int numCompte = compteController.getnumCompte(login);
-                int statutCompte = compteController.getStatutBynumCompte(numCompte);
-                Compte compte = new Compte(numCompte,login, password, statutCompte);
-                int code = compteController.getUserByCompte(numCompte);
+                int statutCompte = compteController.getStatutBynumCompte();
+                numCompteActif = compteController.getNumCompteActif();
+                Session.setNumCompteActif(numCompteActif);
+                System.out.println("Hello Controller : " + numCompteActif);
 
-                if (compte.getStatut() == 0){
-                    // Partie Eleve
-                    Eleve eric = eleveController.getEleveById(code);
+                if (statutCompte == 0){
 
-                    // Fermer la fenêtre actuelle
-                    Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    currentStage.close();
-
-                    // Charger et afficher la nouvelle scène
-                    FXMLLoader fxmlLoader = new FXMLLoader(EleveViewController.class.getResource("eleve-view.fxml"));
-                    Scene scene = new Scene(fxmlLoader.load());
-                    Stage stage = new Stage();
-                    stage.setTitle("Partie Élève");
-                    stage.setScene(scene);
-                    stage.show();
+                    Session.changerScene("eleve-view.fxml", "Partie Eleve", event);
 
                 }
-                else{
-                    // Partie Moniteur
-                    changeAP(ApMoniteur);
+                else if (statutCompte == 1){
+
+                    Session.changerScene("moniteur-view.fxml", "Partie Moniteur", event);
+
+                }
+                else {
+                    System.out.println("Bizzarerie");
                 }
             }
 
@@ -252,12 +148,7 @@ public class HelloController implements Initializable {
     // Click sur le formulaire Inscription
     @FXML
     public void onClickInscription(Event event) {
-
-        // vérification des champs (pas de champs vide!)
-        // vérification du statut pour savoir ou enregistrer le nouvel utilisateur
-        // création de l'objet utilisateur (élève ou moniteur) puis ajout dans la base de données.
-        // Redirection vers l'AnchorPane PremièreConnexionUtilisateur (completer les infos utilisateurs et desription de chaque onglet)
-
+      // a faire par lorenz
     }
 
 
@@ -266,6 +157,7 @@ public class HelloController implements Initializable {
 
 
     // ----------------- Changement de vue ------------------------- //
+
     @FXML
     public void changeToConnexion(Event event) {
 
@@ -302,8 +194,6 @@ public class HelloController implements Initializable {
 
 
 
-
-
     //------------ Fonction utile ------------//
 
     private void clearAll(){
@@ -321,27 +211,10 @@ public class HelloController implements Initializable {
         ap.setVisible(true);
     }
 
-    public void changeImageViewImg(ImageView imgView, String linkImage){
-        // change l'image contenue dans l'image view
-        imgView.setImage(
-                new Image(
-                        Objects.requireNonNull(getClass().getResource(
-                                "/img/" + linkImage
-                        )).toExternalForm()
-                )
-        );
+    public int getNumCompteActif(){
+        return numCompteActif;
     }
 
-    public String getImageUrl(ImageView imageView){
-        // obtenir l'url de l'image contenue dans image view
-        Image image = imageView.getImage();
-        if (image != null) {
-            String ch =  image.getUrl();
-            ch = ch.substring(74);
-            return ch;
-        } else {
-            return null; // L'ImageView n'affiche aucune image
-        }
-    }
+
 
 }

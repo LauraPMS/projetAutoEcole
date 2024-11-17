@@ -1,5 +1,6 @@
 package sio.projetautoecole.services;
 
+import sio.projetautoecole.models.Compte;
 import sio.projetautoecole.repositories.CompteRepository;
 
 import java.sql.SQLException;
@@ -15,14 +16,18 @@ public class CompteService {
         return compteRepository.verifCompte(login, password);
     }
 
-    public int getNumComptes(String login) throws SQLException {
-        return compteRepository.getNumCompteVerifie(login);
-    }
-    public int getUserByCompte(int numCompte) throws SQLException {
-        return compteRepository.getUserByCompte(numCompte);
+    public int getStatutBynumCompte() throws SQLException {
+        return compteRepository.getStatutBynumCompte();
     }
 
-    public int getStatutBynumCompte(int numCompte) throws SQLException {
-        return compteRepository.getStatutBynumCompte(numCompte);
+    public int getNumCompteActif() throws SQLException {
+        return compteRepository.getNumCompteActif();
+    }
+
+    public void setNumCompteActif(int numCompteActif) throws SQLException {
+        compteRepository.setNumCompteActif(numCompteActif);
+    }
+    public Compte getCompteByNumCompte(int numCompte) throws SQLException{
+        return compteRepository.getCompteByNumCompte(numCompte);
     }
 }

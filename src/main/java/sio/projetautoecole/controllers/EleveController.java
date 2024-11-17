@@ -13,7 +13,7 @@ public class EleveController {
         eleveService = new EleveService();
     }
 
-    public Eleve getEleveById(int id) throws SQLException{
-        return eleveService.getEleveById(id);
+    public Eleve getEleveByNumCompte(int numCompte) throws SQLException {
+        return eleveService.getEleveByNumCompte(numCompte);
     }
 }

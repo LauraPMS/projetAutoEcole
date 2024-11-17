@@ -13,6 +13,7 @@ module sio.projetautoecole {
     requires java.sql;
     requires mysql.connector.java;
     requires com.fasterxml.jackson.core;
+    requires java.desktop;
 
     opens sio.projetautoecole to javafx.fxml;
 
