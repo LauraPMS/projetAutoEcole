@@ -1,5 +1,6 @@
 package sio.projetautoecole.repositories;
 
+import sio.projetautoecole.Session;
 import sio.projetautoecole.models.Compte;
 import sio.projetautoecole.tools.ConnexionBDD;
 
@@ -64,5 +65,35 @@ public class CompteRepository {
             return compte;
         }
         return null;
+    }
+
+    public void inscription(String login, String mdp, int statut) throws SQLException {
+        PreparedStatement ps = connection.prepareStatement("INSERT INTO compte(login, motDePasse, statut) VALUES (?, ?, ?);");
+        ps.setString(1, login);
+        ps.setString(2, mdp);
+        ps.setInt(3, statut);
+        ps.executeUpdate();
+    }
+
+    public int getNumCompte(String login, String mdp) throws SQLException {
+        PreparedStatement ps = connection.prepareStatement("SELECT numCompte FROM compte where login = ? and motdepasse = ?;");
+        ps.setString(1, login);
+        ps.setString(2, mdp);
+        ResultSet resultSet = ps.executeQuery();
+        if (resultSet.next()) {
+            return resultSet.getInt("numCompte");
+        }
+        return 0;
+
+    }
+
+    public boolean loginAlreadyExist(String login) throws SQLException {
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT login FROM compte WHERE login = ?;");
+        preparedStatement.setString(1, login);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()) {
+            return true;
+        }
+        return false;
     }
 }

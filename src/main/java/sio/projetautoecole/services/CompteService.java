@@ -30,4 +30,16 @@ public class CompteService {
     public Compte getCompteByNumCompte(int numCompte) throws SQLException{
         return compteRepository.getCompteByNumCompte(numCompte);
     }
+
+    public void inscription(String login, String mdp, int statut) throws SQLException {
+        compteRepository.inscription(login, mdp, statut);
+    }
+
+    public int getNumeroCompte(String login, String mdp) throws SQLException {
+        return compteRepository.getNumCompte(login, mdp);
+    }
+
+    public boolean loginAlreadyExist(String login) throws SQLException {
+        return compteRepository.loginAlreadyExist(login);
+    }
 }

@@ -33,4 +33,16 @@ public class CompteController {
     public Compte getCompteByNumCompte(int numCompte) throws SQLException{
         return compteService.getCompteByNumCompte(numCompte);
     }
+
+    public void inscription(String login, String mdp, int statut) throws SQLException {
+        compteService.inscription(login, mdp, statut);
+    }
+
+    public int getNumeroCompte(String login, String mdp) throws SQLException {
+        return compteService.getNumeroCompte(login, mdp);
+    }
+
+    public boolean loginAlreadyExist(String login) throws SQLException {
+        return compteService.loginAlreadyExist(login);
+    }
 }

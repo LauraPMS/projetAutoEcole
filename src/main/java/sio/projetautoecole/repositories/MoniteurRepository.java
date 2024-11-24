@@ -1,6 +1,7 @@
 package sio.projetautoecole.repositories;
 
 import sio.projetautoecole.models.Compte;
+import sio.projetautoecole.models.Eleve;
 import sio.projetautoecole.models.Moniteur;
 import sio.projetautoecole.tools.ConnexionBDD;
 
@@ -30,7 +31,7 @@ public class MoniteurRepository {
             String telephone = rs.getString("Telephone");
             int numCompte2 = rs.getInt("numCompte");
             String imgPdp = rs.getString("imgPdp");
-            moniteur = new Moniteur(codeMoniteur, nom, prenom,addresse1, sexe,dateDeNaissance, codePostal, ville, telephone, imgPdp, numCompte2);
+            moniteur = new Moniteur(codeMoniteur, nom, prenom,addresse1, sexe, dateDeNaissance.toLocalDate(), codePostal, ville, telephone, imgPdp, numCompte2);
         }
 
         return moniteur;
@@ -48,6 +49,22 @@ public class MoniteurRepository {
         ps.executeUpdate();
 
 
+    }
+
+
+    public void inscription(Moniteur m) throws SQLException {
+        PreparedStatement ps = connection.prepareStatement("Insert into moniteur(codeMoniteur, nom,prenom, sexe, DateDeNaissance, adresse1, CodePostal, Ville, Telephone, numCompte, imgPdp) values(?,?,?,?,?,?,?,?,?,?,' ');");
+        ps.setInt(1, m.getIdMoniteur());
+        ps.setString(2, m.getNomMoniteur());
+        ps.setString(3, m.getPrenomMoniteur());
+        ps.setInt(4, m.getSexeMoniteur());
+        ps.setDate(5, Date.valueOf(m.getDateMoniteur()));
+        ps.setString(6, m.getAdresseMoniteur());
+        ps.setString(7, m.getCodePostal());
+        ps.setString(8, m.getVilleMoniteur());
+        ps.setString(9, m.getTelephoneMoniteur());
+        ps.setInt(10, m.getNumCompte());
+        ps.executeUpdate();
     }
 
 }

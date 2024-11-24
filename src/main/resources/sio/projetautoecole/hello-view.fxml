@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -68,84 +72,150 @@
             <ImageView fx:id="btnGoInscription" fitHeight="34.0" fitWidth="200.0" layoutX="439.0" layoutY="476.0" onMouseClicked="#changeToInscription" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="btnRetourAccueil" fitHeight="43.0" fitWidth="113.0" layoutX="51.0" layoutY="42.0" onMouseClicked="#changeToAccueil" pickOnBounds="true" preserveRatio="true" />
          </children></AnchorPane>
-      <AnchorPane fx:id="ApInscription" prefHeight="590.0" prefWidth="1028.0" visible="false">
+      <AnchorPane fx:id="ApInscription" prefHeight="590.0" prefWidth="1028.0">
          <children>
             <ImageView fitHeight="585.0" fitWidth="1062.0" layoutX="-3.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/vues/vueInscription.png" />
+                  <Image url="@../../img/vues/inscription.png" />
                </image>
             </ImageView>
-            <TextField fx:id="txtInscriptionLogin" layoutX="439.0" layoutY="198.0" promptText="nomTropCool" />
-            <TextField fx:id="txtInscriptionPassword" layoutX="438.0" layoutY="237.0" promptText="Password123!" />
-            <RadioButton fx:id="rdoEleve" layoutX="411.0" layoutY="365.0" mnemonicParsing="false" text="Eleve">
-               <toggleGroup>
-                  <ToggleGroup fx:id="statut" />
-               </toggleGroup>
-            </RadioButton>
-            <RadioButton fx:id="rdoMoniteur" layoutX="543.0" layoutY="366.0" mnemonicParsing="false" text="Moniteur" toggleGroup="$statut" />
-            <TextField fx:id="txtInscriptionPrenom" layoutX="439.0" layoutY="279.0" promptText="Password123!" />
-            <TextField fx:id="txtInscriptionNom" layoutX="439.0" layoutY="317.0" promptText="Password123!" />
-            <Label layoutX="367.0" layoutY="199.0" text="Login :">
-               <font>
-                  <Font name="Berlin Sans FB" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="337.0" layoutY="238.0" text="Password :">
-               <font>
-                  <Font name="Berlin Sans FB" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="354.0" layoutY="279.0" text="Pénom :">
-               <font>
-                  <Font name="Berlin Sans FB" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="370.0" layoutY="319.0" text="Nom :">
-               <font>
-                  <Font name="Berlin Sans FB" size="18.0" />
-               </font>
-            </Label>
             <ImageView fx:id="inscription" fitHeight="54.0" fitWidth="175.0" layoutX="428.0" layoutY="418.0" onMouseClicked="#onClickInscription" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="btnGoConnexion" fitHeight="26.0" fitWidth="200.0" layoutX="417.0" layoutY="531.0" onMouseClicked="#changeToConnexion" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="41.0" fitWidth="113.0" layoutX="51.0" layoutY="42.0" onMouseClicked="#changeToAccueil" pickOnBounds="true" preserveRatio="true" />
+            <ScrollPane layoutX="132.0" layoutY="158.0" prefHeight="322.0" prefWidth="798.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="554.0" prefWidth="778.0">
+                     <children>
+                        <Label layoutX="232.0" layoutY="32.0" text="Login :">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="170.0" layoutY="77.0" text="Mot de passe :">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="236.0" layoutY="120.0" text="Nom : ">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="213.0" layoutY="165.0" text="Prenom : ">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="226.0" layoutY="203.0" text="Genre :">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="125.0" layoutY="240.0" text="Date de naissance : ">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="211.0" layoutY="284.0" text="Adresse :">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="236.0" layoutY="329.0" text="Ville :">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="173.0" layoutY="372.0" text="Code Postale : ">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="193.0" layoutY="418.0" text="Telephone :">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtInscLogin" layoutX="310.0" layoutY="33.0" />
+                        <PasswordField fx:id="txtInscPassWord" layoutX="311.0" layoutY="77.0" />
+                        <RadioButton fx:id="rdoInscFemme" layoutX="322.0" layoutY="208.0" mnemonicParsing="false" text="Femme">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="genreInscription" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="rdoInscHomme" layoutX="451.0" layoutY="205.0" mnemonicParsing="false" text="Homme" toggleGroup="$genreInscription" />
+                        <DatePicker fx:id="dpNaissance" layoutX="312.0" layoutY="241.0" />
+                        <TextField fx:id="txtInscNom" layoutX="309.0" layoutY="123.0" />
+                        <Label layoutX="467.0" layoutY="30.0" text="*" textFill="RED">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="467.0" layoutY="75.0" text="*" textFill="RED">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="469.0" layoutY="121.0" text="*" textFill="RED">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="469.0" layoutY="166.0" text="*" textFill="RED">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="553.0" layoutY="194.0" text="*" textFill="RED">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="497.0" layoutY="235.0" text="*" textFill="RED">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="481.0" layoutY="324.0" text="*" textFill="RED">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="481.0" layoutY="364.0" text="*" textFill="RED">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="482.0" layoutY="411.0" text="*" textFill="RED">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="309.0" layoutY="508.0" mnemonicParsing="false" onAction="#onClickInscription" prefHeight="41.0" prefWidth="150.0" style="-fx-background-color: black; -fx-text-fill: white;" text="Inscription">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                        <TextField fx:id="txtInxcPrenom" layoutX="309.0" layoutY="166.0" />
+                        <TextField fx:id="txtInxcAdresse" layoutX="309.0" layoutY="285.0" />
+                        <TextField fx:id="txtInxcVille" layoutX="309.0" layoutY="331.0" />
+                        <TextField fx:id="txtInxcCp" layoutX="310.0" layoutY="373.0" />
+                        <TextField fx:id="txtInxcTelephone" layoutX="311.0" layoutY="418.0" />
+                        <RadioButton fx:id="rdoInsEleve" layoutX="320.0" layoutY="469.0" mnemonicParsing="false" text="Eleve">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="statutInscription" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="rdoInsMoniteur" layoutX="449.0" layoutY="466.0" mnemonicParsing="false" text="Moniteur" toggleGroup="$statutInscription" />
+                        <Label layoutX="227.0" layoutY="467.0" text="Statut :">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
          </children></AnchorPane>
-      <AnchorPane fx:id="ApEleve" prefHeight="587.0" prefWidth="1039.0" visible="false">
-         <children>
-            <TableView fx:id="tvEleve" layoutX="376.0" layoutY="182.0" prefHeight="200.0" prefWidth="306.0">
-              <columns>
-                <TableColumn fx:id="tcCodeEleve" prefWidth="75.0" text="codeEleve" maxWidth="750.0" minWidth="30.0"/>
-                <TableColumn fx:id="tcNomEleve" prefWidth="75.0" text="Nom" maxWidth="750.0" minWidth="30.0"/>
-                  <TableColumn fx:id="tcPrenomEleve" prefWidth="75.0" text="Prenom" maxWidth="750.0" minWidth="30.0"/>
-                  <TableColumn fx:id="tcGenreEleve" prefWidth="75.0" text="Genre " maxWidth="750.0" minWidth="30.0"/>
-              </columns>
-            </TableView>
-            <Label layoutX="375.0" layoutY="39.0" text="Interface Eleve">
-               <font>
-                  <Font name="Berlin Sans FB" size="50.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="ApMoniteur" prefHeight="587.0" prefWidth="1039.0">
-         <children>
-            <TableView fx:id="tvMoniteur" layoutX="330.0" layoutY="179.0" prefHeight="200.0" prefWidth="427.0">
-               <columns>
-                  <TableColumn fx:id="tcCodeMoniteur" prefWidth="108.26666259765625" text="codeMoniteur"
-                               maxWidth="1082.6666259765625" minWidth="30.0"/>
-                  <TableColumn fx:id="tcNomMoniteur" prefWidth="100.79998779296875" text="Nom"
-                               maxWidth="1007.9998779296875" minWidth="30.0"/>
-                  <TableColumn fx:id="tcPrenomMoniteur" prefWidth="110.933349609375" text="Prenom"
-                               maxWidth="1109.33349609375" minWidth="30.0"/>
-                  <TableColumn fx:id="tcGenreMoniteur" prefWidth="107.46661376953125" text="Genre "
-                               maxWidth="1074.6661376953125" minWidth="30.0"/>
-               </columns>
-            </TableView>
-            <Label layoutX="342.0" layoutY="41.0" text="Interface Moniteur">
-               <font>
-                  <Font name="Berlin Sans FB" size="50.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
    </children>
 </AnchorPane>

@@ -20,4 +20,8 @@ public class MoniteurController {
     public void updateMoniteur(Moniteur m) throws SQLException{
         moniteurService.updateMoniteur(m);
     }
+
+    public void inscription(Moniteur m) throws SQLException{
+        moniteurService.inscription(m);
+    }
 }

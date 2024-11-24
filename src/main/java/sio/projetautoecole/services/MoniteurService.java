@@ -20,4 +20,8 @@ public class MoniteurService {
         repo.updateMoniteur(m);
     }
 
+    public void inscription(Moniteur m) throws SQLException{
+        repo.inscription(m);
+    }
+
 }

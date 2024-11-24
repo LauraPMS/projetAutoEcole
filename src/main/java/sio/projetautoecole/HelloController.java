@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 import sio.projetautoecole.controllers.*;
 import sio.projetautoecole.models.Compte;
 import sio.projetautoecole.models.Eleve;
+import sio.projetautoecole.models.Moniteur;
 import sio.projetautoecole.tools.ConnexionBDD;
 
 import java.io.IOException;
@@ -37,24 +38,47 @@ public class HelloController implements Initializable {
 // AnchorPane
 
     @FXML
-    private AnchorPane ApInscription, ApConnexion, ApAccueil, ApCompte, ApEleve, ApMoniteur;
+    private AnchorPane ApInscription, ApConnexion, ApAccueil, ApCompte, ApPrincipale ;
 
 
 // TextField
 
     @FXML
-    private TextField txtInscriptionNom, txtInscriptionLogin, txtInscriptionPassword, txtInscriptionPrenom;
-    @FXML
     private TextField txtConnexionPassword, txtConnexionLogin;
-
+    @FXML
+    private TextField txtInscNom, txtInxcAdresse, txtInxcVille, txtInxcCp, txtInscLogin, txtInxcTelephone, txtInxcPrenom;
+    @FXML
+    private PasswordField txtInscPassWord;
 
 // var local
 
     // Connexion et controller
+
     ConnexionBDD connexionBDD;
     CompteController compteController;
+    MoniteurController moniteurController;
+    EleveController eleveController;
 
     int numCompteActif;
+
+    @FXML
+    private RadioButton rdoInscFemme, rdoInscHomme;
+
+    @FXML
+    private DatePicker dpNaissance;
+
+    @FXML
+    private ImageView btnGoInscription, btnGoConnexion, connexion, fondAccueil, inscription, btnInscription;
+
+    @FXML
+    private ImageView btnRetourAccueil, btnConnexion;
+
+    @FXML
+    private ToggleGroup genreInscription, statutInscription;
+
+    @FXML
+    private RadioButton rdoInsMoniteur, rdoInsEleve;
+
 
 
     @Override
@@ -63,6 +87,9 @@ public class HelloController implements Initializable {
         try {
             connexionBDD = new ConnexionBDD();
             compteController = new CompteController();
+            moniteurController = new MoniteurController();
+            eleveController = new EleveController();
+
 
             clearAll();
             changeAP(ApAccueil);
@@ -147,8 +174,99 @@ public class HelloController implements Initializable {
 
     // Click sur le formulaire Inscription
     @FXML
-    public void onClickInscription(Event event) {
-      // a faire par lorenz
+    public void onClickInscription(Event event) throws SQLException {
+      // a faire par lorenz finalement non
+
+        // verification des champs vides
+        String erreur = "Veuillez remplir les champs suivant : ";
+        boolean erreurTrouve = false;
+        if(txtInscLogin.getText().equals("")){
+            erreurTrouve = true;
+            erreur += " login ; ";
+        }
+        if(txtInscPassWord.getText().equals("")){
+            erreurTrouve = true;
+            erreur += " password ; ";
+        }
+        if(txtInscNom.getText().equals("")){
+            erreurTrouve = true;
+            erreur += " nom ; ";
+        }
+        if(txtInxcPrenom.getText().equals("")){
+            erreurTrouve = true;
+            erreur += " prenom ; ";
+        }
+        if(txtInxcAdresse.getText().equals("")){
+            erreurTrouve = true;
+            erreur += " adresse ; ";
+        }
+        if(txtInxcVille.getText().equals("")){
+            erreurTrouve = true;
+            erreur += " ville ; ";
+        }
+        if (txtInxcCp.getText().equals("")){
+            erreurTrouve = true;
+            erreur += " code postal ; ";
+        }
+        if(txtInxcTelephone.getText().equals("")){
+            erreurTrouve = true;
+            erreur += " telephone ; ";
+        }
+        if ( !rdoInscFemme.isSelected() && !rdoInscHomme.isSelected()) {
+            erreurTrouve = true;
+            erreur += " genre ; ";
+        }
+        if ( !rdoInsEleve.isSelected() && !rdoInsMoniteur.isSelected()) {
+            erreurTrouve = true;
+            erreur += " statut ; ";
+        }
+        if (compteController.loginAlreadyExist(txtInscLogin.getText())){
+            erreurTrouve = true;
+            erreur += "\n - login existe deja dans la base de données ; ";
+        }
+        if(erreurTrouve){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur");
+            alert.setHeaderText(erreur);
+            alert.showAndWait();
+        }
+        else{
+            // procéder a l'inscription
+            if (rdoInsMoniteur.isSelected()){
+                Compte c = new Compte(0, txtInscLogin.getText(), txtInscPassWord.getText(), 1);
+                compteController.inscription(c.getLogin(), c.getMdp(), c.getStatut());
+                int numCompteRecuperer = compteController.getNumeroCompte(txtInscLogin.getText(), txtInscPassWord.getText());
+
+                int genre = 0;
+                if (rdoInscFemme.isSelected()){
+                    genre = 1;
+                }
+
+                Moniteur m = new Moniteur(numCompteRecuperer+1000, txtInscNom.getText(), txtInxcPrenom.getText(), txtInxcAdresse.getText(), genre, dpNaissance.getValue(), txtInxcCp.getText(), txtInxcVille.getText(), txtInxcTelephone.getText(), null, numCompteRecuperer );
+                moniteurController.inscription(m);
+
+            } else if (rdoInsEleve.isSelected()) {
+                Compte c = new Compte(0, txtInscLogin.getText(), txtInscPassWord.getText(), 0);
+                compteController.inscription(c.getLogin(), c.getMdp(), c.getStatut());
+                int numCompteRecuperer = compteController.getNumeroCompte(txtInscLogin.getText(), txtInscPassWord.getText());
+
+                int genre = 0;
+                if (rdoInscFemme.isSelected()){
+                    genre = 1;
+                }
+                Eleve e = new Eleve(numCompteRecuperer+1000, txtInscNom.getText(), txtInxcPrenom.getText(), txtInxcAdresse.getText(), txtInxcTelephone.getText(), genre, dpNaissance.getValue(), txtInxcCp.getText(), txtInxcVille.getText(), numCompteRecuperer, null );
+                eleveController.inscription(e);
+
+            }
+
+            changeAP(ApConnexion);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Bienvenue ! ");
+            alert.setHeaderText("Veuillez vous connecter avec vos identifiants");
+            alert.showAndWait();
+
+        }
+
     }
 
 
@@ -202,8 +320,6 @@ public class HelloController implements Initializable {
         ApConnexion.setVisible(false);
         ApAccueil.setVisible(false);
         ApCompte.setVisible(false);
-        ApEleve.setVisible(false);
-        ApMoniteur.setVisible(false);
     }
 
     private void changeAP(AnchorPane ap){

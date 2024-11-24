@@ -6,6 +6,7 @@ import sio.projetautoecole.models.Moniteur;
 import sio.projetautoecole.tools.ConnexionBDD;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class EleveRepository {
@@ -22,17 +23,33 @@ public class EleveRepository {
             String nom = rs.getString("nom");
             String prenom = rs.getString("prenom");
             int sexe = rs.getInt("sexe");
-            Date dateDeNaissance = rs.getDate("DateDeNaissance");
-            String addresse1 = rs.getString("Adresse1");
+            LocalDate date = rs.getDate("DateDeNaissance").toLocalDate();
+            String adresse1 = rs.getString("Adresse1");
             String codePostal = rs.getString("CodePostal");
             String ville = rs.getString("Ville");
             String telephone = rs.getString("Telephone");
             int numCompte2 = rs.getInt("numCompte");
             String imgPdp = rs.getString("imgPdp");
-            eleve = new Eleve(codeEleve, nom, prenom,addresse1,telephone, sexe,dateDeNaissance, codePostal, ville, numCompte2, imgPdp );
+            eleve = new Eleve(codeEleve, nom, prenom,adresse1,telephone, sexe,date, codePostal, ville, numCompte2, imgPdp );
         }
 
         return eleve;
 
     }
+
+    public void inscription(Eleve eleve) throws SQLException {
+        PreparedStatement ps = connection.prepareStatement("Insert into eleve(codeEleve, nom,prenom, sexe, DateDeNaissance, adresse1, CodePostal, Ville, Telephone, numCompte, imgpdp) values(?,?,?,?,?,?,?,?,?,?,' ')");
+        ps.setInt(1, eleve.getIdEleve());
+        ps.setString(2, eleve.getNomEleve());
+        ps.setString(3, eleve.getPrenomEleve());
+        ps.setInt(4, eleve.getSexeEleve());
+        ps.setDate(5, Date.valueOf(eleve.getDateNaisseEleve()));
+        ps.setString(6, eleve.getAdresseEleve());
+        ps.setString(7, eleve.getCodePostalEleve());
+        ps.setString(8, eleve.getVilleEleve());
+        ps.setString(9, eleve.getTelephoneEleve());
+        ps.setInt(10, eleve.getNumCompte());
+        ps.executeUpdate();
+    }
+
 }

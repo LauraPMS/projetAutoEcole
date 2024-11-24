@@ -15,4 +15,8 @@ public class EleveService {
     public Eleve getEleveByNumCompte(int numCompte) throws SQLException {
         return eleveRepository.getEleveByNumCompte(numCompte);
     }
+
+    public void inscription(Eleve eleve) throws SQLException {
+        eleveRepository.inscription(eleve);
+    }
 }

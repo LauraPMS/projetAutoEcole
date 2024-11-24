@@ -1,5 +1,6 @@
 package sio.projetautoecole.models;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -9,14 +10,14 @@ public class Moniteur {
     private String prenomMoniteur;
     private String adresseMoniteur;
     private int sexeMoniteur;
-    private Date dateMoniteur;
+    private LocalDate dateMoniteur;
     private String codePostal;
     private String villeMoniteur;
     private String telephoneMoniteur;
     private int numCompte;
     private String imgPdp;
 
-    public Moniteur(int idMoniteur, String nomMoniteur, String prenomMoniteur, String adresseMoniteur, int sexeMoniteur, Date dateMoniteur, String codePostal, String villeMoniteur, String telephoneMoniteur, String imgPdp, int numCompte) {
+    public Moniteur(int idMoniteur, String nomMoniteur, String prenomMoniteur, String adresseMoniteur, int sexeMoniteur, LocalDate dateMoniteur, String codePostal, String villeMoniteur, String telephoneMoniteur, String imgPdp, int numCompte) {
         this.idMoniteur = idMoniteur;
         this.nomMoniteur = nomMoniteur;
         this.prenomMoniteur = prenomMoniteur;
@@ -70,11 +71,11 @@ public class Moniteur {
         this.sexeMoniteur = sexeMoniteur;
     }
 
-    public Date getDateMoniteur() {
+    public LocalDate getDateMoniteur() {
         return dateMoniteur;
     }
 
-    public void setDateMoniteur(Date dateMoniteur) {
+    public void setDateMoniteur(LocalDate dateMoniteur) {
         this.dateMoniteur = dateMoniteur;
     }
 

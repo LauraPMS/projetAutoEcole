@@ -1,7 +1,7 @@
 package sio.projetautoecole.models;
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.HashMap;
 
 public class Eleve {
@@ -11,7 +11,7 @@ public class Eleve {
     private String adresseEleve;
     private String telephoneEleve;
     private int sexeEleve;
-    private Date dateNaisseEleve;
+    private LocalDate dateNaisseEleve;
     private String codePostalEleve;
     private String villeEleve;
     private int numCompte;
@@ -19,7 +19,7 @@ public class Eleve {
 
 
     public Eleve() {}
-    public Eleve(int idEleve, String nomEleve, String prenomEleve, String adresseEleve, String telephoneEleve, int sexeEleve, Date dateNaisseEleve, String codePostalEleve, String villeEleve, int numCompte, String imgPdp) {
+    public Eleve(int idEleve, String nomEleve, String prenomEleve, String adresseEleve, String telephoneEleve, int sexeEleve, LocalDate dateNaisseEleve, String codePostalEleve, String villeEleve, int numCompte, String imgPdp) {
         this.idEleve = idEleve;
         this.nomEleve = nomEleve;
         this.prenomEleve = prenomEleve;
@@ -90,11 +90,11 @@ public class Eleve {
         this.sexeEleve = sexeEleve;
     }
 
-    public Date getDateNaisseEleve() {
+    public LocalDate getDateNaisseEleve() {
         return dateNaisseEleve;
     }
 
-    public void setDateNaisseEleve(Date dateNaisseEleve) {
+    public void setDateNaisseEleve(LocalDate dateNaisseEleve) {
         this.dateNaisseEleve = dateNaisseEleve;
     }
 
