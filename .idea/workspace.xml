@@ -9,21 +9,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45578f6e-0068-4b9a-81d1-3100251e070f" name="Changes" comment="nv bdd + modif eleve moniteur pour ajouter l'image">
+    <list default="true" id="45578f6e-0068-4b9a-81d1-3100251e070f" name="Changes" comment="inscription ok">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/EleveViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/EleveViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/CompteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/CompteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/EleveController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/EleveController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/CategorieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/CategorieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/LeconController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/LeconController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/LicenceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/LicenceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/MoniteurController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/MoniteurController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Eleve.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Eleve.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Moniteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Moniteur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/CompteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/CompteRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/EleveRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/EleveRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/MoniteurRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/MoniteurRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/CompteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/CompteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/EleveService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/EleveService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/MoniteurService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/MoniteurService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sio/projetautoecole/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sio/projetautoecole/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/VehiculeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/VehiculeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Lecon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Lecon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Vehicule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/models/Vehicule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/CategorieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/CategorieRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/LeconRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/LeconRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/VehiculeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/VehiculeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/CategorieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/CategorieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/LeconService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/LeconService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/VehiculeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/VehiculeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sio/projetautoecole/eleve-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sio/projetautoecole/eleve-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +147,14 @@
       <workItem from="1731845310972" duration="19127000" />
       <workItem from="1731920920567" duration="118000" />
       <workItem from="1732261992837" duration="942000" />
-      <workItem from="1732457305170" duration="11939000" />
+      <workItem from="1732457305170" duration="13680000" />
+      <workItem from="1732534026987" duration="917000" />
+      <workItem from="1732543686101" duration="303000" />
+      <workItem from="1732697034279" duration="425000" />
+      <workItem from="1732796834441" duration="668000" />
+      <workItem from="1732984357994" duration="2799000" />
+      <workItem from="1733140211004" duration="2036000" />
+      <workItem from="1733299076771" duration="12850000" />
     </task>
     <task id="LOCAL-00001" summary="create repositery">
       <option name="closed" value="true" />
@@ -218,7 +228,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731685900759</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="inscription ok">
+      <option name="closed" value="true" />
+      <created>1732483421445</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1732483421445</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,6 +262,7 @@
     <MESSAGE value="modif helloview" />
     <MESSAGE value="gros gogole" />
     <MESSAGE value="nv bdd + modif eleve moniteur pour ajouter l'image" />
-    <option name="LAST_COMMIT_MESSAGE" value="nv bdd + modif eleve moniteur pour ajouter l'image" />
+    <MESSAGE value="inscription ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="inscription ok" />
   </component>
 </project>

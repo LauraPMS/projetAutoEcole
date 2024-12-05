@@ -1,24 +1,10 @@
 package sio.projetautoecole;
 
-import com.fasterxml.jackson.core.json.DupDetector;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.fxml.JavaFXBuilderFactory;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
 import sio.projetautoecole.controllers.*;
 import sio.projetautoecole.models.Compte;
 import sio.projetautoecole.models.Eleve;
@@ -27,10 +13,7 @@ import sio.projetautoecole.tools.ConnexionBDD;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Objects;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
@@ -38,7 +21,7 @@ public class HelloController implements Initializable {
 // AnchorPane
 
     @FXML
-    private AnchorPane ApInscription, ApConnexion, ApAccueil, ApCompte, ApPrincipale ;
+    private AnchorPane ApInscription, ApConnexion, ApAccueil, ApCompte ;
 
 
 // TextField
@@ -68,18 +51,7 @@ public class HelloController implements Initializable {
     private DatePicker dpNaissance;
 
     @FXML
-    private ImageView btnGoInscription, btnGoConnexion, connexion, fondAccueil, inscription, btnInscription;
-
-    @FXML
-    private ImageView btnRetourAccueil, btnConnexion;
-
-    @FXML
-    private ToggleGroup genreInscription, statutInscription;
-
-    @FXML
     private RadioButton rdoInsMoniteur, rdoInsEleve;
-
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -305,8 +277,7 @@ public class HelloController implements Initializable {
 
         //fonction permettant d'afficher l'Anchor Pane APCompte7
         changeAP(ApCompte);
-
-        // Cette fonction devra une fois l'utilisateur connecter, renvoyer vers la page Souscrire a un permis
+        
 
     }
 
@@ -326,11 +297,6 @@ public class HelloController implements Initializable {
         clearAll();
         ap.setVisible(true);
     }
-
-    public int getNumCompteActif(){
-        return numCompteActif;
-    }
-
 
 
 }

@@ -24,4 +24,6 @@ public class MoniteurController {
     public void inscription(Moniteur m) throws SQLException{
         moniteurService.inscription(m);
     }
+
+    public
 }

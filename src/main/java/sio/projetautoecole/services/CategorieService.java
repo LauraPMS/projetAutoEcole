@@ -19,4 +19,22 @@ public class CategorieService {
     public ArrayList<Categorie> getAllCategories() throws SQLException {
         return categorieRepository.getAllCategories();
     }
-}
+
+    public ArrayList<String> getAllLibelles() throws SQLException {
+        return categorieRepository.getAllLibelles();
+    }
+    public ArrayList<String> getAllPrixCategories() throws SQLException {
+        return categorieRepository.getAllPrixCategories();
+    }
+    public String getNomCategorieById(String id) throws SQLException {
+        return categorieRepository.getNomCategorieById(id);
+    }
+    public Categorie getCategorieFromLibelle (String libelle) throws SQLException {
+        return categorieRepository.getCategorieFromLibelle(libelle);
+    }
+
+    public ArrayList<String> getAllMoniteursFromCategorie(Categorie c) throws SQLException {
+        return categorieRepository.getAllMoniteursFromCategorie(c);
+    }
+
+    }
