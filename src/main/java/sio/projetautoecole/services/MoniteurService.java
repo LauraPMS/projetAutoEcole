@@ -24,4 +24,7 @@ public class MoniteurService {
         repo.inscription(m);
     }
 
+    public Moniteur getMoniteurByName(String selectedMoniteur) throws SQLException {
+        return repo.getMoniteurByName(selectedMoniteur);
+    }
 }

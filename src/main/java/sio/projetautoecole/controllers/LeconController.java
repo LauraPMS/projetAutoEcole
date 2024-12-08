@@ -1,10 +1,14 @@
 package sio.projetautoecole.controllers;
 
 import sio.projetautoecole.models.Lecon;
+import sio.projetautoecole.models.Moniteur;
 import sio.projetautoecole.services.LeconService;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.List;
 
 public class LeconController {
 
@@ -23,5 +27,9 @@ public class LeconController {
 
     public ArrayList<Lecon> getAllLeconForVehicule(String immat) throws SQLException {
         return service.getAllLeconForVehicule(immat);
+    }
+
+    public List<LocalTime> getHorairesReserves(Moniteur moniteur, LocalDate selectedDate) throws SQLException {
+        return service.getHorairesReserves(moniteur, selectedDate);
     }
 }

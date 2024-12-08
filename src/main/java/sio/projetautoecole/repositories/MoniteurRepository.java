@@ -67,4 +67,36 @@ public class MoniteurRepository {
         ps.executeUpdate();
     }
 
+    public Moniteur getMoniteurByName(String selectedMoniteur) throws SQLException {
+        Moniteur m = null;
+        PreparedStatement ps = connection.prepareStatement("SELECT codeMoniteur, nom, prenom, sexe, DateDeNaissance, adresse1, CodePostal, Ville, Telephone, numCompte, imgPdp FROM Moniteurs WHERE nom = ?");
+        ps.setString(1, selectedMoniteur);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            int codeMoniteur = rs.getInt("codeMoniteur");
+            String nom = rs.getString("nom");
+            String prenom = rs.getString("prenom");
+            int sexe = rs.getInt("sexe");
+            Date dateDeNaissance = rs.getDate("DateDeNaissance");
+            String addresse1 = rs.getString("Adresse1");
+            String codePostal = rs.getString("CodePostal");
+            String ville = rs.getString("Ville");
+            String telephone = rs.getString("Telephone");
+            int numCompte = rs.getInt("numCompte");
+            String imgPdp = rs.getString("imgPdp");
+            m.setIdMoniteur(codeMoniteur);
+            m.setNomMoniteur(nom);
+            m.setPrenomMoniteur(prenom);
+            m.setSexeMoniteur(sexe);
+            m.setDateMoniteur(dateDeNaissance.toLocalDate());
+            m.setAdresseMoniteur(addresse1);
+            m.setCodePostal(codePostal);
+            m.setVilleMoniteur(ville);
+            m.setTelephoneMoniteur(telephone);
+            m.setNumCompte(numCompte);
+            m.setImgPdp(imgPdp);
+        }
+        return m;
+
+    }
 }

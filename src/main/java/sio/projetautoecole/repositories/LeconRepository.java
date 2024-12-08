@@ -3,13 +3,14 @@ package sio.projetautoecole.repositories;
 import sio.projetautoecole.controllers.CategorieController;
 import sio.projetautoecole.controllers.VehiculeController;
 import sio.projetautoecole.models.Lecon;
+import sio.projetautoecole.models.Moniteur;
 import sio.projetautoecole.tools.ConnexionBDD;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class LeconRepository {
@@ -71,4 +72,20 @@ public class LeconRepository {
         }
         return lecons;
     }
+
+    public List<LocalTime> getHorairesReserves(Moniteur moniteur, LocalDate date) throws SQLException {
+        String query = "SELECT heure FROM Lecon WHERE idMoniteur = ? AND date = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, moniteur.getIdMoniteur());
+            stmt.setDate(2, Date.valueOf(date));
+            ResultSet rs = stmt.executeQuery();
+
+            List<LocalTime> horaires = new ArrayList<>();
+            while (rs.next()) {
+                horaires.add(rs.getTime("heure").toLocalTime());
+            }
+            return horaires;
+        }
+    }
+
 }

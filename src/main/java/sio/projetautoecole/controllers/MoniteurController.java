@@ -25,5 +25,7 @@ public class MoniteurController {
         moniteurService.inscription(m);
     }
 
-    public
+    public Moniteur getMoniteurByName(String selectedMoniteur) throws SQLException {
+        return moniteurService.getMoniteurByName(selectedMoniteur);
+    }
 }

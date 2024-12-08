@@ -25,9 +25,12 @@ import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class EleveViewController implements Initializable {
 
@@ -250,55 +253,47 @@ public class EleveViewController implements Initializable {
         lvPLMoniteur.setItems(FXCollections.observableArrayList(nomMoniteur));
     }
 
-    @FXML
-    public void afficherHorraire(ActionEvent actionEvent) {
-        // récupérer la valeur du dp
-        // appel d'une fonction donnant par rapport au moniteur selectionner dans la lvPlMoniteur toute les horraire pour cette date (en gros mettre des horraire de base intervalle 1h entre 09:00 et 17:00 et retirer les horraire qui ont une leçon relatif a ce moniteur a cette date)
-
-        try {
-            // Récupérer la date sélectionnée
-            LocalDate selectedDate = dpDateLecon.getValue();
-            if (selectedDate == null) {
-                System.out.println("Veuillez sélectionner une date.");
-                return;
-            }
-
-            // Récupérer le nom du moniteur sélectionné
-            String selectedMoniteur = lvPLMoniteur.getSelectionModel().getSelectedItem().toString();
-            if (selectedMoniteur == null || selectedMoniteur.isEmpty()) {
-                System.out.println("Veuillez sélectionner un moniteur.");
-                return;
-            }
-
-            // Obtenir l'objet Moniteur correspondant (à implémenter dans le contrôleur)
-            Moniteur moniteur = moniteurController.getMoniteurByName(selectedMoniteur);
-            if (moniteur == null) {
-                System.out.println("Moniteur introuvable.");
-                return;
-            }
-
-            // Générer les horaires de base (9h00 à 17h00, toutes les heures)
-            List<LocalTime> horairesBase = new ArrayList<>();
-            for (int heure = 9; heure <= 17; heure++) {
-                horairesBase.add(LocalTime.of(heure, 0));
-            }
-
-            // Obtenir les horaires réservés pour le moniteur à cette date
-            List<LocalTime> horairesReserves = leconController.getHorairesReserves(moniteur, selectedDate);
-
-            // Filtrer les horaires disponibles
-            List<LocalTime> horairesDisponibles = horairesBase.stream()
-                    .filter(horaire -> !horairesReserves.contains(horaire))
-                    .collect(Collectors.toList());
-
-            // Afficher les horaires disponibles dans une ListView (par exemple `lvHorairesDisponibles`)
-            lvHorairesDisponibles.setItems(FXCollections.observableArrayList(
-                    horairesDisponibles.stream().map(LocalTime::toString).toList()
-            ));
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Une erreur est survenue lors de l'affichage des horaires.");
+    public void afficherHorraire(ActionEvent actionEvent) throws SQLException {
+        // Récupérer la date sélectionnée dans le DatePicker
+        LocalDate selectedDate = dpDateLecon.getValue();
+        if (selectedDate == null) {
+            System.out.println("Veuillez sélectionner une date.");
+            return;
         }
+
+        // Récupérer le moniteur sélectionné dans la ListView
+        String selectedMoniteur = (String) lvPLMoniteur.getSelectionModel().getSelectedItem();
+        if (selectedMoniteur == null || selectedMoniteur.isEmpty()) {
+            System.out.println("Veuillez sélectionner un moniteur.");
+            return;
+        }
+
+        // Obtenir l'objet Moniteur correspondant
+        Moniteur moniteur = moniteurController.getMoniteurByName(selectedMoniteur);
+        if (moniteur == null) {
+            System.out.println("Moniteur introuvable.");
+            return;
+        }
+
+        // Générer les horaires de base (9h00 à 17h00, toutes les heures)
+        List<LocalTime> horairesBase = new ArrayList<>();
+        for (int heure = 9; heure <= 17; heure++) {
+            horairesBase.add(LocalTime.of(heure, 0));  // Ajoute chaque heure pleine
+        }
+
+        // Récupérer les horaires réservés pour le moniteur à cette date
+        List<LocalTime> horairesReserves = leconController.getHorairesReserves(moniteur, selectedDate);
+
+        // Filtrer les horaires disponibles (horaires de base moins ceux réservés)
+        List<LocalTime> horairesDisponibles = horairesBase.stream()
+                .filter(horaire -> !horairesReserves.contains(horaire))  // Exclure les horaires déjà réservés
+                .collect(Collectors.toList());
+
+        // Afficher les horaires disponibles dans la ListView
+        lvPLHorraire.setItems(FXCollections.observableArrayList(
+                horairesDisponibles.stream().map(LocalTime::toString).collect(Collectors.toList())
+        ));
     }
+
 
 }
