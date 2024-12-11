@@ -41,7 +41,7 @@ public class MoniteurRepository {
     public void updateMoniteur(Moniteur m) throws SQLException {
         PreparedStatement ps;
         ps = connection.prepareStatement("Update moniteur SET moniteur.Ville = ?, moniteur.CodePostal = ?, moniteur.Telephone = ? " +
-                "WHERE codeMoniteur = ?");
+                "WHERE numCompte = ?");
         ps.setString(1, m.getVilleMoniteur());
         ps.setString(2, m.getCodePostal());
         ps.setString(3, m.getTelephoneMoniteur());

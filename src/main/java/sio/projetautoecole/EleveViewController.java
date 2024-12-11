@@ -82,6 +82,18 @@ public class EleveViewController implements Initializable {
     private String pLecon_immatriculation;
     private int pLecon_Reglee;
     private String pLecon_heure;
+    @FXML
+    private TextField txtNvCp;
+    @FXML
+    private TextField txtNvVille;
+    @FXML
+    private TextField txtNvTel;
+    @FXML
+    private AnchorPane apModifierProfile;
+    @FXML
+    private PasswordField txtNvMdp;
+    @FXML
+    private TextField txtNvMail;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -118,7 +130,7 @@ public class EleveViewController implements Initializable {
 
         clearAll();
         changeAP(apProfile);
-        majProfil();
+        majProfil(eleve);
 
     }
 
@@ -134,7 +146,7 @@ public class EleveViewController implements Initializable {
     @javafx.fxml.FXML
     public void changeToProfil(ActionEvent actionEvent) {
         changeAP(apProfile);
-        majProfil();
+        majProfil(eleve);
         // chargement
     }
 
@@ -175,6 +187,7 @@ public class EleveViewController implements Initializable {
         apPlanning.setVisible(false);
         apProfile.setVisible(false);
         apPrendreLecon.setVisible(false);
+        apModifierProfile.setVisible(false);
     }
 
     private void changeAP(AnchorPane ap) {
@@ -184,6 +197,15 @@ public class EleveViewController implements Initializable {
 
     @javafx.fxml.FXML
     public void changeModifierProfil(ActionEvent actionEvent) {
+        changeAp(apModifierProfile);
+        String ville = lblVille.getText();
+        String tel = lblTelephone.getText();
+        String cP = lblCP.getText();
+
+        txtNvCp.setPromptText(cP.toString());
+        txtNvVille.setPromptText(ville);
+        txtNvTel.setPromptText(tel);
+        txtNvMdp.setPromptText("****");
 
     }
 
@@ -214,17 +236,17 @@ public class EleveViewController implements Initializable {
 
 
 
-    public void majProfil(){
-        lblPrenom.setText(eleve.getPrenomEleve());
-        lblNom.setText(eleve.getNomEleve());
-        lblTelephone.setText(eleve.getTelephoneEleve());
-        lblCP.setText(eleve.getCodePostalEleve());
-        lblVille.setText(eleve.getVilleEleve());
-        lblDate.setText(eleve.getDateNaisseEleve().toString());
-        if (eleve.getSexeEleve()==1){
+    public void majProfil(Eleve e){
+        lblPrenom.setText(e.getPrenomEleve());
+        lblNom.setText(e.getNomEleve());
+        lblTelephone.setText(e.getTelephoneEleve());
+        lblCP.setText(e.getCodePostalEleve());
+        lblVille.setText(e.getVilleEleve());
+        lblDate.setText(e.getDateNaisseEleve().toString());
+        if (e.getSexeEleve()==1){
             changeImageViewImg(imgPdp, "femme.png" );
         }
-        else if (eleve.getSexeEleve()==2){
+        else if (e.getSexeEleve()==2){
             changeImageViewImg(imgPdp, "homme.png" );
         }
     }
@@ -266,5 +288,47 @@ public class EleveViewController implements Initializable {
         // on recupère toute les valeurs requise pour créer la leçon
         int codeLecon = 0; // on le prendra pas de tt façon
 
+    }
+
+    public void changeAp(AnchorPane ap){
+        clearAll();
+        ap.setVisible(true);
+    }
+
+    @FXML
+    public void enregistrerModificationProfil(ActionEvent actionEvent) throws SQLException {
+        // update dans la base de données
+        changeAp(apModifierProfile);
+
+        if(!Objects.equals(txtNvCp.getText(), "")){
+            eleve.setCodePostalEleve(txtNvCp.getText());
+        }
+        if(!Objects.equals(txtNvTel.getText(), "")){
+            eleve.setTelephoneEleve(txtNvTel.getText());
+        }
+        if(!Objects.equals(txtNvVille.getText(), "")){
+            eleve.setVilleEleve(txtNvVille.getText());
+        }
+
+        eleveController.updateEleve(eleve);
+
+        majProfil(eleve);
+        changeAp(apProfile);
+        txtNvVille.setText("");
+        txtNvCp.setText("");
+        txtNvTel.setText("");
+    }
+
+    @FXML
+    public void afficherVueChargerPdp(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void annulerModificationProfil(ActionEvent actionEvent) {
+        changeAp(apProfile);
+        majProfil(eleve);
+        txtNvVille.setText("");
+        txtNvCp.setText("");
+        txtNvTel.setText("");
     }
 }

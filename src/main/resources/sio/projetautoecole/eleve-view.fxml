@@ -4,16 +4,19 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="585.0" prefWidth="1037.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sio.projetautoecole.EleveViewController">
    <children>
@@ -55,7 +58,7 @@
                </image>
             </ImageView>
          </children></Pane>
-      <AnchorPane fx:id="apProfile" layoutY="99.0" prefHeight="506.0" prefWidth="1043.0" visible="false">
+      <AnchorPane fx:id="apProfile" layoutY="99.0" prefHeight="506.0" prefWidth="1043.0">
          <children>
             <ImageView fx:id="imgPdp" fitHeight="189.0" fitWidth="193.0" layoutX="69.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -196,14 +199,14 @@
             </Label>
             <Button layoutX="423.0" layoutY="430.0" mnemonicParsing="false" text="Prendre une leçon supplémentaire" />
          </children></AnchorPane>
-      <AnchorPane fx:id="apPrendreLecon" layoutY="91.0" prefHeight="515.0" prefWidth="1043.0">
+      <AnchorPane fx:id="apPrendreLecon" layoutY="91.0" prefHeight="515.0" prefWidth="1043.0" visible="false">
          <children>
             <ListView fx:id="lvPLCategoriePermis" layoutX="56.0" layoutY="98.0" onMouseClicked="#remplirMoniteur" prefHeight="203.0" prefWidth="194.0" />
             <ListView fx:id="lvPLMoniteur" layoutX="290.0" layoutY="97.0" prefHeight="200.0" prefWidth="200.0" />
             <DatePicker fx:id="dpDateLecon" layoutX="544.0" layoutY="99.0" />
             <ListView fx:id="lvPLHorraire" layoutX="547.0" layoutY="189.0" onMouseClicked="#afficherVehicule" prefHeight="111.0" prefWidth="171.0" />
             <ListView fx:id="lvPLVehicule" layoutX="770.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
-            <Button layoutX="366.0" layoutY="366.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="272.0" text="Valider" onAction="#prendreLecon">
+            <Button layoutX="366.0" layoutY="366.0" mnemonicParsing="false" onAction="#prendreLecon" prefHeight="40.0" prefWidth="272.0" text="Valider">
                <font>
                   <Font size="18.0" />
                </font>
@@ -237,5 +240,42 @@
       </AnchorPane>
       <AnchorPane fx:id="apPlanning" layoutY="100.0" prefHeight="506.0" prefWidth="1043.0" style="-fx-background-color: green;" visible="false" />
       <AnchorPane fx:id="apReglement" layoutY="100.0" prefHeight="506.0" prefWidth="1043.0" style="-fx-background-color: purple;" visible="false" />
+      <AnchorPane fx:id="apModifierProfile" layoutX="2.0" layoutY="125.0" prefHeight="490.0" prefWidth="1043.0" visible="false">
+         <children>
+            <ImageView fitHeight="174.0" fitWidth="154.0" layoutX="144.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/femme.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="365.0" layoutY="146.0" text="Nom :" />
+            <Label layoutX="664.0" layoutY="146.0" text="Prenom :" />
+            <Label layoutX="365.0" layoutY="185.0" text="Date de naissance :" />
+            <Label layoutX="664.0" layoutY="185.0" text="Sexe :" />
+            <Label layoutX="367.0" layoutY="227.0" text="Mail :" />
+            <Label layoutX="665.0" layoutY="227.0" text="Telephone :" />
+            <Label layoutX="368.0" layoutY="271.0" text="Code Postale :" />
+            <Label layoutX="666.0" layoutY="271.0" text="Ville :" />
+            <TextField disable="true" editable="false" layoutX="455.0" layoutY="142.0" />
+            <TextField disable="true" editable="false" layoutX="727.0" layoutY="134.0" />
+            <TextField fx:id="txtNvMail" layoutX="455.0" layoutY="223.0" />
+            <TextField disable="true" editable="false" layoutX="727.0" layoutY="181.0" />
+            <TextField fx:id="txtNvTel" layoutX="727.0" layoutY="223.0" />
+            <TextField fx:id="txtNvVille" layoutX="727.0" layoutY="267.0" />
+            <TextField fx:id="txtNvCp" layoutX="455.0" layoutY="267.0" />
+            <DatePicker disable="true" editable="false" layoutX="477.0" layoutY="181.0" prefHeight="25.0" prefWidth="121.0" />
+            <Button layoutX="598.0" layoutY="387.0" mnemonicParsing="false" onAction="#enregistrerModificationProfil" text="Enregistrer" />
+            <Button layoutX="180.0" layoutY="299.0" mnemonicParsing="false" onAction="#afficherVueChargerPdp" text="ModifierPdp" />
+            <Text layoutX="306.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vous pouvez ici enregistrer vos nouvelles informations">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="329.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Si vous ne souhaitez pas modifier un champs vous pouvez le laissez vide." />
+            <Label layoutX="429.0" layoutY="324.0" text="Nouveau mot de passe :" />
+            <PasswordField fx:id="txtNvMdp" layoutX="578.0" layoutY="320.0" />
+            <Text layoutX="197.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Une fois vos informations saisies appuyer sur le bouton enregistrer. Vous pouvez ne rien modifier en appuyant sur annuler." />
+            <Button layoutX="45.0" layoutY="14.0" mnemonicParsing="false" onAction="#annulerModificationProfil" text="Annuler" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
