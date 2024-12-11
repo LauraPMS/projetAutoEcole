@@ -6,8 +6,6 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
@@ -17,7 +15,7 @@
 
 <AnchorPane fx:id="ApPrincipale" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="1037.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sio.projetautoecole.HelloController">
    <children>
-      <AnchorPane fx:id="ApCompte" prefHeight="586.0" prefWidth="1041.0" visible="false">
+      <AnchorPane fx:id="ApCompte" prefHeight="586.0" prefWidth="1041.0">
          <children>
             <ImageView fitHeight="589.0" fitWidth="1037.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -30,7 +28,7 @@
             <ImageView fitHeight="77.0" fitWidth="152.0" layoutX="818.0" layoutY="295.0" onMouseClicked="#changeToInscription" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="ApAccueil" layoutX="-2.0" layoutY="-2.0" prefHeight="588.0" prefWidth="992.0" visible="false">
+      <AnchorPane fx:id="ApAccueil" layoutX="-2.0" layoutY="-2.0" prefHeight="588.0" prefWidth="992.0">
          <children>
             <ImageView fx:id="fondAccueil" fitHeight="589.0" fitWidth="1040.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -42,12 +40,6 @@
             <ImageView fitHeight="135.0" fitWidth="131.0" layoutX="60.0" layoutY="354.0" onMouseClicked="#changeToCompte" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="131.0" fitWidth="131.0" layoutX="247.0" layoutY="356.0" onMouseClicked="#changeToInscription" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="134.0" fitWidth="123.0" layoutX="438.0" layoutY="358.0" onMouseClicked="#changeToCompte" pickOnBounds="true" preserveRatio="true" />
-            <TableView fx:id="tvTestPermis" layoutX="657.0" layoutY="204.0" prefHeight="200.0" prefWidth="278.0">
-              <columns>
-                <TableColumn fx:id="tcPermis" maxWidth="959.9993896484375" minWidth="30.0" prefWidth="95.99993896484375" text="Permis" />
-                <TableColumn fx:id="tcPrix" maxWidth="1039.9993896484375" minWidth="30.0" prefWidth="103.99993896484375" text="Prix" />
-              </columns>
-            </TableView>
          </children></AnchorPane>
       <AnchorPane fx:id="ApConnexion" prefHeight="539.0" prefWidth="1054.0" visible="false">
          <children>
@@ -72,7 +64,7 @@
             <ImageView fx:id="btnGoInscription" fitHeight="34.0" fitWidth="200.0" layoutX="439.0" layoutY="476.0" onMouseClicked="#changeToInscription" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="btnRetourAccueil" fitHeight="43.0" fitWidth="113.0" layoutX="51.0" layoutY="42.0" onMouseClicked="#changeToAccueil" pickOnBounds="true" preserveRatio="true" />
          </children></AnchorPane>
-      <AnchorPane fx:id="ApInscription" prefHeight="590.0" prefWidth="1028.0">
+      <AnchorPane fx:id="ApInscription" prefHeight="590.0" prefWidth="1028.0" visible="false">
          <children>
             <ImageView fitHeight="585.0" fitWidth="1062.0" layoutX="-3.0" pickOnBounds="true" preserveRatio="true">
                <image>

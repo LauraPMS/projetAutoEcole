@@ -81,30 +81,6 @@ public class EleveViewController implements Initializable {
     private String pLecon_immatriculation;
     private int pLecon_Reglee;
     private String pLecon_heure;
-    @FXML
-    private AnchorPane apInfoProfil;
-    @FXML
-    private AnchorPane apContenuProfil;
-    @FXML
-    private AnchorPane apModifProfil;
-    @FXML
-    private PasswordField txtNewMdp;
-    @FXML
-    private TextField txtNewPrenom;
-    @FXML
-    private TextField txtNewVille;
-    @FXML
-    private TextField txtNewNom;
-    @FXML
-    private TextField txtNewTel;
-    @FXML
-    private DatePicker dpNewDate;
-    @FXML
-    private TextField txtNewSexe;
-    @FXML
-    private TextField txtNewCp;
-    @FXML
-    private ImageView imgPdpModif;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -151,6 +127,7 @@ public class EleveViewController implements Initializable {
     public void deconnexionOnClick(ActionEvent actionEvent) throws IOException {
         // appel d'une fonction seDeconnecter
         Session.changerScene("hello-view.fxml", "Acceuil", actionEvent);
+
     }
 
     @javafx.fxml.FXML
@@ -206,41 +183,8 @@ public class EleveViewController implements Initializable {
 
     @javafx.fxml.FXML
     public void changeModifierProfil(ActionEvent actionEvent) {
-        apInfoProfil.setVisible(false);
-        apContenuProfil.setVisible(false);
-        apModifProfil.setVisible(true);
-
-        txtNewPrenom.setText(eleve.getPrenomEleve());
-        txtNewNom.setText(eleve.getNomEleve());
-        txtNewTel.setText(eleve.getTelephoneEleve());
-        txtNewCp.setText(eleve.getCodePostalEleve());
-        txtNewVille.setText(eleve.getVilleEleve());
-
-        if (eleve.getSexeEleve()==1){
-            changeImageViewImg(imgPdpModif, "femme.png" );
-        }
-        else if (eleve.getSexeEleve()==2){
-            changeImageViewImg(imgPdpModif, "homme.png" );
-        }
-
 
     }
-
-    @javafx.fxml.FXML
-    public void modifierProfil(ActionEvent actionEvent) throws SQLException {
-
-        eleveController.modifier(eleve, txtNewCp.getText(), txtNewVille.getText(), txtNewTel.getText());
-
-        majProfil();
-        apInfoProfil.setVisible(true);
-        apContenuProfil.setVisible(true);
-        apModifProfil.setVisible(false);
-
-    }
-
-
-
-
 
     @javafx.fxml.FXML
     public void changePrendreLecon(ActionEvent actionEvent) {
@@ -309,7 +253,6 @@ public class EleveViewController implements Initializable {
         lvPLMoniteur.setItems(FXCollections.observableArrayList(nomMoniteur));
     }
 
-    @FXML
     public void afficherHorraire(ActionEvent actionEvent) throws SQLException {
         // Récupérer la date sélectionnée dans le DatePicker
         LocalDate selectedDate = dpDateLecon.getValue();
@@ -353,17 +296,4 @@ public class EleveViewController implements Initializable {
     }
 
 
-    @FXML
-    public void afficherVueChargerPdp(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void annulerModificationProfil(ActionEvent actionEvent) {
-        majProfil();
-        apInfoProfil.setVisible(true);
-        apContenuProfil.setVisible(true);
-        apModifProfil.setVisible(false);
-
-
-    }
 }
