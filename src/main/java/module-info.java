@@ -12,6 +12,7 @@ module sio.projetautoecole {
     requires com.almasb.fxgl.all;
     requires java.sql;
     requires mysql.connector.java;
+    requires com.fasterxml.jackson.core;
 
     opens sio.projetautoecole to javafx.fxml;
 
