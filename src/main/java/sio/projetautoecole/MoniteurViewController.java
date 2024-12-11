@@ -26,32 +26,17 @@ import java.util.ResourceBundle;
 public class MoniteurViewController implements Initializable {
 
 
-    @javafx.fxml.FXML
-    private AnchorPane apProfile, apModifierProfile;
-
-    // Informations du moniteur affiché sur la page profil
-    @javafx.fxml.FXML
-    private Label lblCP, lblNom, lblVille, lblDate, lblTelephone, lblPrenom, lblProchaineLecon, lblMail;
-    @javafx.fxml.FXML
-    private ImageView imgPdp;
 
     // Liste déroulante des différentes licences obtenue par le moniteur
 
-    @javafx.fxml.FXML
-    private ScrollPane spListePermis;
-    @javafx.fxml.FXML
-    private ImageView empPermis1, empPermis2, empPermis3, empPermis4, empPermis5;
+
 
     // Liste des prochaine leçon (pour le lendemain)
 
     @javafx.fxml.FXML
     private TableView tvProchaineLecon;
     @javafx.fxml.FXML
-    private TableColumn tcLecon, tcHorraireLecon, tcPermisLecon, tcJourLecon, tcMoniteurLecon;
-
-    // Informations du moniteur affiché sur la page Modifier Profile
-    @javafx.fxml.FXML
-    private TextField txtNvCp,txtNvVille,txtNvTel, txtNvMdp;
+    private TableColumn tcHorraireLecon, tcPermisLecon, tcJourLecon, tcMoniteurLecon;
 
 
     // controller utile : Compte, Moniteur
@@ -63,7 +48,60 @@ public class MoniteurViewController implements Initializable {
     Moniteur moniteur;
 
     int numCompteActif;
-
+    @javafx.fxml.FXML
+    private ImageView emp5;
+    @javafx.fxml.FXML
+    private ImageView emp4;
+    @javafx.fxml.FXML
+    private ImageView emp3;
+    @javafx.fxml.FXML
+    private ImageView emp2;
+    @javafx.fxml.FXML
+    private ImageView emp1;
+    @javafx.fxml.FXML
+    private PasswordField txtNewMdp;
+    @javafx.fxml.FXML
+    private TextField txtNewPrenom;
+    @javafx.fxml.FXML
+    private TableColumn tcVehiculeLecon;
+    @javafx.fxml.FXML
+    private AnchorPane apInfoProfil;
+    @javafx.fxml.FXML
+    private AnchorPane apModifProfil;
+    @javafx.fxml.FXML
+    private TextField txtNewVille;
+    @javafx.fxml.FXML
+    private ImageView imgPdpModif;
+    @javafx.fxml.FXML
+    private TextField txtNewNom;
+    @javafx.fxml.FXML
+    private AnchorPane apContenuProfil;
+    @javafx.fxml.FXML
+    private DatePicker dpNewDate;
+    @javafx.fxml.FXML
+    private TextField txtNewTel;
+    @javafx.fxml.FXML
+    private TextField txtNewSexe;
+    @javafx.fxml.FXML
+    private ScrollPane spaneListePermis;
+    @javafx.fxml.FXML
+    private TextField txtNewCp;
+    @javafx.fxml.FXML
+    private AnchorPane apProfil;
+    @javafx.fxml.FXML
+    private Label lblCP;
+    @javafx.fxml.FXML
+    private Label lblNom;
+    @javafx.fxml.FXML
+    private ImageView imgPdp;
+    @javafx.fxml.FXML
+    private Label lblVille;
+    @javafx.fxml.FXML
+    private Label lblDate;
+    @javafx.fxml.FXML
+    private Label lblPrenom;
+    @javafx.fxml.FXML
+    private Label lblTelephone;
 
 
     @Override
@@ -83,8 +121,8 @@ public class MoniteurViewController implements Initializable {
         }
 
         clearAll();
-        changeAp(apProfile);
-        majProfil(moniteur);
+        changeAp(apProfil);
+        majProfil();
     }
 
 
@@ -94,62 +132,43 @@ public class MoniteurViewController implements Initializable {
     @javafx.fxml.FXML
     public void deconnexionOnClick(ActionEvent actionEvent) throws IOException {
         // Retour a la page accueil
-        Session.changerScene("hello-view.fxml", "Acceuil", actionEvent);
+        Session.changerScene("hello-view.fxml", "Accueil", actionEvent);
     }
 
     @javafx.fxml.FXML
-    public void changeToProfil(ActionEvent actionEvent) {changeAp(apProfile);majProfil(moniteur);}
+    public void changeToProfil(ActionEvent actionEvent) {
+        changeAp(apProfil);
+        majProfil();
+    }
 
     @javafx.fxml.FXML
     public void changeModifierProfil(ActionEvent actionEvent) {
-        // changement de vuie
-        // mise a jour concernant le moniteur
-        changeAp(apModifierProfile);
-        String ville = lblVille.getText();
-        String tel = lblTelephone.getText();
-        String cP = lblCP.getText();
+        apInfoProfil.setVisible(false);
+        apContenuProfil.setVisible(false);
+        apModifProfil.setVisible(true);
 
-        txtNvCp.setPromptText(cP.toString());
-        txtNvVille.setPromptText(ville);
-        txtNvTel.setPromptText(tel);
-        txtNvMdp.setPromptText("****");
+        txtNewPrenom.setText(moniteur.getPrenomMoniteur());
+        txtNewNom.setText(moniteur.getNomMoniteur());
+        txtNewTel.setText(moniteur.getTelephoneMoniteur());
+        txtNewCp.setText(moniteur.getCodePostal());
+        txtNewVille.setText(moniteur.getVilleMoniteur());
+
+        if (moniteur.getSexeMoniteur()==1){
+            changeImageViewImg(imgPdpModif, "femme.png" );
+            txtNewSexe.setText("Femme");
+        }
+        else if (moniteur.getSexeMoniteur()==2){
+            changeImageViewImg(imgPdpModif, "homme.png" );
+            txtNewSexe.setText("Homme");
+        }
 
     }
     @javafx.fxml.FXML
     public void annulerModificationProfil(ActionEvent actionEvent) {
-        changeAp(apProfile);
-        majProfil(moniteur);
-        txtNvVille.setText("");
-        txtNvCp.setText("");
-        txtNvTel.setText("");
-    }
-
-
-    // il manque le changement de mot de passe
-    @javafx.fxml.FXML
-    public void enregistrerModificationProfil(ActionEvent actionEvent) throws SQLException {
-        // update dans la base de données
-        changeAp(apModifierProfile);
-
-        if(!Objects.equals(txtNvCp.getText(), "")){
-            moniteur.setCodePostal(txtNvCp.getText());
-        }
-        if(!Objects.equals(txtNvTel.getText(), "")){
-            moniteur.setTelephoneMoniteur(txtNvTel.getText());
-        }
-        if(!Objects.equals(txtNvVille.getText(), "")){
-            moniteur.setVilleMoniteur(txtNvVille.getText());
-        }
-
-
-        moniteurController.updateMoniteur(moniteur);
-
-        majProfil(moniteur);
-        changeAp(apProfile);
-        txtNvVille.setText("");
-        txtNvCp.setText("");
-        txtNvTel.setText("");
-
+        majProfil();
+        apInfoProfil.setVisible(true);
+        apContenuProfil.setVisible(true);
+        apModifProfil.setVisible(false);
     }
 
 
@@ -200,30 +219,27 @@ public class MoniteurViewController implements Initializable {
 
     // -------------------- Fonction servant aux controlleurs graphiques (maj, affichage etc) ------------------------//
 
-    public void majProfil(Moniteur m){
-        lblPrenom.setText(m.getPrenomMoniteur());
-        lblNom.setText(m.getNomMoniteur());
-        lblVille.setText(m.getVilleMoniteur());
-        lblDate.setText(m.getDateMoniteur().toString());
-        lblTelephone.setText(m.getTelephoneMoniteur());
-        lblCP.setText(m.getCodePostal());
-        if (m.getSexeMoniteur()==1){
+    public void majProfil(){
+        lblPrenom.setText(moniteur.getPrenomMoniteur());
+        lblNom.setText(moniteur.getNomMoniteur());
+        lblVille.setText(moniteur.getVilleMoniteur());
+        lblDate.setText(moniteur.getDateMoniteur().toString());
+        lblTelephone.setText(moniteur.getTelephoneMoniteur());
+        lblCP.setText(moniteur.getCodePostal());
+        if (moniteur.getSexeMoniteur()==1){
             changeImageViewImg(imgPdp, "femme.png" );
         }
-        else if (m.getSexeMoniteur()==2){
+        else if (moniteur.getSexeMoniteur()==2){
             changeImageViewImg(imgPdp, "homme.png" );
         }
     }
 
 
-
-
-
     // Focntion utile
 
     public void clearAll(){
-        apModifierProfile.setVisible(false);
-        apProfile.setVisible(false);
+        apModifProfil.setVisible(false);
+        apProfil.setVisible(false);
     }
 
     public void changeAp(AnchorPane ap){
@@ -242,4 +258,17 @@ public class MoniteurViewController implements Initializable {
     }
 
 
+    @javafx.fxml.FXML
+    public void modifierProfil(ActionEvent actionEvent) throws SQLException {
+        moniteurController.modifier(moniteur, txtNewCp.getText(), txtNewVille.getText(), txtNewTel.getText());
+
+        majProfil();
+        apInfoProfil.setVisible(true);
+        apContenuProfil.setVisible(true);
+        apModifProfil.setVisible(false);
+    }
+
+    @javafx.fxml.FXML
+    public void changePrendreLecon(ActionEvent actionEvent) {
+    }
 }

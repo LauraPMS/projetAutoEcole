@@ -4,16 +4,19 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="585.0" prefWidth="1037.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sio.projetautoecole.EleveViewController">
    <children>
@@ -55,101 +58,144 @@
                </image>
             </ImageView>
          </children></Pane>
-      <AnchorPane fx:id="apProfile" layoutY="99.0" prefHeight="506.0" prefWidth="1043.0" visible="false">
+      <AnchorPane fx:id="apProfile" layoutY="99.0" prefHeight="506.0" prefWidth="1043.0">
          <children>
-            <ImageView fx:id="imgPdp" fitHeight="189.0" fitWidth="193.0" layoutX="69.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../img/femme.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="lblPrenom" alignment="CENTER" layoutX="126.0" layoutY="227.0" text="Prenom" textOverrun="CENTER_ELLIPSIS">
-               <font>
-                  <Font name="Nirmala UI" size="16.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblNom" alignment="CENTER" layoutX="98.0" layoutY="253.0" text="Nom de Famille" textOverrun="CENTER_ELLIPSIS">
-               <font>
-                  <Font name="Nirmala UI" size="16.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblDate" alignment="CENTER" layoutX="90.0" layoutY="279.0" text="Date de naissance" textOverrun="CENTER_ELLIPSIS">
-               <font>
-                  <Font name="Nirmala UI" size="16.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblVille" alignment="CENTER" layoutX="138.0" layoutY="305.0" text="Ville" textOverrun="CENTER_ELLIPSIS">
-               <font>
-                  <Font name="Nirmala UI" size="16.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblCP" alignment="CENTER" layoutX="107.0" layoutY="331.0" text="Code Postale" textOverrun="CENTER_ELLIPSIS">
-               <font>
-                  <Font name="Nirmala UI" size="16.0" />
-               </font>
-            </Label>
-            <Button layoutX="401.0" layoutY="394.0" mnemonicParsing="false" onAction="#changePrendreLecon" prefHeight="32.0" prefWidth="228.0" text="Prendre une nouvelle lecon">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Button>
-            <ScrollPane fx:id="spaneListePermis" layoutX="401.0" layoutY="72.0" prefHeight="119.0" prefWidth="489.0">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="102.0" prefWidth="768.0">
-                     <children>
-                        <ImageView fx:id="emp1" fitHeight="75.0" fitWidth="91.0" layoutX="27.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../img/voiture.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="emp2" fitHeight="75.0" fitWidth="91.0" layoutX="171.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../img/voiture.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="emp3" fitHeight="75.0" fitWidth="91.0" layoutX="309.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../img/voiture.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="emp4" fitHeight="75.0" fitWidth="91.0" layoutX="453.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../img/voiture.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="emp5" fitHeight="75.0" fitWidth="91.0" layoutX="591.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../img/voiture.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </ScrollPane>
-            <Label layoutX="405.0" layoutY="30.0" text="Liste des permis">
-               <font>
-                  <Font name="Nirmala UI" size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="405.0" layoutY="217.0" text="Prochaines leçons">
-               <font>
-                  <Font name="Nirmala UI" size="20.0" />
-               </font>
-            </Label>
-            <TableView fx:id="tvProchaineLecon" layoutX="401.0" layoutY="260.0" prefHeight="121.0" prefWidth="458.0">
-              <columns>
-                <TableColumn fx:id="tcJourLecon" maxWidth="750.0" minWidth="30.0" prefWidth="75.0" text="Jour" />
-                <TableColumn fx:id="tcHorraireLecon" maxWidth="903.9993286132812" minWidth="30.0" prefWidth="90.39993286132812" text="Horraire" />
-                  <TableColumn fx:id="tcPermisLecon" maxWidth="1026.6668701171875" minWidth="30.0" prefWidth="102.66668701171875" text="Permis" />
-                  <TableColumn fx:id="tcVehiculeLecon" maxWidth="874.6673583984375" minWidth="30.0" prefWidth="87.46673583984375" text="Véhicule" />
-                  <TableColumn fx:id="tcMoniteurLecon" maxWidth="1053.3331298828125" minWidth="30.0" prefWidth="105.33331298828125" text="Moniteur" />
-              </columns>
-            </TableView>
-            <Label fx:id="lblTelephone" alignment="CENTER" layoutX="116.0" layoutY="357.0" text="Telephone" textOverrun="CENTER_ELLIPSIS">
-               <font>
-                  <Font name="Nirmala UI" size="16.0" />
-               </font>
-            </Label>
-            <Button layoutX="97.0" layoutY="394.0" mnemonicParsing="false" onAction="#changeModifierProfil" prefHeight="32.0" prefWidth="112.0" text="Modifier" />
+            <AnchorPane fx:id="apInfoProfil" prefHeight="506.0" prefWidth="554.0">
+               <children>
+                  <Label fx:id="lblCP" alignment="CENTER" layoutX="107.0" layoutY="315.0" text="Code Postale" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Nirmala UI" size="16.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imgPdp" fitHeight="189.0" fitWidth="193.0" layoutX="59.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/femme.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lblPrenom" alignment="CENTER" layoutX="125.0" layoutY="213.0" text="Prenom" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Nirmala UI" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblNom" alignment="CENTER" layoutX="98.0" layoutY="240.0" text="Nom de Famille" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Nirmala UI" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblDate" alignment="CENTER" layoutX="90.0" layoutY="265.0" text="Date de naissance" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Nirmala UI" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblVille" alignment="CENTER" layoutX="139.0" layoutY="290.0" text="Ville" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Nirmala UI" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblTelephone" alignment="CENTER" layoutX="116.0" layoutY="340.0" text="Telephone" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Nirmala UI" size="16.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="98.0" layoutY="378.0" mnemonicParsing="false" onAction="#changeModifierProfil" prefHeight="32.0" prefWidth="112.0" text="Modifier" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="apContenuProfil" layoutX="384.0" prefHeight="484.0" prefWidth="595.0">
+               <children>
+                  <ScrollPane fx:id="spaneListePermis" layoutX="14.0" layoutY="73.0" prefHeight="119.0" prefWidth="489.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="102.0" prefWidth="768.0">
+                           <children>
+                              <ImageView fx:id="emp1" fitHeight="75.0" fitWidth="91.0" layoutX="27.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../img/voiture.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="emp2" fitHeight="75.0" fitWidth="91.0" layoutX="171.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../img/voiture.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="emp3" fitHeight="75.0" fitWidth="91.0" layoutX="309.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../img/voiture.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="emp4" fitHeight="75.0" fitWidth="91.0" layoutX="453.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../img/voiture.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="emp5" fitHeight="75.0" fitWidth="91.0" layoutX="591.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../img/voiture.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+                  <Label layoutX="14.0" layoutY="34.0" text="Liste des permis">
+                     <font>
+                        <Font name="Nirmala UI" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="212.0" text="Prochaines leçons">
+                     <font>
+                        <Font name="Nirmala UI" size="20.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tvProchaineLecon" layoutX="14.0" layoutY="242.0" prefHeight="121.0" prefWidth="458.0">
+                    <columns>
+                      <TableColumn fx:id="tcJourLecon" maxWidth="750.0" minWidth="30.0" prefWidth="75.0" text="Jour" />
+                      <TableColumn fx:id="tcHorraireLecon" maxWidth="903.9993286132812" minWidth="30.0" prefWidth="90.39993286132812" text="Horraire" />
+                        <TableColumn fx:id="tcPermisLecon" maxWidth="1026.6668701171875" minWidth="30.0" prefWidth="102.66668701171875" text="Permis" />
+                        <TableColumn fx:id="tcVehiculeLecon" maxWidth="874.6673583984375" minWidth="30.0" prefWidth="87.46673583984375" text="Véhicule" />
+                        <TableColumn fx:id="tcMoniteurLecon" maxWidth="1053.3331298828125" minWidth="30.0" prefWidth="105.33331298828125" text="Moniteur" />
+                    </columns>
+                  </TableView>
+                  <Button layoutX="14.0" layoutY="384.0" mnemonicParsing="false" onAction="#changePrendreLecon" prefHeight="32.0" prefWidth="228.0" text="Prendre une nouvelle lecon">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="apModifProfil" layoutX="5.0" layoutY="-3.0" prefHeight="490.0" prefWidth="1043.0" visible="false">
+               <children>
+                  <ImageView fx:id="imgPdpModif" fitHeight="174.0" fitWidth="154.0" layoutX="144.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/femme.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="365.0" layoutY="146.0" text="Nom :" />
+                  <Label layoutX="664.0" layoutY="146.0" text="Prenom :" />
+                  <Label layoutX="365.0" layoutY="185.0" text="Date de naissance :" />
+                  <Label layoutX="664.0" layoutY="185.0" text="Sexe :" />
+                  <Label layoutX="665.0" layoutY="227.0" text="Telephone :" />
+                  <Label layoutX="365.0" layoutY="227.0" text="Code Postale :" />
+                  <Label layoutX="365.0" layoutY="271.0" text="Ville :" />
+                  <TextField fx:id="txtNewNom" disable="true" editable="false" layoutX="455.0" layoutY="142.0" />
+                  <TextField fx:id="txtNewPrenom" disable="true" editable="false" layoutX="727.0" layoutY="134.0" />
+                  <TextField fx:id="txtNewSexe" disable="true" editable="false" layoutX="727.0" layoutY="181.0" />
+                  <TextField fx:id="txtNewVille" layoutX="455.0" layoutY="267.0" />
+                  <TextField fx:id="txtNewCp" layoutX="455.0" layoutY="223.0" />
+                  <DatePicker fx:id="dpNewDate" disable="true" editable="false" layoutX="477.0" layoutY="181.0" prefHeight="25.0" prefWidth="121.0" />
+                  <Button layoutX="598.0" layoutY="387.0" mnemonicParsing="false" onAction="#modifierProfil" text="Enregistrer" />
+                  <Button layoutX="180.0" layoutY="299.0" mnemonicParsing="false" onAction="#afficherVueChargerPdp" text="ModifierPdp" />
+                  <Text layoutX="306.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vous pouvez ici enregistrer vos nouvelles informations">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="329.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Si vous ne souhaitez pas modifier un champs vous pouvez le laissez vide." />
+                  <Label layoutX="429.0" layoutY="324.0" text="Nouveau mot de passe :" />
+                  <PasswordField fx:id="txtNewMdp" layoutX="578.0" layoutY="320.0" />
+                  <Text layoutX="197.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Une fois vos informations saisies appuyer sur le bouton enregistrer. Vous pouvez ne rien modifier en appuyant sur annuler." />
+                  <Button layoutX="45.0" layoutY="14.0" mnemonicParsing="false" onAction="#annulerModificationProfil" text="Annuler" />
+                  <TextField fx:id="txtNewTel" layoutX="746.0" layoutY="223.0" />
+               </children>
+            </AnchorPane>
          </children></AnchorPane>
       <AnchorPane fx:id="apPermis" layoutY="99.0" prefHeight="506.0" prefWidth="1043.0" style="-fx-background-color: red;" visible="false">
          <children>
@@ -196,7 +242,7 @@
             </Label>
             <Button layoutX="423.0" layoutY="430.0" mnemonicParsing="false" text="Prendre une leçon supplémentaire" />
          </children></AnchorPane>
-      <AnchorPane fx:id="apPrendreLecon" layoutY="91.0" prefHeight="515.0" prefWidth="1043.0">
+      <AnchorPane fx:id="apPrendreLecon" layoutY="91.0" prefHeight="515.0" prefWidth="1043.0" visible="false">
          <children>
             <ListView fx:id="lvPLCategoriePermis" layoutX="56.0" layoutY="98.0" onMouseClicked="#remplirMoniteur" prefHeight="203.0" prefWidth="194.0" />
             <ListView fx:id="lvPLMoniteur" layoutX="290.0" layoutY="97.0" prefHeight="200.0" prefWidth="200.0" />

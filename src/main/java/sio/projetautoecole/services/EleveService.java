@@ -19,4 +19,8 @@ public class EleveService {
     public void inscription(Eleve eleve) throws SQLException {
         eleveRepository.inscription(eleve);
     }
+
+    public void modifier(Eleve eleve, String newCP, String newVille, String newTel) throws SQLException {
+        eleveRepository.modifier(eleve, newCP, newVille, newTel);
+    }
 }

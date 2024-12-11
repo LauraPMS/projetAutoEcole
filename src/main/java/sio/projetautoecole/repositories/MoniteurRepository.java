@@ -99,4 +99,13 @@ public class MoniteurRepository {
         return m;
 
     }
+
+    public void modifier(Moniteur moniteur, String newCP, String newVille, String newTel) throws SQLException {
+        PreparedStatement ps = connection.prepareStatement("UPDATE moniteur SET CodePostal = ?, Ville = ?, Telephone = ? WHERE moniteur .numCompte = ?");
+        ps.setString(1, newCP);
+        ps.setString(2, newVille);
+        ps.setString(3, newTel);
+        ps.setInt(4, moniteur.getNumCompte());
+        ps.executeUpdate();
+    }
 }

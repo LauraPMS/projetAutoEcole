@@ -1,5 +1,6 @@
 package sio.projetautoecole.controllers;
 
+import sio.projetautoecole.models.Eleve;
 import sio.projetautoecole.models.Moniteur;
 import sio.projetautoecole.services.MoniteurService;
 
@@ -27,5 +28,9 @@ public class MoniteurController {
 
     public Moniteur getMoniteurByName(String selectedMoniteur) throws SQLException {
         return moniteurService.getMoniteurByName(selectedMoniteur);
+    }
+
+    public void modifier(Moniteur moniteur, String newCP, String newVille, String newTel) throws SQLException {
+        moniteurService.modifier(moniteur, newCP, newVille, newTel);
     }
 }

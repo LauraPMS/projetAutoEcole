@@ -20,4 +20,8 @@ public class EleveController {
     public void inscription(Eleve eleve) throws SQLException {
         eleveService.inscription(eleve);
     }
+
+    public void modifier(Eleve eleve, String newCP, String newVille, String newTel) throws SQLException {
+        eleveService.modifier(eleve, newCP, newVille, newTel);
+    }
 }

@@ -52,4 +52,13 @@ public class EleveRepository {
         ps.executeUpdate();
     }
 
+    public void modifier(Eleve eleve, String newCP, String newVille, String newTel) throws SQLException {
+        PreparedStatement ps = connection.prepareStatement("UPDATE eleve SET CodePostal = ?, Ville = ?, Telephone = ? WHERE eleve.numCompte = ?");
+        ps.setString(1, newCP);
+        ps.setString(2, newVille);
+        ps.setString(3, newTel);
+        ps.setInt(4, eleve.getNumCompte());
+        ps.executeUpdate();
+    }
+
 }
