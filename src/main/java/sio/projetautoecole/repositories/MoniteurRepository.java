@@ -48,7 +48,6 @@ public class MoniteurRepository {
         ps.setInt(4, m.getNumCompte());
         ps.executeUpdate();
 
-
     }
 
 
@@ -69,10 +68,11 @@ public class MoniteurRepository {
 
     public Moniteur getMoniteurByName(String selectedMoniteur) throws SQLException {
         Moniteur m = null;
-        PreparedStatement ps = connection.prepareStatement("SELECT codeMoniteur, nom, prenom, sexe, DateDeNaissance, adresse1, CodePostal, Ville, Telephone, numCompte, imgPdp FROM Moniteurs WHERE nom = ?");
+        PreparedStatement ps = connection.prepareStatement("SELECT codeMoniteur, nom, prenom, sexe, DateDeNaissance, adresse1, CodePostal, Ville, Telephone, numCompte, imgPdp FROM Moniteur WHERE nom = ?");
         ps.setString(1, selectedMoniteur);
         ResultSet rs = ps.executeQuery();
         if (rs.next()) {
+
             int codeMoniteur = rs.getInt("codeMoniteur");
             String nom = rs.getString("nom");
             String prenom = rs.getString("prenom");
@@ -84,17 +84,7 @@ public class MoniteurRepository {
             String telephone = rs.getString("Telephone");
             int numCompte = rs.getInt("numCompte");
             String imgPdp = rs.getString("imgPdp");
-            m.setIdMoniteur(codeMoniteur);
-            m.setNomMoniteur(nom);
-            m.setPrenomMoniteur(prenom);
-            m.setSexeMoniteur(sexe);
-            m.setDateMoniteur(dateDeNaissance.toLocalDate());
-            m.setAdresseMoniteur(addresse1);
-            m.setCodePostal(codePostal);
-            m.setVilleMoniteur(ville);
-            m.setTelephoneMoniteur(telephone);
-            m.setNumCompte(numCompte);
-            m.setImgPdp(imgPdp);
+            m = new Moniteur(codeMoniteur,nom ,prenom ,addresse1 , sexe, dateDeNaissance.toLocalDate(),codePostal ,ville , telephone, imgPdp, numCompte );
         }
         return m;
 

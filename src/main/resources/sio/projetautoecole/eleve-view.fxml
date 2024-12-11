@@ -200,10 +200,10 @@
          <children>
             <ListView fx:id="lvPLCategoriePermis" layoutX="56.0" layoutY="98.0" onMouseClicked="#remplirMoniteur" prefHeight="203.0" prefWidth="194.0" />
             <ListView fx:id="lvPLMoniteur" layoutX="290.0" layoutY="97.0" prefHeight="200.0" prefWidth="200.0" />
-            <DatePicker fx:id="dpDateLecon" layoutX="544.0" layoutY="99.0" onAction="#afficherHorraire" />
+            <DatePicker fx:id="dpDateLecon" layoutX="544.0" layoutY="99.0" />
             <ListView fx:id="lvPLHorraire" layoutX="547.0" layoutY="189.0" onMouseClicked="#afficherVehicule" prefHeight="111.0" prefWidth="171.0" />
             <ListView fx:id="lvPLVehicule" layoutX="770.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
-            <Button layoutX="366.0" layoutY="366.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="272.0" text="Valider">
+            <Button layoutX="366.0" layoutY="366.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="272.0" text="Valider" onAction="#prendreLecon">
                <font>
                   <Font size="18.0" />
                </font>
