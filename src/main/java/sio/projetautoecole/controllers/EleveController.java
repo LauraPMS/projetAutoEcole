@@ -1,6 +1,7 @@
 package sio.projetautoecole.controllers;
 
 import sio.projetautoecole.models.Eleve;
+import sio.projetautoecole.models.Moniteur;
 import sio.projetautoecole.services.EleveService;
 
 import java.sql.SQLException;
@@ -19,5 +20,9 @@ public class EleveController {
 
     public void inscription(Eleve eleve) throws SQLException {
         eleveService.inscription(eleve);
+    }
+
+    public void updateEleve(Eleve e) throws SQLException{
+        eleveService.updateEleve(e);
     }
 }
