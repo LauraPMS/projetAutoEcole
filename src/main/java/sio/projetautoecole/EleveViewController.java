@@ -66,6 +66,7 @@ public class EleveViewController implements Initializable {
 
     CompteController compteController;
     EleveController eleveController;
+    EleveCategorieController eleveCategorieController;
     ConnexionBDD connexionBDD;
     LeconController leconController;
     CategorieController categorieController;
@@ -108,17 +109,26 @@ public class EleveViewController implements Initializable {
             connexionBDD = new ConnexionBDD();
             compteController = new CompteController();
             eleveController = new EleveController();
+            eleveCategorieController = new EleveCategorieController();
             leconController = new LeconController();
             categorieController = new CategorieController();
             moniteurController = new MoniteurController();
             numCompteActif = Session.getNumCompteActif();
             eleve = eleveController.getEleveByNumCompte(numCompteActif);
-            System.out.println("Eleve : "+eleve.getPrenomEleve()+" "+eleve.getNomEleve());
+            System.out.println("Eleve : "+eleve.getPrenomEleve()+" "+eleve.getNomEleve()+""+eleve.getIdEleve());
+            System.out.println(eleveCategorieController.getEleveCategorie(eleve));
+
 
             // Mettre a jour le pane des permis en cours de l'eleve
 
             tvProchaineLecon.setItems(FXCollections.observableList(leconController.getAllLeconForEleve(eleve.getIdEleve())));
             lvPLCategoriePermis.setItems(FXCollections.observableList(categorieController.getAllLibelles()));
+
+            if(eleveCategorieController.getEleveCategorie(eleve).getFirst()==2)
+            {
+                changeImageViewImg(emp1, "lourds.png");
+            }
+
 
             // Mettre a jour le tableau des prochaines leçon
 
