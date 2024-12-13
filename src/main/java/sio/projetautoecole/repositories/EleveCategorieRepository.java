@@ -17,17 +17,43 @@ public class EleveCategorieRepository {
 
     public EleveCategorieRepository() {connection = ConnexionBDD.getCnx();}
 
-    public ArrayList<Integer> getEleveCategorie(Eleve e) throws SQLException {
-        ArrayList<Integer> categorie = new ArrayList<>();
+    public ArrayList<String> getEleveCategorie(Eleve e) throws SQLException {
+        ArrayList<String> libelleCategorie = new ArrayList<>();
         PreparedStatement ps;
-        ps = connection.prepareStatement("Select distinct(eleve_categorie.codeCategorie) From eleve_categorie Where CodeEleve = ?;");
+        ps = connection.prepareStatement("Select categorie.libelle from categorie where codeCategorie in (Select distinct(eleve_categorie.codeCategorie) From eleve_categorie Where CodeEleve = ?);");
         ps.setInt(1, e.getIdEleve());
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
-            categorie.add(rs.getInt("CodeCategorie"));
+            libelleCategorie.add(rs.getString("libelle"));
         }
 
-        return categorie;
+        return libelleCategorie;
+    }
+
+    public ArrayList<String> getTotalHeureByPermisEleve(Eleve e, int codeCategorie) throws SQLException {
+        ArrayList<String> totalHeure = new ArrayList<>();
+        PreparedStatement ps;
+        ps = connection.prepareStatement("Select heure from lecon where Immatriculation in (Select Immatriculation From vehicule Where CodeCategorie = ?) AND codeELeve = ?;");
+        ps.setInt(1, codeCategorie);
+        ps.setInt(2, e.getIdEleve());
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            totalHeure.add(rs.getString("heure"));
+        }
+        return totalHeure;
+    }
+
+    public ArrayList<String> getVehiculesByPermis(Eleve e, int codeCategorie) throws SQLException {
+        ArrayList<String> vehiculesPermisEleve = new ArrayList<>();
+        PreparedStatement ps;
+        ps = connection.prepareStatement("Select DISTINCT(Modele) from vehicule JOIN lecon on lecon.Immatriculation = vehicule.Immatriculation where vehicule.Immatriculation in (Select Immatriculation From vehicule Where CodeCategorie = ?) AND codeEleve = ?;");
+        ps.setInt(1, codeCategorie);
+        ps.setInt(2, e.getIdEleve());
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            vehiculesPermisEleve.add(rs.getString("Modele"));
+        }
+        return vehiculesPermisEleve;
     }
 
 }

@@ -15,7 +15,15 @@ public class EleveCategorieController {
         eleveCategorieService = new EleveCategorieService();
     }
 
-    public ArrayList<Integer> getEleveCategorie(Eleve e) throws SQLException {
+    public ArrayList<String> getEleveCategorie(Eleve e) throws SQLException {
         return eleveCategorieService.getEleveCategorie(e);
+    }
+
+    public ArrayList<String> getTotalHeureByPermisEleve(Eleve e, int codeCategorie) throws SQLException {
+        return eleveCategorieService.getTotalHeureByPermisEleve(e, codeCategorie);
+    }
+
+    public ArrayList<String> getVehiculePermisEleve(Eleve e, int codeCategorie) throws SQLException {
+        return eleveCategorieService.getVehiculPermisEleve(e, codeCategorie);
     }
 }
