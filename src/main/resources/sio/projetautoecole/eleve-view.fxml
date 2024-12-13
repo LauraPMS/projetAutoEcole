@@ -13,6 +13,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="585.0" prefWidth="1037.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sio.projetautoecole.EleveViewController">
@@ -154,29 +155,128 @@
       <AnchorPane fx:id="apPermis" layoutY="99.0" prefHeight="506.0" prefWidth="1043.0" style="-fx-background-color: red;" visible="false">
          <children>
             <ListView layoutX="83.0" layoutY="43.0" prefHeight="349.0" prefWidth="878.0" />
-            <Button layoutX="445.0" layoutY="436.0" mnemonicParsing="false" text="Voir le catalogue des permis" />
+            <Button layoutX="445.0" layoutY="436.0" mnemonicParsing="false" onAction="#changeVoirCatalogue" text="Voir le catalogue des permis" />
          </children></AnchorPane>
-      <AnchorPane fx:id="apLecon" layoutY="100.0" prefHeight="506.0" prefWidth="1042.0" visible="false">
+      <AnchorPane fx:id="apVoirCataloguePermis" layoutY="100.0" prefHeight="507.0" prefWidth="972.0" visible="false">
          <children>
-            <ScrollPane layoutX="102.0" layoutY="125.0" prefHeight="279.0" prefWidth="850.0">
+            <ScrollPane layoutX="-44.0" layoutY="64.0" prefHeight="354.0" prefWidth="1080.0" style="-fx-background-color: transparent;">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="519.0" prefWidth="833.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="1406.0" style="-fx-background-color: transparent;">
                      <children>
-                        <TableView layoutX="27.0" layoutY="24.0" prefHeight="487.0" prefWidth="775.0">
-                          <columns>
-                            <TableColumn maxWidth="1407.9996871948242" minWidth="30.0" prefWidth="140.79996871948242" text="Type Permis" />
-                            <TableColumn maxWidth="1149.3330383300781" minWidth="30.0" prefWidth="114.93330383300781" text="Date" />
-                              <TableColumn maxWidth="1181.3330078125" minWidth="30.0" prefWidth="118.13330078125" text="Horaire" />
-                              <TableColumn maxWidth="1456.0000610351562" minWidth="30.0" prefWidth="145.60000610351562" text="Moniteur" />
-                              <TableColumn maxWidth="1416.0003662109375" minWidth="30.0" prefWidth="141.60003662109375" text="Véhicule" />
-                              <TableColumn maxWidth="1200.0" minWidth="30.0" prefWidth="120.0" text="Est passé" />
-                          </columns>
-                        </TableView>
+                        <Pane layoutX="55.0" layoutY="16.0" prefHeight="310.0" prefWidth="246.0" style="-fx-background-color: blue;">
+                           <children>
+                              <Circle fill="WHITE" layoutX="120.0" layoutY="88.0" radius="71.0" stroke="BLACK" strokeType="INSIDE" />
+                              <ImageView fitHeight="125.0" fitWidth="107.0" layoutX="69.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../img/voiture.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="13.0" layoutY="128.0" prefHeight="105.0" prefWidth="219.0" text="Permis Automobile" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="Yu Gothic UI Semibold" size="23.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="89.0" layoutY="196.0" text="34.95€" textFill="WHITE">
+                                 <font>
+                                    <Font name="Yu Gothic UI Semibold" size="22.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="btnSousCrireAuto" layoutX="94.0" layoutY="249.0" mnemonicParsing="false" onAction="#inscrireEleveAutomobile" text="Souscrire" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="1139.0" layoutY="15.0" prefHeight="310.0" prefWidth="246.0" style="-fx-background-color: blue;">
+                           <children>
+                              <Circle fill="WHITE" layoutX="120.0" layoutY="88.0" radius="71.0" stroke="BLACK" strokeType="INSIDE" />
+                              <ImageView fitHeight="125.0" fitWidth="107.0" layoutX="69.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../img/train.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="13.0" layoutY="133.0" prefHeight="105.0" prefWidth="219.0" text="Transport en commun" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="Yu Gothic UI Semibold" size="23.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="89.0" layoutY="214.0" text="40.50€" textFill="WHITE">
+                                 <font>
+                                    <Font name="Yu Gothic UI Semibold" size="22.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="btnSousCrireTransport" layoutX="94.0" layoutY="249.0" mnemonicParsing="false" onAction="#inscrireEleveTransport" text="Souscrire" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="868.0" layoutY="14.0" prefHeight="310.0" prefWidth="246.0" style="-fx-background-color: blue;">
+                           <children>
+                              <Circle fill="WHITE" layoutX="120.0" layoutY="88.0" radius="71.0" stroke="BLACK" strokeType="INSIDE" />
+                              <ImageView fitHeight="125.0" fitWidth="107.0" layoutX="69.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../img/bateau.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="41.0" layoutY="128.0" prefHeight="105.0" prefWidth="219.0" text="Permis Bateau" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="Yu Gothic UI Semibold" size="23.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="89.0" layoutY="196.0" text="51.25€" textFill="WHITE">
+                                 <font>
+                                    <Font name="Yu Gothic UI Semibold" size="22.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="btnSousCrirebato" layoutX="94.0" layoutY="249.0" mnemonicParsing="false" onAction="#inscrireEleveBateau" text="Souscrire" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="596.0" layoutY="16.0" prefHeight="310.0" prefWidth="246.0" style="-fx-background-color: blue;">
+                           <children>
+                              <Circle fill="WHITE" layoutX="120.0" layoutY="88.0" radius="71.0" stroke="BLACK" strokeType="INSIDE" />
+                              <ImageView fitHeight="125.0" fitWidth="107.0" layoutX="69.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../img/livraison-rapide.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="13.0" layoutY="128.0" prefHeight="105.0" prefWidth="219.0" text="Permis poids lourd" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="Yu Gothic UI Semibold" size="23.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="89.0" layoutY="196.0" text="43.00€" textFill="WHITE">
+                                 <font>
+                                    <Font name="Yu Gothic UI Semibold" size="22.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="btnSousCrireCamion" layoutX="94.0" layoutY="249.0" mnemonicParsing="false" onAction="#inscrireEleveCamion" text="Souscrire" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="325.0" layoutY="16.0" prefHeight="310.0" prefWidth="246.0" style="-fx-background-color: blue;">
+                           <children>
+                              <Circle fill="WHITE" layoutX="120.0" layoutY="88.0" radius="71.0" stroke="BLACK" strokeType="INSIDE" />
+                              <ImageView fitHeight="125.0" fitWidth="107.0" layoutX="69.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../img/moto.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="49.0" layoutY="128.0" prefHeight="105.0" prefWidth="219.0" text="Permis moto" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="Yu Gothic UI Semibold" size="23.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="89.0" layoutY="196.0" text="38.15€" textFill="WHITE">
+                                 <font>
+                                    <Font name="Yu Gothic UI Semibold" size="22.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="btnSousCrireMoto" layoutX="94.0" layoutY="249.0" mnemonicParsing="false" onAction="#inscrireEleveMoto" text="Souscrire" />
+                           </children>
+                        </Pane>
                      </children>
                   </AnchorPane>
               </content>
             </ScrollPane>
-            <RadioButton layoutX="137.0" layoutY="78.0" mnemonicParsing="false" text="Leçon fini">
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="apPlanning" layoutY="100.0" prefHeight="506.0" prefWidth="1042.0">
+         <children>
+            <RadioButton layoutX="137.0" layoutY="73.0" mnemonicParsing="false" text="Leçon fini">
                <font>
                   <Font size="18.0" />
                </font>
@@ -184,7 +284,7 @@
                   <ToggleGroup fx:id="leconFini" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton layoutX="302.0" layoutY="78.0" mnemonicParsing="false" text="Leçon à venir" toggleGroup="$leconFini">
+            <RadioButton layoutX="302.0" layoutY="73.0" mnemonicParsing="false" text="Leçon à venir" toggleGroup="$leconFini">
                <font>
                   <Font size="18.0" />
                </font>
@@ -194,36 +294,46 @@
                   <Font size="33.0" />
                </font>
             </Label>
-            <Button layoutX="423.0" layoutY="430.0" mnemonicParsing="false" text="Prendre une leçon supplémentaire" />
+            <Button layoutX="423.0" layoutY="439.0" mnemonicParsing="false" text="Prendre une leçon supplémentaire" />
+            <TableView fx:id="tvPlanningLecon" layoutX="128.0" layoutY="111.0" prefHeight="311.0" prefWidth="775.0">
+              <columns>
+                <TableColumn fx:id="tcPlanningCategorie" maxWidth="1407.9996871948242" minWidth="30.0" prefWidth="140.79996871948242" text="Type Permis" />
+                <TableColumn fx:id="tcPlanningDate" maxWidth="1149.3330383300781" minWidth="30.0" prefWidth="114.93330383300781" text="Date" />
+                  <TableColumn fx:id="tcPlanningHorraire" maxWidth="1181.3330078125" minWidth="30.0" prefWidth="118.13330078125" text="Horaire" />
+                  <TableColumn fx:id="tcPlanningMoniteur" maxWidth="1456.0000610351562" minWidth="30.0" prefWidth="145.60000610351562" text="Moniteur" />
+                  <TableColumn fx:id="tcPlanningVehicule" maxWidth="1416.0003662109375" minWidth="30.0" prefWidth="141.60003662109375" text="Véhicule" />
+                  <TableColumn fx:id="tcPlanningEstPassee" maxWidth="1200.0" minWidth="30.0" prefWidth="120.0" text="Est passé" />
+              </columns>
+            </TableView>
          </children></AnchorPane>
-      <AnchorPane fx:id="apPrendreLecon" layoutY="91.0" prefHeight="515.0" prefWidth="1043.0">
+      <AnchorPane fx:id="apPrendreLecon" layoutY="91.0" prefHeight="515.0" prefWidth="1043.0" visible="false">
          <children>
-            <ListView fx:id="lvPLCategoriePermis" layoutX="56.0" layoutY="98.0" onMouseClicked="#remplirMoniteur" prefHeight="203.0" prefWidth="194.0" />
-            <ListView fx:id="lvPLMoniteur" layoutX="290.0" layoutY="97.0" prefHeight="200.0" prefWidth="200.0" />
-            <DatePicker fx:id="dpDateLecon" layoutX="544.0" layoutY="99.0" />
-            <ListView fx:id="lvPLHorraire" layoutX="547.0" layoutY="189.0" onMouseClicked="#afficherVehicule" prefHeight="111.0" prefWidth="171.0" />
+            <ListView fx:id="lvPLCategoriePermis" layoutX="279.0" layoutY="97.0" onMouseClicked="#afficherMoniteurEtVehicule" prefHeight="203.0" prefWidth="194.0" />
+            <ListView fx:id="lvPLMoniteur" layoutX="520.0" layoutY="99.0" prefHeight="200.0" prefWidth="200.0" />
+            <DatePicker fx:id="dpDateLecon" layoutX="35.0" layoutY="99.0" />
+            <ListView fx:id="lvPLHorraire" layoutX="38.0" layoutY="189.0" prefHeight="111.0" prefWidth="171.0" />
             <ListView fx:id="lvPLVehicule" layoutX="770.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
-            <Button layoutX="366.0" layoutY="366.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="272.0" text="Valider" onAction="#prendreLecon">
+            <Button layoutX="366.0" layoutY="366.0" mnemonicParsing="false" onAction="#prendreLecon" prefHeight="40.0" prefWidth="272.0" text="Valider">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Label layoutX="76.0" layoutY="73.0" text="Choisissez une catégorie">
+            <Label layoutX="299.0" layoutY="72.0" text="Choisissez une catégorie">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="317.0" layoutY="74.0" text="Choisissez un moniteur">
+            <Label layoutX="547.0" layoutY="74.0" text="Choisissez un moniteur">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="581.0" layoutY="74.0" text="Choisir une date">
+            <Label layoutX="72.0" layoutY="74.0" text="Choisir une date">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="572.0" layoutY="167.0" text="Choisir une horraire">
+            <Label layoutX="63.0" layoutY="167.0" text="Choisir une horraire">
                <font>
                   <Font size="14.0" />
                </font>
@@ -235,7 +345,6 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="apPlanning" layoutY="100.0" prefHeight="506.0" prefWidth="1043.0" style="-fx-background-color: green;" visible="false" />
       <AnchorPane fx:id="apReglement" layoutY="100.0" prefHeight="506.0" prefWidth="1043.0" style="-fx-background-color: purple;" visible="false" />
    </children>
 </AnchorPane>

@@ -134,4 +134,8 @@ public class Moniteur {
         infoEleve.put("imgPdp", this.imgPdp);
         return infoEleve;
     }
+
+    public Object getNomPrenom() {
+        return this.prenomMoniteur + " " + this.nomMoniteur;
+    }
 }

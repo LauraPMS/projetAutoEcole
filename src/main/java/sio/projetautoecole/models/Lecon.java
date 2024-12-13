@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Lecon {
     private int codeLecon;
-    private Date date;
+    private String date;
     private String heure;
     private int codeMoniteur;
     private int codeEleve;
@@ -12,7 +12,7 @@ public class Lecon {
     private int reglee;
     private String categorie;
 
-    public Lecon(int codeLecon, Date date, String heure, int codeMoniteur, int codeEleve, String immatriculation, int reglee, String categorie) {
+    public Lecon(int codeLecon, String date, String heure, int codeMoniteur, int codeEleve, String immatriculation, int reglee, String categorie) {
         this.codeLecon = codeLecon;
         this.date = date;
         this.heure = heure;
@@ -21,6 +21,17 @@ public class Lecon {
         this.immatriculation = immatriculation;
         this.reglee = reglee;
         this.categorie = categorie;
+    }
+
+    public Lecon(int codeLecon, String date, String heure, int codeMoniteur, int codeEleve, String immatriculation, int reglee) {
+        this.codeLecon = codeLecon;
+        this.date = date;
+        this.heure = heure;
+        this.codeMoniteur = codeMoniteur;
+        this.codeEleve = codeEleve;
+        this.immatriculation = immatriculation;
+        this.reglee = reglee;
+
     }
 
     public String getCategorie() {
@@ -39,11 +50,11 @@ public class Lecon {
         this.codeLecon = codeLecon;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

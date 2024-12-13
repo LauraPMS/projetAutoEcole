@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import sio.projetautoecole.controllers.*;
 import sio.projetautoecole.models.Categorie;
 import sio.projetautoecole.models.Eleve;
+import sio.projetautoecole.models.Lecon;
 import sio.projetautoecole.models.Moniteur;
 import sio.projetautoecole.tools.ConnexionBDD;
 
@@ -37,19 +38,19 @@ public class EleveViewController implements Initializable {
 
     // Anchor Pane Barre de navigation
 
-    @javafx.fxml.FXML
-    private AnchorPane apProfile, apLecon , apPlanning, apReglement, apPermis, apPrendreLecon;
+    @FXML
+    private AnchorPane apProfile, apPlanning, apReglement, apPermis, apPrendreLecon, apVoirCataloguePermis;
 
-    @javafx.fxml.FXML
+    @FXML
     private TableView tvProchaineLecon;
 
-    @javafx.fxml.FXML
+    @FXML
     private TableColumn tcPermisLecon, tcJourLecon, tcMoniteurLecon, tcHorraireLecon, tcVehiculeLecon;
 
-    @javafx.fxml.FXML
+    @FXML
     private ScrollPane spaneListePermis;
 
-    @javafx.fxml.FXML
+    @FXML
     private Label lblCP, lblVille, lblDate, lblPrenom, lblNom, lblTelephone;
 
     @FXML
@@ -64,24 +65,24 @@ public class EleveViewController implements Initializable {
     @FXML
     private DatePicker dpDateLecon;
 
+    @FXML
+    private Button btnSousCrireMoto, btnSousCrireCamion, btnSousCrireAuto, btnSousCrireTransport, btnSousCrirebato;
+    @FXML
+    private TableColumn tcPlanningCategorie, tcPlanningHorraire, tcPlanningVehicule, tcPlanningDate, tcPlanningEstPassee, tcPlanningMoniteur;
+    @FXML
+    private TableView tvPlanningLecon;
+
     CompteController compteController;
     EleveController eleveController;
     ConnexionBDD connexionBDD;
     LeconController leconController;
     CategorieController categorieController;
     MoniteurController moniteurController;
+    EleveCategorieController eleveCategorieController;
     int numCompteActif;
     Eleve eleve;
 
-    // Champs requis pour la leçon
 
-    private int pLecon_codeLecon;
-    private Date pLecon_date;
-    private int pLecon_codeMoniteur;
-    private int pLecon_codeEleve;
-    private String pLecon_immatriculation;
-    private int pLecon_Reglee;
-    private String pLecon_heure;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -92,6 +93,13 @@ public class EleveViewController implements Initializable {
         tcVehiculeLecon.setCellValueFactory(new PropertyValueFactory<>("categorie"));
         tcHorraireLecon.setCellValueFactory(new PropertyValueFactory<>("heure"));
 
+        tcPlanningHorraire.setCellValueFactory(new PropertyValueFactory<>("heure"));
+        tcPlanningVehicule.setCellValueFactory(new PropertyValueFactory<>("immatriculation"));
+        tcPlanningCategorie.setCellValueFactory(new PropertyValueFactory<>("heure"));
+        tcPlanningDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        tcPlanningEstPassee.setCellValueFactory(new PropertyValueFactory<>("reglee"));
+        tcPlanningMoniteur.setCellValueFactory(new PropertyValueFactory<>("codeMoniteur"));
+
         try {
             connexionBDD = new ConnexionBDD();
             compteController = new CompteController();
@@ -99,9 +107,10 @@ public class EleveViewController implements Initializable {
             leconController = new LeconController();
             categorieController = new CategorieController();
             moniteurController = new MoniteurController();
+            eleveCategorieController = new EleveCategorieController();
             numCompteActif = Session.getNumCompteActif();
             eleve = eleveController.getEleveByNumCompte(numCompteActif);
-            System.out.println("Eleve : "+eleve.getPrenomEleve()+" "+eleve.getNomEleve());
+            System.out.println("Eleve : "+eleve.getPrenomEleve()+" "+eleve.getNomEleve()+eleve.getIdEleve());
 
             // Mettre a jour le pane des permis en cours de l'eleve
 
@@ -109,6 +118,7 @@ public class EleveViewController implements Initializable {
             lvPLCategoriePermis.setItems(FXCollections.observableList(categorieController.getAllLibelles()));
 
             // Mettre a jour le tableau des prochaines leçon
+            tvPlanningLecon.setItems(FXCollections.observableList(leconController.getAllLeconForEleve(eleve.getIdEleve())));
 
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
@@ -124,57 +134,304 @@ public class EleveViewController implements Initializable {
 
 
 
-    @javafx.fxml.FXML
+
+
+
+    // ------------------ Section Lecon : Prendre Lecon ------------------- //
+
+    // Declancher par la selection d'une categorie
+    @FXML
+    public void afficherMoniteurEtVehicule(Event event) throws SQLException {
+        // Récupération de la date et de l'heure sélectionnées
+        LocalDate selectedDate = dpDateLecon.getValue();
+        String selectedTime = (String) lvPLHorraire.getSelectionModel().getSelectedItem();
+
+        // Récupération de la catégorie sélectionnée
+        Object selectedCategorie = lvPLCategoriePermis.getSelectionModel().getSelectedItem();
+        if (selectedCategorie == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Avertissement");
+            alert.setHeaderText("Veuillez sélectionner une catégorie.");
+            alert.showAndWait();
+            return;
+        }
+
+        String libelleCategorie = selectedCategorie.toString();
+        Categorie c = categorieController.getCategorieFromLibelle(libelleCategorie);
+        int idCateg = c.getIdCategorie();
+
+        // Vérification que tous les champs sont sélectionnés
+        if (selectedDate == null || selectedTime == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Avertissement");
+            alert.setHeaderText("Veuillez sélectionner une date, une heure et une catégorie.");
+            alert.showAndWait();
+            return;
+        }
+
+        try {
+            // Requête pour les moniteurs disponibles
+            List<Moniteur> availableMonitors = moniteurController.getAvailableMoniteurs(
+                    selectedDate.toString(), selectedTime, idCateg
+            );
+            lvPLMoniteur.setItems(FXCollections.observableList(
+                    availableMonitors.stream()
+                            .map(Moniteur::getNomPrenom) // Transforme les objets Moniteur en leur nom complet
+                            .collect(Collectors.toList())
+            ));
+
+            // Requête pour les véhicules disponibles
+            List<String> availableVehicles = leconController.getAvailableVehicles(
+                    selectedDate.toString(), selectedTime, idCateg
+            );
+            lvPLVehicule.setItems(FXCollections.observableList(availableVehicles));
+        } catch (SQLException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur");
+            alert.setHeaderText("Erreur lors du chargement des données.");
+            alert.showAndWait();
+        }
+    }
+
+
+    // Remplir la liste view des horraires
+    public void remplirHoraire() {
+        if (lvPLHorraire == null) {
+            System.out.println("ListView lvPLHorraire n'est pas initialisé !");
+            return;
+        }
+
+        List<String> horaires = new ArrayList<>();
+        LocalTime start = LocalTime.of(9, 0, 0);
+        LocalTime end = LocalTime.of(17, 0, 0);
+
+        while (!start.isAfter(end)) {
+            horaires.add(start.toString());
+            start = start.plusHours(1);
+        }
+
+        lvPLHorraire.setItems(FXCollections.observableList(horaires));
+
+    }
+
+
+    //
+    @FXML
+    public void prendreLecon(ActionEvent actionEvent) throws SQLException {
+        // Vérification que toutes les valeurs requises sont sélectionnées
+        if (dpDateLecon.getValue() == null) {
+            System.out.println("Veuillez sélectionner une date.");
+            return;
+        }
+        if (lvPLHorraire.getSelectionModel().isEmpty()) {
+            System.out.println("Veuillez sélectionner un horaire.");
+            return;
+        }
+        if (lvPLMoniteur.getSelectionModel().isEmpty()) {
+            System.out.println("Veuillez sélectionner un moniteur.");
+            return;
+        }
+        if (lvPLVehicule.getSelectionModel().isEmpty()) {
+            System.out.println("Veuillez sélectionner un véhicule.");
+            return;
+        }
+
+        // Récupération des données
+        String date = dpDateLecon.getValue().toString(); // Conversion en "yyyy-MM-dd"
+        String heure = lvPLHorraire.getSelectionModel().getSelectedItem().toString();
+        String moniteurNom = lvPLMoniteur.getSelectionModel().getSelectedItem().toString();
+
+        // Extraire le deuxième mot du nom complet
+        String[] nomParts = moniteurNom.split(" ");
+        if (nomParts.length < 2) {
+            System.out.println("Le format du nom du moniteur est incorrect.");
+            return;
+        }
+        String nom = nomParts[1]; // Récupérer le deuxième mot
+
+        // Recherche du moniteur avec le deuxième mot de son nom
+        System.out.println("Nom extrait pour recherche : " + nom);
+        Moniteur m = moniteurController.getMoniteurByName(nom);
+        if (m == null) {
+            System.out.println("Aucun moniteur trouvé avec le nom extrait.");
+            return;
+        }
+
+        int codeMoniteur = m.getIdMoniteur();
+        int codeEleve = eleve.getIdEleve();
+        String immatriculation = lvPLVehicule.getSelectionModel().getSelectedItem().toString();
+        int regle = 0;
+
+        // Création et ajout de la leçon
+        Lecon l = new Lecon(0, date, heure, codeMoniteur, codeEleve, immatriculation, regle);
+        leconController.add(l);
+        System.out.println("Leçon ajoutée avec succès !");
+    }
+
+    // ----------------------- Fin Section Lecon / Prendre une lecon --------------------------- //
+
+
+
+
+    // -------------- Section Permis : Stat et Catalogue ------------------ //
+
+    @FXML
+    public void inscrireEleveBateau(ActionEvent actionEvent) throws SQLException {
+        inscrireEleveCategorie(3);
+    }
+
+    @FXML
+    public void inscrireEleveCamion(ActionEvent actionEvent) throws SQLException {
+        inscrireEleveCategorie(2);
+    }
+
+    @FXML
+    public void inscrireEleveMoto(ActionEvent actionEvent) throws SQLException {
+        inscrireEleveCategorie(4);
+    }
+
+    @FXML
+    public void inscrireEleveAutomobile(ActionEvent actionEvent) throws SQLException {
+        inscrireEleveCategorie(1);
+    }
+
+    @FXML
+    public void inscrireEleveTransport(ActionEvent actionEvent) throws SQLException {
+        inscrireEleveCategorie(5);
+    }
+
+
+    public void inscrireEleveCategorie(int codeCateg) throws SQLException {
+
+        int idEleve = numCompteActif;
+
+        // si la ligne avec l'eleve et la categorie n'est pas présente dans eleve_categorie alors :
+
+        if(!eleveCategorieController.get(idEleve, codeCateg)){
+            // Insert dans la table eleve_categorie (codeEleve, codeCategorie)
+            eleveCategorieController.add(idEleve, codeCateg);
+            // affiche d'une boite de message pour dire
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Succès");
+            alert.setHeaderText("Vous avez souscris a ce permis");
+            alert.showAndWait();
+            // card grisé (a faire)
+            switch(codeCateg){
+                case 1:
+                    btnSousCrireAuto.setDisable(true);
+                    break;
+                case 2:
+                    btnSousCrireCamion.setDisable(true);
+                    break;
+                case 3:
+                    btnSousCrirebato.setDisable(true);
+                    break;
+                case 4 :
+                    btnSousCrireMoto.setDisable(true);
+                    break;
+                case 5 :
+                    btnSousCrireTransport.setDisable(true);
+                    break;
+            }
+        }
+
+        // sinon :
+        else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur");
+            alert.setHeaderText("Un seul permis par type de véhicule est largement suffisant !");
+            alert.showAndWait();
+        }
+    }
+
+
+    @FXML
+    public void changeVoirCatalogue(ActionEvent actionEvent) throws SQLException {
+        for(int i = 1; i<categorieController.getAllCategories().toArray().length; i++){
+            System.out.println(i);
+            System.out.println(numCompteActif);
+            if(eleveCategorieController.get(numCompteActif, i)){
+                switch(i){
+                    case 1:
+                        btnSousCrireAuto.setDisable(true);
+                        break;
+                    case 2:
+                        btnSousCrireCamion.setDisable(true);
+                        break;
+                    case 3:
+                        btnSousCrirebato.setDisable(true);
+                        break;
+                    case 4 :
+                        btnSousCrireMoto.setDisable(true);
+                        break;
+                    case 5 :
+                        btnSousCrireTransport.setDisable(true);
+                        break;
+                }
+            }
+        }
+        changeAP(apVoirCataloguePermis);
+    }
+
+    // ------------ Fin Section Permis: Stat et catalogue ----------------------- //
+
+
+
+    // ------------------- Fonction utile sans plus --------------------------- //
+    @FXML
     public void deconnexionOnClick(ActionEvent actionEvent) throws IOException {
         // appel d'une fonction seDeconnecter
         Session.changerScene("hello-view.fxml", "Acceuil", actionEvent);
 
     }
 
-    @javafx.fxml.FXML
+    @FXML
     public void changeToProfil(ActionEvent actionEvent) {
         changeAP(apProfile);
         majProfil();
         // chargement
     }
 
-    @javafx.fxml.FXML
+    @FXML
     public void changeToReglement(ActionEvent actionEvent) {
         changeAP(apReglement);
     }
 
-    @javafx.fxml.FXML
+    @FXML
     public void hoverNavItem(Event event) {
 
     }
 
-    @javafx.fxml.FXML
+    @FXML
     public void retourNavItemToNormal(Event event) {
     }
 
-    @javafx.fxml.FXML
-    public void changeToPlanning(ActionEvent actionEvent) {
+    @FXML
+    public void changeToPlanning(ActionEvent actionEvent) throws SQLException {
+        tvPlanningLecon.setItems(FXCollections.observableList(leconController.getAllLeconForEleve(eleve.getIdEleve())));
         changeAP(apPlanning);
     }
 
-    @javafx.fxml.FXML
+    @FXML
     public void changeToPermis(ActionEvent actionEvent) {
         changeAP(apPermis);
     }
 
-    @javafx.fxml.FXML
+    @FXML
     public void changeToLecon(ActionEvent actionEvent) {
-        changeAP(apLecon);
+        changeAP(apPrendreLecon);
     }
 
 
     public void clearAll(){
-        apLecon.setVisible(false);
+        apPrendreLecon.setVisible(false);
         apReglement.setVisible(false);
         apPermis.setVisible(false);
         apPlanning.setVisible(false);
         apProfile.setVisible(false);
         apPrendreLecon.setVisible(false);
+        apVoirCataloguePermis.setVisible(false);
     }
 
     private void changeAP(AnchorPane ap) {
@@ -182,12 +439,12 @@ public class EleveViewController implements Initializable {
         ap.setVisible(true);
     }
 
-    @javafx.fxml.FXML
+    @FXML
     public void changeModifierProfil(ActionEvent actionEvent) {
 
     }
 
-    @javafx.fxml.FXML
+    @FXML
     public void changePrendreLecon(ActionEvent actionEvent) {
         changeAP(apPrendreLecon);
 
@@ -197,21 +454,17 @@ public class EleveViewController implements Initializable {
         lvPLMoniteur.getItems().clear();
         lvPLVehicule.getItems().clear();
 
-        // vider le champ date picker
         dpDateLecon.setValue(LocalDate.now());
+        remplirHoraire();
 
-        // set null tout les champs requis
-        pLecon_codeEleve = 0;
-        pLecon_codeMoniteur = 0;
-        pLecon_codeLecon = 0;
-        pLecon_date = null;
-        pLecon_Reglee = 0;
-        pLecon_immatriculation = null;
-        pLecon_heure = null;
-
+        int pLecon_codeEleve = 0;
+        int pLecon_codeMoniteur = 0;
+        int pLecon_codeLecon = 0;
+        String pLecon_date = null;
+        int pLecon_Reglee = 0;
+        String pLecon_immatriculation = null;
+        String pLecon_heure = null;
     }
-
-
 
 
     public void majProfil(){
@@ -229,7 +482,8 @@ public class EleveViewController implements Initializable {
         }
     }
 
-    public void changeImageViewImg(javafx.scene.image.ImageView imgView, String linkImage){
+
+    public void changeImageViewImg(ImageView imgView, String linkImage){
         imgView.setImage(
                 new Image(
                         Objects.requireNonNull(getClass().getResource(
@@ -238,33 +492,5 @@ public class EleveViewController implements Initializable {
                 )
         );
     }
-
-    @FXML
-    public void afficherVehicule(Event event) throws SQLException {
-
-
-    }
-
-    @FXML
-    public void remplirMoniteur(Event event) throws SQLException {
-        String libelleCategorie = lvPLCategoriePermis.getSelectionModel().getSelectedItem().toString();
-        System.out.println(libelleCategorie);
-        Categorie c = categorieController.getCategorieFromLibelle(libelleCategorie);
-        ArrayList<String> nomMoniteur = categorieController.getAllMoniteursFromCategorie(c);
-        lvPLMoniteur.setItems(FXCollections.observableArrayList(nomMoniteur));
-    }
-
-
-    @FXML
-    public void prendreLecon(ActionEvent actionEvent) {
-        /*
-        *
-        * Rappel Lecon=(codeLecon, date, heure, codeMoniteur, codeEleve, immatriculation, reglee, categorie, statut(0,1,2)=>0)
-        *
-        */
-
-        // on recupère toute les valeurs requise pour créer la leçon
-        int codeLecon = 0; // on le prendra pas de tt façon
-
-    }
 }
+

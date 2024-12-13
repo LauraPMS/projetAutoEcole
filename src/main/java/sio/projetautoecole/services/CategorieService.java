@@ -6,6 +6,7 @@ import sio.projetautoecole.tools.ConnexionBDD;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CategorieService {
 
@@ -36,5 +37,7 @@ public class CategorieService {
     public ArrayList<String> getAllMoniteursFromCategorie(Categorie c) throws SQLException {
         return categorieRepository.getAllMoniteursFromCategorie(c);
     }
-
+    public List<String> getVehiclesForCategory(String categoryName) throws SQLException {
+        return categorieRepository.getVehiclesForCategory(categoryName);
     }
+}

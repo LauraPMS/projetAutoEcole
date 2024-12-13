@@ -5,6 +5,7 @@ import sio.projetautoecole.services.CategorieService;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CategorieController {
 
@@ -35,5 +36,8 @@ public class CategorieController {
 
     public ArrayList<String> getAllMoniteursFromCategorie(Categorie c) throws SQLException {
         return categorieService.getAllMoniteursFromCategorie(c);
+    }
+    public List<String> getVehiclesForCategory(String categoryName) throws SQLException {
+        return categorieService.getVehiclesForCategory(categoryName);
     }
     }
