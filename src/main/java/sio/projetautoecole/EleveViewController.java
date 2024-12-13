@@ -95,6 +95,16 @@ public class EleveViewController implements Initializable {
     private PasswordField txtNvMdp;
     @FXML
     private TextField txtNvMail;
+    @FXML
+    private ListView lvPermisEleve;
+    @FXML
+    private Label lblNbHPassee;
+    @FXML
+    private Label lblNbVehicules;
+    @FXML
+    private Label lblMoniteurFav;
+    @FXML
+    private Label lblNomsVehicules;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -123,11 +133,7 @@ public class EleveViewController implements Initializable {
 
             tvProchaineLecon.setItems(FXCollections.observableList(leconController.getAllLeconForEleve(eleve.getIdEleve())));
             lvPLCategoriePermis.setItems(FXCollections.observableList(categorieController.getAllLibelles()));
-
-            if(eleveCategorieController.getEleveCategorie(eleve).getFirst()==2)
-            {
-                changeImageViewImg(emp1, "lourds.png");
-            }
+            lvPermisEleve.setItems(FXCollections.observableList(eleveCategorieController.getEleveCategorie(eleve)));
 
 
             // Mettre a jour le tableau des prochaines leçon
@@ -340,5 +346,36 @@ public class EleveViewController implements Initializable {
         txtNvVille.setText("");
         txtNvCp.setText("");
         txtNvTel.setText("");
+    }
+
+    @FXML
+    public void onLvPermisEleveClicked(Event event) throws SQLException {
+
+        String libelleCategorie = lvPermisEleve.getSelectionModel().getSelectedItem().toString();
+        Categorie categorie = categorieController.getCategorieFromLibelle(libelleCategorie);
+        int codeCategorie = categorie.getIdCategorie();
+
+        ArrayList<String> heuresPermisEleve = eleveCategorieController.getTotalHeureByPermisEleve(eleve, codeCategorie);
+
+        //Total horraire par permis
+        int totalHeure = 0;
+        for(String heures : heuresPermisEleve)
+        {
+            totalHeure += 1;
+        }
+
+        lblNbHPassee.setText(totalHeure + " heures");
+
+        ArrayList<String> nomVehicules = eleveCategorieController.getVehiculePermisEleve(eleve, codeCategorie);
+        int cpt = 0;
+        String nomsVehiculesPermis = "";
+        for(String vehicules : nomVehicules)
+        {
+            nomsVehiculesPermis += vehicules + " ";
+            cpt += 1;
+        }
+        lblNomsVehicules.setText(nomsVehiculesPermis);
+        lblNbVehicules.setText(""+cpt);
+
     }
 }
