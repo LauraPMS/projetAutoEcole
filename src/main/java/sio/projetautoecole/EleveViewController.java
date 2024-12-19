@@ -379,7 +379,12 @@ public class EleveViewController implements Initializable {
 
     // ------------ Fin Section Permis: Stat et catalogue ----------------------- //
 
+
+
+
+
     // SECTION  PAGE PERMIS //
+
     public void majProfil() throws SQLException {
         // affiche les données de l'eleve
         lblPrenom.setText(eleve.getPrenomEleve());
@@ -424,12 +429,11 @@ public class EleveViewController implements Initializable {
     public void afficherAuPremierEmplacement(String source) {
         List<ImageView> imgEmp = Arrays.asList(emp1, emp2, emp3, emp4, emp5);
         for (ImageView image : imgEmp) {
-            if (image.getImage() == null) { // Vérifie si aucune image n'est définie
+            if (image.getImage() == null) {
                 changeImageViewImg(image, source);
                 return;
             }
         }
-        System.err.println("No empty slots available to display the image.");
     }
 
     public void viderEmplacements() {

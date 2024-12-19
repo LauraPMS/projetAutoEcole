@@ -56,34 +56,34 @@
             </ImageView>
          </children>
       </Pane>
-      <AnchorPane fx:id="apProfile" layoutY="100.0" prefHeight="490.0" prefWidth="1043.0" style="-fx-background-color: black;" visible="false">
+      <AnchorPane fx:id="apProfile" layoutY="100.0" prefHeight="490.0" prefWidth="1043.0">
          <children>
             <ImageView fx:id="imgPdp" fitHeight="189.0" fitWidth="193.0" layoutX="69.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/femme.png" />
                </image>
             </ImageView>
-            <Label fx:id="lblPrenom" layoutX="126.0" layoutY="227.0" text="Prenom" textFill="WHITE">
+            <Label fx:id="lblPrenom" layoutX="126.0" layoutY="227.0" text="Prenom">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <Label fx:id="lblNom" layoutX="89.0" layoutY="260.0" text="Nom de Famille" textFill="WHITE">
+            <Label fx:id="lblNom" layoutX="89.0" layoutY="260.0" text="Nom de Famille">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <Label fx:id="lblDate" layoutX="79.0" layoutY="297.0" text="Date de naissance" textFill="WHITE">
+            <Label fx:id="lblDate" layoutX="79.0" layoutY="297.0" text="Date de naissance">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <Label fx:id="lblVille" layoutX="57.0" layoutY="337.0" text="Ville" textFill="WHITE">
+            <Label fx:id="lblVille" layoutX="57.0" layoutY="337.0" text="Ville">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <Label fx:id="lblCP" layoutX="177.0" layoutY="336.0" text="Code Postale" textFill="WHITE">
+            <Label fx:id="lblCP" layoutX="177.0" layoutY="336.0" text="Code Postale">
                <font>
                   <Font size="22.0" />
                </font>
@@ -121,12 +121,12 @@
                   </AnchorPane>
                </content>
             </ScrollPane>
-            <Label fx:id="lblListeCategorie" layoutX="401.0" layoutY="26.0" text="Liste des permis" textFill="WHITE">
+            <Label fx:id="lblListeCategorie" layoutX="401.0" layoutY="26.0" text="Liste des permis">
                <font>
                   <Font name="Yu Gothic UI Semibold" size="25.0" />
                </font>
             </Label>
-            <Label fx:id="lblProchaineLecon" layoutX="405.0" layoutY="255.0" text="Prochaines leçons" textFill="WHITE">
+            <Label fx:id="lblProchaineLecon" layoutX="405.0" layoutY="255.0" text="Prochaines leçons">
                <font>
                   <Font name="Yu Gothic UI Semibold" size="25.0" />
                </font>
@@ -136,16 +136,16 @@
                   <TableColumn fx:id="tcJourLecon" maxWidth="750.0" minWidth="30.0" prefWidth="75.0" text="Jour" />
                   <TableColumn fx:id="tcHorraireLecon" maxWidth="903.9993286132812" minWidth="30.0" prefWidth="90.39993286132812" text="Horraire" />
                   <TableColumn fx:id="tcPermisLecon" maxWidth="1026.6668701171875" minWidth="30.0" prefWidth="102.66668701171875" text="Permis" />
-                  <TableColumn fx:id="tcLecon" maxWidth="874.6673583984375" minWidth="30.0" prefWidth="87.46673583984375" text="Véhicule" />
-                  <TableColumn fx:id="tcMoniteurLecon" maxWidth="1053.3331298828125" minWidth="30.0" prefWidth="105.33331298828125" text="Moniteur" />
+                  <TableColumn fx:id="tcVehiculeLecon" maxWidth="874.6673583984375" minWidth="30.0" prefWidth="87.46673583984375" text="Véhicule" />
+                  <TableColumn fx:id="tcMoniteurLecon" maxWidth="1053.3331298828125" minWidth="30.0" prefWidth="105.33331298828125" text="Eleve" />
                </columns>
             </TableView>
-            <Label fx:id="lblTelephone" layoutX="51.0" layoutY="372.0" text="Telephone" textFill="WHITE">
+            <Label fx:id="lblTelephone" layoutX="51.0" layoutY="372.0" text="Telephone">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <Label fx:id="lblMail" layoutX="52.0" layoutY="412.0" text="Mail" textFill="WHITE">
+            <Label fx:id="lblMail" layoutX="52.0" layoutY="412.0" text="Mail">
                <font>
                   <Font size="22.0" />
                </font>
@@ -153,7 +153,7 @@
             <Button layoutX="117.0" layoutY="449.0" mnemonicParsing="false" onAction="#changeModifierProfil" prefHeight="32.0" prefWidth="112.0" text="Modifier" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="apModifierProfile" layoutY="100.0" prefHeight="490.0" prefWidth="1043.0">
+      <AnchorPane fx:id="apModifierProfile" layoutY="100.0" prefHeight="490.0" prefWidth="1043.0" visible="false">
          <children>
             <ImageView fitHeight="174.0" fitWidth="154.0" layoutX="144.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
                <image>
