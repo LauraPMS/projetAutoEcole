@@ -19,4 +19,8 @@ public class EleveService {
     public void inscription(Eleve eleve) throws SQLException {
         eleveRepository.inscription(eleve);
     }
+
+    public void update(Eleve m) throws SQLException {
+        eleveRepository.update(m);
+    }
 }

@@ -20,4 +20,7 @@ public class EleveController {
     public void inscription(Eleve eleve) throws SQLException {
         eleveService.inscription(eleve);
     }
+    public void update(Eleve m) throws SQLException {
+        eleveService.update(m);
+    }
 }
