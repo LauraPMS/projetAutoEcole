@@ -2,6 +2,9 @@ package sio.projetautoecole.services;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
 import sio.projetautoecole.models.Categorie;
 import sio.projetautoecole.models.Eleve;
 import sio.projetautoecole.models.EleveCategorie;
@@ -22,6 +25,7 @@ import java.sql.SQLException;
 public class EleveCategorieService {
 
 >>>>>>> branche-laura
+<<<<<<< HEAD
 =======
 import sio.projetautoecole.repositories.EleveCategorieRepository;
 
@@ -30,6 +34,8 @@ import java.sql.SQLException;
 public class EleveCategorieService {
 
 >>>>>>> branche-laura
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
     private EleveCategorieRepository eleveCategorieRepository;
 
     public EleveCategorieService() {
@@ -37,6 +43,9 @@ public class EleveCategorieService {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
 
     public ArrayList<String> getEleveCategorie(Eleve e) throws SQLException {
         return eleveCategorieRepository.getEleveCategorie(e);
@@ -48,8 +57,11 @@ public class EleveCategorieService {
     public ArrayList<String> getVehiculPermisEleve(Eleve e, int codeCategorie) throws SQLException {
         return eleveCategorieRepository.getVehiculesByPermis(e, codeCategorie);
 =======
+<<<<<<< HEAD
 =======
 >>>>>>> branche-laura
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
     public boolean get(int idEleve, int codeCateg) throws SQLException {
         return eleveCategorieRepository.get(idEleve, codeCateg);
     }
@@ -57,8 +69,11 @@ public class EleveCategorieService {
     public void add(int idEleve, int codeCateg) throws SQLException {
         eleveCategorieRepository.add(idEleve,codeCateg);
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> branche-laura
 =======
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
 >>>>>>> branche-laura
     }
 }

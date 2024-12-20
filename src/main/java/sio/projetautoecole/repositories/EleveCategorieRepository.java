@@ -10,12 +10,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
 import java.time.LocalDate;
 import java.util.ArrayList;
 =======
 >>>>>>> branche-laura
+<<<<<<< HEAD
 =======
 >>>>>>> branche-laura
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
 
 public class EleveCategorieRepository {
 
@@ -25,6 +31,9 @@ public class EleveCategorieRepository {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
     public ArrayList<String> getEleveCategorie(Eleve e) throws SQLException {
         ArrayList<String> libelleCategorie = new ArrayList<>();
         PreparedStatement ps;
@@ -65,8 +74,11 @@ public class EleveCategorieRepository {
     }
 
 =======
+<<<<<<< HEAD
 =======
 >>>>>>> branche-laura
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
     public boolean get(int idEleve, int codeCateg) throws SQLException {
         PreparedStatement ps = connection.prepareStatement(
                 "SELECT id FROM eleve_categorie WHERE codeEleve = ? AND codeCategorie = ?"
@@ -90,7 +102,10 @@ public class EleveCategorieRepository {
         ps.executeUpdate();
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> branche-laura
 =======
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
 >>>>>>> branche-laura
 }

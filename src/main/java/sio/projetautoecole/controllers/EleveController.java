@@ -23,6 +23,9 @@ public class EleveController {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
 
     public void updateEleve(Eleve e) throws SQLException{
         eleveService.updateEleve(e);
@@ -30,9 +33,12 @@ public class EleveController {
     public void update(Eleve m) throws SQLException {
         eleveService.update(m);
 >>>>>>> branche-laura
+<<<<<<< HEAD
 =======
     public void update(Eleve m) throws SQLException {
         eleveService.update(m);
 >>>>>>> branche-laura
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
     }
 }

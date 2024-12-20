@@ -89,6 +89,9 @@ public class EleveViewController implements Initializable {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
     // Champs requis pour la leçon
 
     private int pLecon_codeLecon;
@@ -122,8 +125,11 @@ public class EleveViewController implements Initializable {
     private Label lblNomsVehicules;
 =======
 >>>>>>> branche-laura
+<<<<<<< HEAD
 =======
 >>>>>>> branche-laura
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -156,15 +162,21 @@ public class EleveViewController implements Initializable {
             eleve = eleveController.getEleveByNumCompte(numCompteActif);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
             System.out.println("Eleve : "+eleve.getPrenomEleve()+" "+eleve.getNomEleve()+""+eleve.getIdEleve());
             System.out.println(eleveCategorieController.getEleveCategorie(eleve));
 
 =======
             System.out.println("Eleve : " + eleve.getPrenomEleve() + " " + eleve.getNomEleve() + eleve.getIdEleve());
 >>>>>>> branche-laura
+<<<<<<< HEAD
 =======
             System.out.println("Eleve : " + eleve.getPrenomEleve() + " " + eleve.getNomEleve() + eleve.getIdEleve());
 >>>>>>> branche-laura
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
 
             // Mettre a jour le pane des permis en cours de l'eleve
 
@@ -186,18 +198,26 @@ public class EleveViewController implements Initializable {
         changeAP(apProfile);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         majProfil(eleve);
 =======
 =======
 >>>>>>> branche-laura
+=======
+        majProfil(eleve);
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
         try {
             majProfil();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> branche-laura
 =======
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
 >>>>>>> branche-laura
 
     }
@@ -561,6 +581,9 @@ public class EleveViewController implements Initializable {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
     @javafx.fxml.FXML
     public void changeToProfil(ActionEvent actionEvent) {
         changeAP(apProfile);
@@ -571,10 +594,13 @@ public class EleveViewController implements Initializable {
     @FXML
     public void changeToProfil(ActionEvent actionEvent) throws SQLException {changeAP(apProfile);majProfil();}
 >>>>>>> branche-laura
+<<<<<<< HEAD
 =======
     @FXML
     public void changeToProfil(ActionEvent actionEvent) throws SQLException {changeAP(apProfile);majProfil();}
 >>>>>>> branche-laura
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
 
     @FXML
     public void changeToReglement(ActionEvent actionEvent) {
@@ -602,6 +628,9 @@ public class EleveViewController implements Initializable {
     public void changeToLecon(ActionEvent actionEvent) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
         changeAP(apLecon);
     }
 
@@ -639,8 +668,11 @@ public class EleveViewController implements Initializable {
     public void changePrendreLecon(ActionEvent actionEvent) {
 =======
 >>>>>>> branche-laura
+<<<<<<< HEAD
 =======
 >>>>>>> branche-laura
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
         changeAP(apPrendreLecon);
 
         // vider les liste view sauf catégorie
@@ -664,6 +696,9 @@ public class EleveViewController implements Initializable {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
 
 
     public void majProfil(Eleve e){
@@ -680,8 +715,11 @@ public class EleveViewController implements Initializable {
             changeImageViewImg(imgPdp, "homme.png" );
         }
 =======
+<<<<<<< HEAD
 =======
 >>>>>>> branche-laura
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
     public void clearAll() {
         apPrendreLecon.setVisible(false);
         apReglement.setVisible(false);
@@ -692,8 +730,11 @@ public class EleveViewController implements Initializable {
         apVoirCataloguePermis.setVisible(false);
         apModifierProfile.setVisible(false);
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> branche-laura
 =======
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
 >>>>>>> branche-laura
     }
 
@@ -724,6 +765,9 @@ public class EleveViewController implements Initializable {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
 
     @FXML
     public void afficherVueChargerPdp(ActionEvent actionEvent) {

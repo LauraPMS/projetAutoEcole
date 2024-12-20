@@ -54,6 +54,9 @@ public class EleveRepository {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
     public void updateEleve(Eleve e) throws SQLException {
         PreparedStatement ps;
         ps = connection.prepareStatement("Update eleve SET eleve.Ville = ?, eleve.CodePostal = ?, eleve.Telephone = ? " +
@@ -67,8 +70,11 @@ public class EleveRepository {
     }
 
 =======
+<<<<<<< HEAD
 =======
 >>>>>>> branche-laura
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
     public void update(Eleve m) throws SQLException {
         PreparedStatement ps;
         ps = connection.prepareStatement("Update moniteur SET moniteur.Ville = ?, moniteur.CodePostal = ?, moniteur.Telephone = ? " +
@@ -81,7 +87,10 @@ public class EleveRepository {
 
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> branche-laura
 =======
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
 >>>>>>> branche-laura
 }

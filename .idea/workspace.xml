@@ -11,6 +11,9 @@
   <component name="ChangeListManager">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
     <list default="true" id="45578f6e-0068-4b9a-81d1-3100251e070f" name="Changes" comment="affiche permis dans profil (methodes dans repo)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/EleveViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/EleveViewController.java" afterDir="false" />
@@ -19,8 +22,11 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/EleveCategorieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/EleveCategorieService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/sio/projetautoecole/eleve-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sio/projetautoecole/eleve-view.fxml" afterDir="false" />
 =======
+<<<<<<< HEAD
 =======
 >>>>>>> branche-laura
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
     <list default="true" id="45578f6e-0068-4b9a-81d1-3100251e070f" name="Changes" comment="Page profil pour eleve ok">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/EleveViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/EleveViewController.java" afterDir="false" />
@@ -30,8 +36,11 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/LicenceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/LicenceService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/sio/projetautoecole/moniteur-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sio/projetautoecole/moniteur-view.fxml" afterDir="false" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> branche-laura
 =======
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
 >>>>>>> branche-laura
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,6 +116,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "full.screen.before.presentation.mode": "false",
@@ -115,16 +127,22 @@
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/BTS_SIO/SIO2/BLOC_Professionnel/Bloc Buffeteau/TP/TP3",
 =======
+<<<<<<< HEAD
 =======
 >>>>>>> branche-laura
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "full.screen.before.presentation.mode": "false",
     "git-widget-placeholder": "#5 on branche-laura",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/laura/IdeaProjects/projetAutoEcole/mysql-connector-java-8.0.30.jar",
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> branche-laura
 =======
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
 >>>>>>> branche-laura
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -295,6 +313,9 @@
     </task>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
     <task id="LOCAL-00013" summary="affiche permis dans profil (methodes dans repo)">
       <option name="closed" value="true" />
       <created>1734030463459</created>
@@ -305,8 +326,11 @@
     </task>
     <option name="localTasksCounter" value="14" />
 =======
+<<<<<<< HEAD
 =======
 >>>>>>> branche-laura
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
     <task id="LOCAL-00013" summary="bonne version a prendre">
       <option name="closed" value="true" />
       <created>1733956742599</created>
@@ -325,8 +349,11 @@
     </task>
     <option name="localTasksCounter" value="15" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> branche-laura
 =======
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
 >>>>>>> branche-laura
     <servers />
   </component>
@@ -374,6 +401,9 @@
     <MESSAGE value="push" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
     <MESSAGE value="affiche permis dans profil (methodes dans repo)" />
     <option name="LAST_COMMIT_MESSAGE" value="affiche permis dans profil (methodes dans repo)" />
 =======
@@ -381,10 +411,13 @@
     <MESSAGE value="Page profil pour eleve ok" />
     <option name="LAST_COMMIT_MESSAGE" value="Page profil pour eleve ok" />
 >>>>>>> branche-laura
+<<<<<<< HEAD
 =======
     <MESSAGE value="bonne version a prendre" />
     <MESSAGE value="Page profil pour eleve ok" />
     <option name="LAST_COMMIT_MESSAGE" value="Page profil pour eleve ok" />
 >>>>>>> branche-laura
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
   </component>
 </project>

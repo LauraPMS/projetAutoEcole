@@ -10,11 +10,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.util.ArrayList;
 =======
 >>>>>>> branche-laura
 =======
 >>>>>>> branche-laura
+=======
+import java.util.ArrayList;
+=======
+>>>>>>> branche-laura
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
 
 public class LicenceRepository {
 
@@ -26,6 +32,9 @@ public class LicenceRepository {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
     public ArrayList<Integer> getMoniteurLicence(Moniteur moniteur) throws SQLException {
         ArrayList<Integer> categorie = new ArrayList<>();
         PreparedStatement ps;
@@ -39,8 +48,11 @@ public class LicenceRepository {
         return categorie;
     }
 =======
+<<<<<<< HEAD
 =======
 >>>>>>> branche-laura
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
     public boolean get(int idMoniteur, int codeCateg) throws SQLException {
         PreparedStatement ps = connection.prepareStatement(
                 "SELECT codeLicence FROM licence WHERE codeMoniteur = ? AND codeCategorie = ?"
@@ -65,7 +77,10 @@ public class LicenceRepository {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> branche-laura
 =======
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
 >>>>>>> branche-laura
 }

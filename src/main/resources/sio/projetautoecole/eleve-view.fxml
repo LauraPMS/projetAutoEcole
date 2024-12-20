@@ -153,8 +153,11 @@
             <ListView layoutX="83.0" layoutY="43.0" prefHeight="349.0" prefWidth="878.0" />
             <Button layoutX="445.0" layoutY="436.0" mnemonicParsing="false" onAction="#changeVoirCatalogue" text="Voir le catalogue des permis" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> branche-laura
 =======
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
 >>>>>>> branche-laura
          </children></AnchorPane>
       <AnchorPane fx:id="apVoirCataloguePermis" layoutY="100.0" prefHeight="507.0" prefWidth="972.0" visible="false">

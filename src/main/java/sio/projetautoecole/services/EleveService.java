@@ -23,15 +23,21 @@ public class EleveService {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
     public void updateEleve(Eleve e) throws SQLException{
         eleveRepository.updateEleve(e);
 =======
     public void update(Eleve m) throws SQLException {
         eleveRepository.update(m);
 >>>>>>> branche-laura
+<<<<<<< HEAD
 =======
     public void update(Eleve m) throws SQLException {
         eleveRepository.update(m);
 >>>>>>> branche-laura
+=======
+>>>>>>> b554254c2c9edbd75db32f5ca492d4148db88d71
     }
 }
