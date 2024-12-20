@@ -22,9 +22,14 @@ public class EleveController {
         eleveService.inscription(eleve);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     public void updateEleve(Eleve e) throws SQLException{
         eleveService.updateEleve(e);
+=======
+    public void update(Eleve m) throws SQLException {
+        eleveService.update(m);
+>>>>>>> branche-laura
 =======
     public void update(Eleve m) throws SQLException {
         eleveService.update(m);

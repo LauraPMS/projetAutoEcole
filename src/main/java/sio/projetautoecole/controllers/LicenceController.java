@@ -3,8 +3,12 @@ package sio.projetautoecole.controllers;
 import sio.projetautoecole.models.Eleve;
 import sio.projetautoecole.models.Lecon;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import sio.projetautoecole.models.Moniteur;
 import sio.projetautoecole.services.EleveCategorieService;
+=======
+import sio.projetautoecole.repositories.LicenceRepository;
+>>>>>>> branche-laura
 =======
 import sio.projetautoecole.repositories.LicenceRepository;
 >>>>>>> branche-laura
@@ -17,6 +21,7 @@ import java.util.ArrayList;
 public class LicenceController {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     private LicenceService licenceService;
 
     public LicenceController() {
@@ -28,6 +33,8 @@ public class LicenceController {
     }
 
 =======
+=======
+>>>>>>> branche-laura
     LicenceService service;
 
     public LicenceController() {
@@ -40,5 +47,8 @@ public class LicenceController {
     public void add(int idMoniteur, int codeCateg) throws SQLException {
         service.add(idMoniteur, codeCateg);
     }
+<<<<<<< HEAD
+>>>>>>> branche-laura
+=======
 >>>>>>> branche-laura
 }

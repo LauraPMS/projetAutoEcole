@@ -9,8 +9,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.time.LocalDate;
 import java.util.ArrayList;
+=======
+>>>>>>> branche-laura
 =======
 >>>>>>> branche-laura
 
@@ -20,6 +23,7 @@ public class EleveCategorieRepository {
 
     public EleveCategorieRepository() {connection = ConnexionBDD.getCnx();}
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     public ArrayList<String> getEleveCategorie(Eleve e) throws SQLException {
         ArrayList<String> libelleCategorie = new ArrayList<>();
@@ -61,6 +65,8 @@ public class EleveCategorieRepository {
     }
 
 =======
+=======
+>>>>>>> branche-laura
     public boolean get(int idEleve, int codeCateg) throws SQLException {
         PreparedStatement ps = connection.prepareStatement(
                 "SELECT id FROM eleve_categorie WHERE codeEleve = ? AND codeCategorie = ?"
@@ -83,5 +89,8 @@ public class EleveCategorieRepository {
         ps.setInt(2, codeCateg);
         ps.executeUpdate();
     }
+<<<<<<< HEAD
+>>>>>>> branche-laura
+=======
 >>>>>>> branche-laura
 }

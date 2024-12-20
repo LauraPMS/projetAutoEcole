@@ -1,6 +1,7 @@
 package sio.projetautoecole.services;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import sio.projetautoecole.models.Eleve;
 import sio.projetautoecole.models.Moniteur;
 import sio.projetautoecole.repositories.EleveCategorieRepository;
@@ -26,6 +27,14 @@ import java.sql.SQLException;
 
 public class LicenceService {
 
+=======
+import sio.projetautoecole.repositories.LicenceRepository;
+
+import java.sql.SQLException;
+
+public class LicenceService {
+
+>>>>>>> branche-laura
     LicenceRepository repo;
 
     public LicenceService() {
@@ -37,6 +46,9 @@ public class LicenceService {
     }
     public void add(int idMoniteur, int codeCateg) throws SQLException {
         repo.add(idMoniteur, codeCateg);
+<<<<<<< HEAD
+>>>>>>> branche-laura
+=======
 >>>>>>> branche-laura
     }
 }

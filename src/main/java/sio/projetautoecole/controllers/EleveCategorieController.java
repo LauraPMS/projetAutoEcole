@@ -1,13 +1,17 @@
 package sio.projetautoecole.controllers;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import sio.projetautoecole.models.Eleve;
+=======
+>>>>>>> branche-laura
 =======
 >>>>>>> branche-laura
 import sio.projetautoecole.services.EleveCategorieService;
 import sio.projetautoecole.services.EleveService;
 
 import java.sql.SQLException;
+<<<<<<< HEAD
 <<<<<<< HEAD
 import java.util.ArrayList;
 
@@ -33,6 +37,11 @@ public class EleveCategorieController {
 
 public class EleveCategorieController {
 
+=======
+
+public class EleveCategorieController {
+
+>>>>>>> branche-laura
     private EleveCategorieService service;
 
     public EleveCategorieController() {
@@ -45,6 +54,9 @@ public class EleveCategorieController {
 
     public void add(int idEleve, int codeCateg) throws SQLException {
         service.add(idEleve, codeCateg);
+<<<<<<< HEAD
+>>>>>>> branche-laura
+=======
 >>>>>>> branche-laura
     }
 }

@@ -9,7 +9,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+>>>>>>> branche-laura
 =======
 >>>>>>> branche-laura
 
@@ -21,6 +24,7 @@ public class LicenceRepository {
         connection = ConnexionBDD.getCnx();
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     public ArrayList<Integer> getMoniteurLicence(Moniteur moniteur) throws SQLException {
         ArrayList<Integer> categorie = new ArrayList<>();
@@ -35,6 +39,8 @@ public class LicenceRepository {
         return categorie;
     }
 =======
+=======
+>>>>>>> branche-laura
     public boolean get(int idMoniteur, int codeCateg) throws SQLException {
         PreparedStatement ps = connection.prepareStatement(
                 "SELECT codeLicence FROM licence WHERE codeMoniteur = ? AND codeCategorie = ?"
@@ -58,5 +64,8 @@ public class LicenceRepository {
         ps.executeUpdate();
     }
 
+<<<<<<< HEAD
+>>>>>>> branche-laura
+=======
 >>>>>>> branche-laura
 }

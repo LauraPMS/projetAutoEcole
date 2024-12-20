@@ -53,6 +53,7 @@ public class EleveRepository {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public void updateEleve(Eleve e) throws SQLException {
         PreparedStatement ps;
         ps = connection.prepareStatement("Update eleve SET eleve.Ville = ?, eleve.CodePostal = ?, eleve.Telephone = ? " +
@@ -66,6 +67,8 @@ public class EleveRepository {
     }
 
 =======
+=======
+>>>>>>> branche-laura
     public void update(Eleve m) throws SQLException {
         PreparedStatement ps;
         ps = connection.prepareStatement("Update moniteur SET moniteur.Ville = ?, moniteur.CodePostal = ?, moniteur.Telephone = ? " +
@@ -77,5 +80,8 @@ public class EleveRepository {
         ps.executeUpdate();
 
     }
+<<<<<<< HEAD
+>>>>>>> branche-laura
+=======
 >>>>>>> branche-laura
 }

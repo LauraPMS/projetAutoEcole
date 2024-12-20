@@ -1,6 +1,7 @@
 package sio.projetautoecole.services;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import sio.projetautoecole.models.Categorie;
 import sio.projetautoecole.models.Eleve;
 import sio.projetautoecole.models.EleveCategorie;
@@ -21,11 +22,20 @@ import java.sql.SQLException;
 public class EleveCategorieService {
 
 >>>>>>> branche-laura
+=======
+import sio.projetautoecole.repositories.EleveCategorieRepository;
+
+import java.sql.SQLException;
+
+public class EleveCategorieService {
+
+>>>>>>> branche-laura
     private EleveCategorieRepository eleveCategorieRepository;
 
     public EleveCategorieService() {
         eleveCategorieRepository = new EleveCategorieRepository();
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     public ArrayList<String> getEleveCategorie(Eleve e) throws SQLException {
@@ -38,12 +48,17 @@ public class EleveCategorieService {
     public ArrayList<String> getVehiculPermisEleve(Eleve e, int codeCategorie) throws SQLException {
         return eleveCategorieRepository.getVehiculesByPermis(e, codeCategorie);
 =======
+=======
+>>>>>>> branche-laura
     public boolean get(int idEleve, int codeCateg) throws SQLException {
         return eleveCategorieRepository.get(idEleve, codeCateg);
     }
 
     public void add(int idEleve, int codeCateg) throws SQLException {
         eleveCategorieRepository.add(idEleve,codeCateg);
+<<<<<<< HEAD
+>>>>>>> branche-laura
+=======
 >>>>>>> branche-laura
     }
 }

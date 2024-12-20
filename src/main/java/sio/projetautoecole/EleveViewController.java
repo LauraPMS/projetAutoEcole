@@ -88,6 +88,7 @@ public class EleveViewController implements Initializable {
     private TextField txtNvTel;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Champs requis pour la leçon
 
     private int pLecon_codeLecon;
@@ -121,6 +122,8 @@ public class EleveViewController implements Initializable {
     private Label lblNomsVehicules;
 =======
 >>>>>>> branche-laura
+=======
+>>>>>>> branche-laura
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -152,9 +155,13 @@ public class EleveViewController implements Initializable {
             numCompteActif = Session.getNumCompteActif();
             eleve = eleveController.getEleveByNumCompte(numCompteActif);
 <<<<<<< HEAD
+<<<<<<< HEAD
             System.out.println("Eleve : "+eleve.getPrenomEleve()+" "+eleve.getNomEleve()+""+eleve.getIdEleve());
             System.out.println(eleveCategorieController.getEleveCategorie(eleve));
 
+=======
+            System.out.println("Eleve : " + eleve.getPrenomEleve() + " " + eleve.getNomEleve() + eleve.getIdEleve());
+>>>>>>> branche-laura
 =======
             System.out.println("Eleve : " + eleve.getPrenomEleve() + " " + eleve.getNomEleve() + eleve.getIdEleve());
 >>>>>>> branche-laura
@@ -178,13 +185,19 @@ public class EleveViewController implements Initializable {
         clearAll();
         changeAP(apProfile);
 <<<<<<< HEAD
+<<<<<<< HEAD
         majProfil(eleve);
 =======
+=======
+>>>>>>> branche-laura
         try {
             majProfil();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+<<<<<<< HEAD
+>>>>>>> branche-laura
+=======
 >>>>>>> branche-laura
 
     }
@@ -547,12 +560,17 @@ public class EleveViewController implements Initializable {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     @javafx.fxml.FXML
     public void changeToProfil(ActionEvent actionEvent) {
         changeAP(apProfile);
         majProfil(eleve);
         // chargement
     }
+=======
+    @FXML
+    public void changeToProfil(ActionEvent actionEvent) throws SQLException {changeAP(apProfile);majProfil();}
+>>>>>>> branche-laura
 =======
     @FXML
     public void changeToProfil(ActionEvent actionEvent) throws SQLException {changeAP(apProfile);majProfil();}
@@ -582,6 +600,7 @@ public class EleveViewController implements Initializable {
 
     @FXML
     public void changeToLecon(ActionEvent actionEvent) {
+<<<<<<< HEAD
 <<<<<<< HEAD
         changeAP(apLecon);
     }
@@ -620,6 +639,8 @@ public class EleveViewController implements Initializable {
     public void changePrendreLecon(ActionEvent actionEvent) {
 =======
 >>>>>>> branche-laura
+=======
+>>>>>>> branche-laura
         changeAP(apPrendreLecon);
 
         // vider les liste view sauf catégorie
@@ -642,6 +663,7 @@ public class EleveViewController implements Initializable {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
     public void majProfil(Eleve e){
@@ -658,6 +680,8 @@ public class EleveViewController implements Initializable {
             changeImageViewImg(imgPdp, "homme.png" );
         }
 =======
+=======
+>>>>>>> branche-laura
     public void clearAll() {
         apPrendreLecon.setVisible(false);
         apReglement.setVisible(false);
@@ -667,6 +691,9 @@ public class EleveViewController implements Initializable {
         apPrendreLecon.setVisible(false);
         apVoirCataloguePermis.setVisible(false);
         apModifierProfile.setVisible(false);
+<<<<<<< HEAD
+>>>>>>> branche-laura
+=======
 >>>>>>> branche-laura
     }
 
@@ -696,6 +723,7 @@ public class EleveViewController implements Initializable {
         );
     }
 
+<<<<<<< HEAD
 
     @FXML
     public void afficherVueChargerPdp(ActionEvent actionEvent) {
@@ -772,5 +800,10 @@ public class EleveViewController implements Initializable {
         lblNomsVehicules.setText(nomsVehiculesPermis);
         lblNbVehicules.setText(""+cpt);
 
+=======
+
+    @FXML
+    public void afficherVueChargerPdp(ActionEvent actionEvent) {
+>>>>>>> branche-laura
     }
 }
