@@ -11,12 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="45578f6e-0068-4b9a-81d1-3100251e070f" name="Changes" comment="Page profil pour eleve ok">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/EleveViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/EleveViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/MoniteurViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/MoniteurViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/LicenceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/controllers/LicenceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/LicenceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/repositories/LicenceRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/LicenceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sio/projetautoecole/services/LicenceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sio/projetautoecole/moniteur-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sio/projetautoecole/moniteur-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +85,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "full.screen.before.presentation.mode": "false",
-    "git-widget-placeholder": "#5 on branche-laura",
+    "git-widget-placeholder": "branche-laura",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/laura/IdeaProjects/projetAutoEcole/mysql-connector-java-8.0.30.jar",
     "node.js.detected.package.eslint": "true",
@@ -292,6 +286,11 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="7bcb16a3-8c65-4f36-a13b-e8ed08146238" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="RECENT_FILTERS">
       <map>
         <entry key="Branch">
@@ -309,6 +308,11 @@
     </option>
     <option name="TAB_STATES">
       <map>
+        <entry key="7bcb16a3-8c65-4f36-a13b-e8ed08146238">
+          <value>
+            <State />
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
