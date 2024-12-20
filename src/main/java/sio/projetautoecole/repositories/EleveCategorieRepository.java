@@ -8,8 +8,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+<<<<<<< HEAD
 import java.time.LocalDate;
 import java.util.ArrayList;
+=======
+>>>>>>> branche-laura
 
 public class EleveCategorieRepository {
 
@@ -17,6 +20,7 @@ public class EleveCategorieRepository {
 
     public EleveCategorieRepository() {connection = ConnexionBDD.getCnx();}
 
+<<<<<<< HEAD
     public ArrayList<String> getEleveCategorie(Eleve e) throws SQLException {
         ArrayList<String> libelleCategorie = new ArrayList<>();
         PreparedStatement ps;
@@ -56,4 +60,28 @@ public class EleveCategorieRepository {
         return vehiculesPermisEleve;
     }
 
+=======
+    public boolean get(int idEleve, int codeCateg) throws SQLException {
+        PreparedStatement ps = connection.prepareStatement(
+                "SELECT id FROM eleve_categorie WHERE codeEleve = ? AND codeCategorie = ?"
+        );
+        ps.setInt(1, idEleve);
+        ps.setInt(2, codeCateg);
+
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) { // Vérifie si un résultat existe
+            System.out.println("c'est ok");
+            return true;
+        }
+        return false;
+    }
+
+
+    public void add(int idEleve, int codeCateg) throws SQLException {
+        PreparedStatement ps = connection.prepareStatement("INSERT INTO eleve_categorie (codeEleve, codeCategorie) VALUES (?, ?)");
+        ps.setInt(1, idEleve);
+        ps.setInt(2, codeCateg);
+        ps.executeUpdate();
+    }
+>>>>>>> branche-laura
 }

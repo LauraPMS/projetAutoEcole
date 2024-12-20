@@ -1,11 +1,11 @@
 package sio.projetautoecole.repositories;
 
-import sio.projetautoecole.models.Compte;
-import sio.projetautoecole.models.Eleve;
 import sio.projetautoecole.models.Moniteur;
 import sio.projetautoecole.tools.ConnexionBDD;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MoniteurRepository {
     private Connection connection;
@@ -89,4 +89,50 @@ public class MoniteurRepository {
         return m;
 
     }
+
+
+    public List<Moniteur> getAvailableMoniteurs(String date, String heure, int idCateg) throws SQLException {
+        List<Moniteur> moniteurs = new ArrayList<>();
+        String query = "SELECT DISTINCT m.codeMoniteur, m.nom, m.prenom, m.sexe, m.DateDeNaissance, m.adresse1, m.CodePostal, m.Ville, m.Telephone, m.numCompte, m.imgPdp " +
+                "FROM moniteur m " +
+                "WHERE m.codeMoniteur NOT IN ( " +
+                "    SELECT l.codeMoniteur " +
+                "    FROM lecon l " +
+                "    JOIN vehicule v ON l.immatriculation = v.immatriculation " +
+                "    WHERE l.date = ? AND l.heure = ? AND v.codeCategorie = ? " +
+                ") " +
+                "AND m.codeMoniteur IN ( " +
+                "    SELECT l.codeMoniteur " +
+                "    FROM vehicule v " +
+                "    JOIN lecon l ON v.immatriculation = l.immatriculation " +
+                "    WHERE v.codeCategorie = ? " +
+                ");";
+        try (PreparedStatement ps = connection.prepareStatement(query)) {
+
+            ps.setString(1, date);
+            ps.setString(2, heure);
+            ps.setInt(3, idCateg);
+            ps.setInt(4, idCateg);
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Moniteur moniteur = new Moniteur(
+                        rs.getInt("codeMoniteur"),
+                        rs.getString("nom"),
+                        rs.getString("prenom"),
+                        rs.getString("Adresse1"),
+                        rs.getInt("sexe"),
+                        rs.getDate("DateDeNaissance").toLocalDate(),
+                        rs.getString("CodePostal"),
+                        rs.getString("Ville"),
+                        rs.getString("Telephone"),
+                        rs.getString("imgPdp"),
+                        rs.getInt("numCompte")
+                );
+                moniteurs.add(moniteur);
+            }
+        }
+        return moniteurs;
+    }
+
 }

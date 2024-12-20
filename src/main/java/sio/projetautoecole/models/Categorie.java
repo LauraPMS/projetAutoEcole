@@ -10,14 +10,6 @@ public class Categorie {
         this.prix = prixCategorie;
     }
 
-    public int getIdPermis() {
-        return idCategorie;
-    }
-
-    public void setIdPermis(int idCategorie) {
-        this.idCategorie = idCategorie;
-    }
-
     public int getIdCategorie() {
         return idCategorie;
     }

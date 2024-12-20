@@ -4,6 +4,7 @@ import sio.projetautoecole.models.Moniteur;
 import sio.projetautoecole.repositories.MoniteurRepository;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class MoniteurService {
 
@@ -26,5 +27,9 @@ public class MoniteurService {
 
     public Moniteur getMoniteurByName(String selectedMoniteur) throws SQLException {
         return repo.getMoniteurByName(selectedMoniteur);
+    }
+
+    public List<Moniteur> getAvailableMoniteurs(String date, String heure, int idCateg) throws SQLException {
+        return repo.getAvailableMoniteurs(date, heure, idCateg);
     }
 }
