@@ -1,5 +1,6 @@
 package sio.projetautoecole;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
@@ -7,12 +8,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import sio.projetautoecole.controllers.CompteController;
-import sio.projetautoecole.controllers.MoniteurController;
+import sio.projetautoecole.controllers.*;
 import sio.projetautoecole.models.Compte;
 import sio.projetautoecole.models.Moniteur;
 import sio.projetautoecole.tools.ConnexionBDD;
@@ -20,6 +21,8 @@ import sio.projetautoecole.tools.ConnexionBDD;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -47,35 +50,62 @@ public class MoniteurViewController implements Initializable {
     @javafx.fxml.FXML
     private TableView tvProchaineLecon;
     @javafx.fxml.FXML
-    private TableColumn tcLecon, tcHorraireLecon, tcPermisLecon, tcJourLecon, tcMoniteurLecon;
+    private TableColumn tcHorraireLecon, tcPermisLecon, tcJourLecon, tcMoniteurLecon;
 
     // Informations du moniteur affiché sur la page Modifier Profile
     @javafx.fxml.FXML
-    private TextField txtNvCp,txtNvVille,txtNvTel, txtNvMdp;
+    private TextField txtNvCp,txtNvVille,txtNvTel;
 
 
     // controller utile : Compte, Moniteur
     CompteController compteController;
-    MoniteurController moniteurController;
+    EleveController eleveController;
     ConnexionBDD connexionBDD;
+    LeconController leconController;
+    CategorieController categorieController;
+    MoniteurController moniteurController;
+    LicenceController licenceController;
+    EleveCategorieController eleveCategorieController;
 
     // Moniteur connecté
     Moniteur moniteur;
 
     int numCompteActif;
-
+    @javafx.fxml.FXML
+    private Label lblListeCategorie;
+    @javafx.fxml.FXML
+    private TableColumn tcVehiculeLecon;
+    @javafx.fxml.FXML
+    private PasswordField txtNvMdp;
+    @javafx.fxml.FXML
+    private TextField txtNvMail;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        tcPermisLecon.setCellValueFactory(new PropertyValueFactory<>("categorie"));
+        tcJourLecon.setCellValueFactory(new PropertyValueFactory<>("date"));
+        tcMoniteurLecon.setCellValueFactory(new PropertyValueFactory<>("codeMoniteur"));
+        tcVehiculeLecon.setCellValueFactory(new PropertyValueFactory<>("immatriculation"));
+        tcHorraireLecon.setCellValueFactory(new PropertyValueFactory<>("heure"));
+
         try {
             connexionBDD = new ConnexionBDD();
             compteController = new CompteController();
             moniteurController = new MoniteurController();
+            eleveController = new EleveController();
+            leconController = new LeconController();
+            categorieController = new CategorieController();
+            licenceController = new LicenceController();
             numCompteActif = Session.getNumCompteActif();
             moniteur = moniteurController.getMoniteurByNumCompte(numCompteActif);
             System.out.println("Moniteur récupéré : " + moniteur.getPrenomMoniteur()+" "+moniteur.getNomMoniteur());
+
+            tvProchaineLecon.setItems(FXCollections.observableList(leconController.getAllLeconForMoniteur(numCompteActif)));
+
+
+
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         } catch (SQLException e) {
@@ -84,7 +114,11 @@ public class MoniteurViewController implements Initializable {
 
         clearAll();
         changeAp(apProfile);
-        majProfil(moniteur);
+        try {
+            majProfil(moniteur);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
@@ -98,7 +132,7 @@ public class MoniteurViewController implements Initializable {
     }
 
     @javafx.fxml.FXML
-    public void changeToProfil(ActionEvent actionEvent) {changeAp(apProfile);majProfil(moniteur);}
+    public void changeToProfil(ActionEvent actionEvent) throws SQLException {changeAp(apProfile);majProfil(moniteur);}
 
     @javafx.fxml.FXML
     public void changeModifierProfil(ActionEvent actionEvent) {
@@ -116,7 +150,7 @@ public class MoniteurViewController implements Initializable {
 
     }
     @javafx.fxml.FXML
-    public void annulerModificationProfil(ActionEvent actionEvent) {
+    public void annulerModificationProfil(ActionEvent actionEvent) throws SQLException {
         changeAp(apProfile);
         majProfil(moniteur);
         txtNvVille.setText("");
@@ -200,7 +234,7 @@ public class MoniteurViewController implements Initializable {
 
     // -------------------- Fonction servant aux controlleurs graphiques (maj, affichage etc) ------------------------//
 
-    public void majProfil(Moniteur m){
+    public void majProfil(Moniteur m) throws SQLException {
         lblPrenom.setText(m.getPrenomMoniteur());
         lblNom.setText(m.getNomMoniteur());
         lblVille.setText(m.getVilleMoniteur());
@@ -213,7 +247,48 @@ public class MoniteurViewController implements Initializable {
         else if (m.getSexeMoniteur()==2){
             changeImageViewImg(imgPdp, "homme.png" );
         }
+        viderEmplacements();
+
+        for (int i = 1; i <= 5; i++) {
+            if (licenceController.get(numCompteActif, i)) {
+                switch (i) {
+                    case 1:
+                        afficherAuPremierEmplacement("voiture.png");
+                        break;
+                    case 2:
+                        afficherAuPremierEmplacement("livraison-rapide.png");
+                        break;
+                    case 3:
+                        afficherAuPremierEmplacement("bateau.png");
+                        break;
+                    case 4:
+                        afficherAuPremierEmplacement("moto.png");
+                        break;
+                    case 5:
+                        afficherAuPremierEmplacement("train.png");
+                        break;
+                }
+            }
+        }
+
     }
+    public void afficherAuPremierEmplacement(String source) {
+        List<ImageView> imgEmp = Arrays.asList(empPermis1, empPermis2, empPermis3, empPermis4, empPermis5);
+        for (ImageView image : imgEmp) {
+            if (image.getImage() == null) {
+                changeImageViewImg(image, source);
+                return;
+            }
+        }
+    }
+
+    public void viderEmplacements() {
+        List<ImageView> imgEmp = Arrays.asList(empPermis1, empPermis2, empPermis3, empPermis4, empPermis5);
+        for (ImageView image : imgEmp) {
+            image.setImage(null);
+        }
+    }
+
 
 
 

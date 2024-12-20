@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CategorieRepository {
     private Connection connection;
@@ -91,6 +92,22 @@ public class CategorieRepository {
             moniteurs.add(resultSet.getString("nom"));
         }
         return moniteurs;
+    }
+
+    public List<String> getVehiclesForCategory(String categoryName) throws SQLException {
+        List<String> vehicles = new ArrayList<>();
+        String query = "SELECT v.immatriculation FROM vehicule v " +
+                "INNER JOIN categorie c ON v.codeCategorie = c.codeCategorie " +
+                "WHERE c.libelle = ?";
+        try (PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setString(1, categoryName);
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                vehicles.add(rs.getString("immatriculation"));
+            }
+        }
+        return vehicles;
     }
 
 }

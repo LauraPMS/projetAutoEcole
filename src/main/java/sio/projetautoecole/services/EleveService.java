@@ -21,7 +21,12 @@ public class EleveService {
         eleveRepository.inscription(eleve);
     }
 
+<<<<<<< HEAD
     public void updateEleve(Eleve e) throws SQLException{
         eleveRepository.updateEleve(e);
+=======
+    public void update(Eleve m) throws SQLException {
+        eleveRepository.update(m);
+>>>>>>> branche-laura
     }
 }

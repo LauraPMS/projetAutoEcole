@@ -52,6 +52,7 @@ public class EleveRepository {
         ps.executeUpdate();
     }
 
+<<<<<<< HEAD
     public void updateEleve(Eleve e) throws SQLException {
         PreparedStatement ps;
         ps = connection.prepareStatement("Update eleve SET eleve.Ville = ?, eleve.CodePostal = ?, eleve.Telephone = ? " +
@@ -64,4 +65,17 @@ public class EleveRepository {
 
     }
 
+=======
+    public void update(Eleve m) throws SQLException {
+        PreparedStatement ps;
+        ps = connection.prepareStatement("Update moniteur SET moniteur.Ville = ?, moniteur.CodePostal = ?, moniteur.Telephone = ? " +
+                "WHERE numCompte = ?");
+        ps.setString(1, m.getVilleEleve());
+        ps.setString(2, m.getCodePostalEleve());
+        ps.setString(3, m.getTelephoneEleve());
+        ps.setInt(4, m.getNumCompte());
+        ps.executeUpdate();
+
+    }
+>>>>>>> branche-laura
 }

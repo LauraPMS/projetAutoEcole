@@ -32,4 +32,12 @@ public class LeconService {
     public List<LocalTime> getHorairesReserves(Moniteur moniteur, LocalDate selectedDate) throws SQLException {
         return repo.getHorairesReserves(moniteur, selectedDate);
     }
-}
+
+    public List<String> getAvailableVehicles(String date, String heure, int idCateg) throws SQLException {
+        return repo.getAvailableVehicles(date, heure, idCateg);
+    }
+
+    public void add(Lecon l) throws SQLException {
+        repo.add(l);
+    }
+    }

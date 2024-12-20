@@ -36,7 +36,7 @@ public class LeconRepository {
             String codeCategorie = String.valueOf(vehiculeController.getCategorieByImmatriculation(immat));
             System.out.println(codeCategorie);
             String nomCategorie = categorieController.getNomCategorieById(codeCategorie);
-            Lecon l = new Lecon(rs.getInt("codeLecon"), rs.getDate("date"), rs.getString("heure"), rs.getInt("codeMoniteur"), rs.getInt("codeEleve"), rs.getString("Immatriculation"), rs.getInt("Reglee"), nomCategorie);
+            Lecon l = new Lecon(rs.getInt("codeLecon"), rs.getString("date"), rs.getString("heure"), rs.getInt("codeMoniteur"), rs.getInt("codeEleve"), rs.getString("Immatriculation"), rs.getInt("Reglee"), nomCategorie);
             lecons.add(l);
         }
         return lecons;
@@ -51,7 +51,7 @@ public class LeconRepository {
             String immat = rs.getString("Immatriculation");
             String codeCategorie = String.valueOf(vehiculeController.getCategorieByImmatriculation(immat));
             String nomCategorie = categorieController.getNomCategorieById(codeCategorie);
-            Lecon l = new Lecon(rs.getInt("codeLecon"), rs.getDate("date"), rs.getString("heure"), rs.getInt("codeMoniteur"), rs.getInt("codeEleve"), rs.getString("Immatriculation"), rs.getInt("Reglee"), nomCategorie );
+            Lecon l = new Lecon(rs.getInt("codeLecon"), rs.getString("date"), rs.getString("heure"), rs.getInt("codeMoniteur"), rs.getInt("codeEleve"), rs.getString("Immatriculation"), rs.getInt("Reglee"), nomCategorie );
             lecons.add(l);
         }
         return lecons;
@@ -67,7 +67,7 @@ public class LeconRepository {
             String codeCategorie = String.valueOf(vehiculeController.getCategorieByImmatriculation(immatriculation));
             System.out.println(codeCategorie);
             String nomCategorie = categorieController.getNomCategorieById(codeCategorie);
-            Lecon l = new Lecon(rs.getInt("codeLecon"), rs.getDate("date"), rs.getString("heure"), rs.getInt("codeMoniteur"), rs.getInt("codeEleve"), rs.getString("Immatriculation"), rs.getInt("Reglee"), nomCategorie);
+            Lecon l = new Lecon(rs.getInt("codeLecon"), rs.getString("date"), rs.getString("heure"), rs.getInt("codeMoniteur"), rs.getInt("codeEleve"), rs.getString("Immatriculation"), rs.getInt("Reglee"), nomCategorie);
             lecons.add(l);
         }
         return lecons;
@@ -87,5 +87,43 @@ public class LeconRepository {
             return horaires;
         }
     }
+
+    public List<String> getAvailableVehicles(String date, String heure, int idCateg) throws SQLException {
+        List<String> vehicles = new ArrayList<>();
+        String query = "SELECT v.immatriculation \n" +
+                "FROM vehicule v\n" +
+                "WHERE v.codeCategorie = ?\n" + // Filtre par catégorie
+                "  AND v.immatriculation NOT IN (\n" +
+                "      SELECT l.immatriculation \n" +
+                "      FROM lecon l\n" +
+                "      WHERE l.date = ? AND l.heure = ?\n" +
+                "  );";
+
+        try (PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setInt(1, idCateg); // Catégorie du véhicule
+            ps.setString(2, date); // Date
+            ps.setString(3, heure); // Heure
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                vehicles.add(rs.getString("immatriculation"));
+            }
+        }
+        return vehicles;
+    }
+
+    public void add(Lecon l) throws SQLException {
+        PreparedStatement ps = connection.prepareStatement("Insert INTO lecon(date, heure, codeMoniteur, codeEleve, Immatriculation, Reglee) VALUES ( ?, ?, ?, ?, ?, ?)");
+        ps.setDate(1, Date.valueOf(l.getDate()));
+        ps.setString(2, l.getHeure());
+        ps.setInt(3, l.getCodeMoniteur());
+        ps.setInt(4, l.getCodeEleve());
+        ps.setString(5, l.getImmatriculation());
+        ps.setInt(6, l.getReglee());
+        ps.executeUpdate();
+
+    }
+
+
 
 }
