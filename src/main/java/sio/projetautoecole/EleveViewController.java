@@ -194,6 +194,9 @@ public class EleveViewController implements Initializable {
         Lecon l = new Lecon(0, date, heure, codeMoniteur, codeEleve, immatriculation, regle);
         leconController.add(l);
         System.out.println("Leçon ajoutée avec succès !");
+
+        // Vider les champs
+
     }
 
 
